@@ -12,9 +12,11 @@ public class HookController : MonoBehaviour
 
     [SerializeField] private float rotationMultiplier = 1.2f;
     [SerializeField] private float maxAngle = 30;
-
     [SerializeField] private float maximalXPosition, minimalXPosition;
-    
+
+    private float _delay = 0.1f;
+    private float _delayCounter;
+
     private Camera _mainCamera;
     private FisherAnimator _fisherAnimator;
     private float _timeToMoveHook;
@@ -53,16 +55,18 @@ public class HookController : MonoBehaviour
     {
         _timeToMoveHook = hookMaxLength / 10;
         Debug.Log(_timeToMoveHook);
-        hookTransform.DOMoveY((-hookMaxLength), _timeToMoveHook,false).OnComplete(delegate
-        {
-            hookCollider.enabled = true;
-            TakeHookBack();
-        });
+        hookTransform.DOMoveY((-hookMaxLength), _timeToMoveHook, false)
+            .OnComplete(delegate
+            {
+                hookCollider.enabled = true;
+                TakeHookBack();
+            });
     }
 
     private void TakeHookBack()
     {
         _timeToMoveHook = hookMaxLength / 5;
-        hookTransform.DOMoveY((startHookPosition.y), _timeToMoveHook, false).OnComplete(_fisherAnimator.EndFishingAnimation);
+        hookTransform.DOMoveY((startHookPosition.y), _timeToMoveHook, false)
+            .OnComplete(_fisherAnimator.EndFishingAnimation);
     }
 }
