@@ -15,6 +15,10 @@ public class FisherAnimator : MonoBehaviour
     public void EndFishingAnimation()
     {
         fisherAnimator.SetBool("fishing",false);
+    }
+
+    public void ToIdleState()
+    {
         fisherAnimator.SetBool("idle",true);
     }
 }

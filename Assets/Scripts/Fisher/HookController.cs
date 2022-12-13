@@ -6,10 +6,14 @@ using UnityEngine;
 
 public class HookController : MonoBehaviour
 {
+    [SerializeField] private CameraFollow cameraFollow;
     [SerializeField] private Transform hookTransform;
     [SerializeField] private Rigidbody2D rigidbody;
     [SerializeField] private BoxCollider2D hookCollider;
+
     [SerializeField] private Vector3 startHookPosition;
+    [SerializeField] private Vector3 inWaterHookPosition;
+    
     [SerializeField] private float hookMaxLength;
 
     [SerializeField] private float rotationMultiplier = 1.2f;
@@ -17,7 +21,9 @@ public class HookController : MonoBehaviour
     [SerializeField] private float maximalXPosition, minimalXPosition;
 
     [SerializeField] private float delay;
+    [SerializeField] private float rotationDelay;
 
+    [SerializeField] private Vector3 startHookScale;
 
     private Vector2 _currentHookPosition;
     private Camera _mainCamera;
@@ -32,16 +38,14 @@ public class HookController : MonoBehaviour
     
     private void Awake()
     {
-        _canMove = true;
         _mainCamera = Camera.main;
+        _fisherAnimator = GetComponent<FisherAnimator>();
+        startHookScale = hookTransform.localScale;
     }
 
     private void Update()
     {
         XAxisMovement();
-        Vector3 rotate = hookTransform.eulerAngles;
-        rotate.z = (rotationMultiplier * hookTransform.position.x);
-        hookTransform.rotation = Quaternion.Euler(rotate);
     }
 
     private void XAxisMovement()
@@ -53,22 +57,36 @@ public class HookController : MonoBehaviour
             position.x = Mathf.Clamp(vector.x, minimalXPosition, maximalXPosition);
             _tween = hookTransform.DOMoveX(position.x, delay).SetEase(Ease.Linear);
             _currentHookPosition = hookTransform.position;
+            
+            Vector3 rotate = hookTransform.eulerAngles;
+            //rotate.z = (rotationMultiplier * hookTransform.position.x);
+            rotate.z = Mathf.Clamp((rotationMultiplier * vector.x), -maxAngle, maxAngle);
+            hookTransform.rotation = Quaternion.Euler(rotate);
         }
         else if (Input.GetMouseButtonUp(0))
         {
             if (_tween != null)
             {
                 _tween.Kill();
+                hookTransform.DORotate(new Vector3(0, 0, 0), rotationDelay).SetEase(Ease.Linear);
                 hookTransform.position = _currentHookPosition;
             }
         }
     }
 
+    public void PutHookInTheWater()
+    {
+        hookTransform.DOScale(startHookScale, 1f).From(0).SetEase(Ease.Linear);
+        hookTransform.DOMoveY(inWaterHookPosition.y, 1f).OnComplete(StartFishing);
+    }
+    
     public void StartFishing()
     {
+        _canMove = true;
+        cameraFollow.SetHookIsTarget(hookTransform);
         _timeToMoveHook = hookMaxLength / 10;
         Debug.Log(_timeToMoveHook);
-        hookTransform.DOMoveY((-hookMaxLength), _timeToMoveHook, false)
+        hookTransform.DOMoveY((-hookMaxLength), _timeToMoveHook)
             .OnComplete(delegate
             {
                 hookCollider.enabled = true;
@@ -79,7 +97,13 @@ public class HookController : MonoBehaviour
     private void TakeHookBack()
     {
         _timeToMoveHook = hookMaxLength / 5;
-        hookTransform.DOMoveY((startHookPosition.y), _timeToMoveHook, false)
-            .OnComplete(_fisherAnimator.EndFishingAnimation);
+        hookTransform.DOMoveY((startHookPosition.y), _timeToMoveHook)
+            .OnComplete(delegate
+            {
+                _fisherAnimator.EndFishingAnimation();
+                cameraFollow.SetTargetToNull();
+                cameraFollow.ChangeCameraPosition(startHookPosition);
+                _canMove = false;
+            });
     }
 }
