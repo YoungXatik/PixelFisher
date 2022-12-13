@@ -622,6 +622,7 @@ MonoBehaviour:
   maxAngle: 30
   maximalXPosition: 1.75
   minimalXPosition: -1.85
+  delay: 2
 --- !u!114 &627581149
 MonoBehaviour:
   m_ObjectHideFlags: 0

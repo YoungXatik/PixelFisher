@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -14,9 +16,10 @@ public class HookController : MonoBehaviour
     [SerializeField] private float maxAngle = 30;
     [SerializeField] private float maximalXPosition, minimalXPosition;
 
-    private float _delay = 0.1f;
-    private float _delayCounter;
+    [SerializeField] private float delay;
 
+
+    private Vector2 _currentHookPosition;
     private Camera _mainCamera;
     private FisherAnimator _fisherAnimator;
     private float _timeToMoveHook;
@@ -25,6 +28,8 @@ public class HookController : MonoBehaviour
 
     private bool _canMove;
 
+    private Tween _tween;
+    
     private void Awake()
     {
         _canMove = true;
@@ -34,6 +39,9 @@ public class HookController : MonoBehaviour
     private void Update()
     {
         XAxisMovement();
+        Vector3 rotate = hookTransform.eulerAngles;
+        rotate.z = (rotationMultiplier * hookTransform.position.x);
+        hookTransform.rotation = Quaternion.Euler(rotate);
     }
 
     private void XAxisMovement()
@@ -43,11 +51,16 @@ public class HookController : MonoBehaviour
             Vector3 vector = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
             Vector3 position = hookTransform.position;
             position.x = Mathf.Clamp(vector.x, minimalXPosition, maximalXPosition);
-            hookTransform.position = position;
-
-            Vector3 rotate = hookTransform.eulerAngles;
-            rotate.z = (rotationMultiplier * hookTransform.position.x);
-            hookTransform.rotation = Quaternion.Euler(rotate);
+            _tween = hookTransform.DOMoveX(position.x, delay).SetEase(Ease.Linear);
+            _currentHookPosition = hookTransform.position;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            if (_tween != null)
+            {
+                _tween.Kill();
+                hookTransform.position = _currentHookPosition;
+            }
         }
     }
 
