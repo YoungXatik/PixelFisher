@@ -33,7 +33,10 @@
             <e p="HookController.cs" t="Include" />
           </e>
           <e p="Fishes" t="Include">
+            <e p="Fish.cs" t="Include" />
+            <e p="FishesSpawner.cs" t="Include" />
             <e p="FishType.cs" t="Include" />
+            <e p="WaterColliders.cs" t="Include" />
           </e>
         </e>
       </e>

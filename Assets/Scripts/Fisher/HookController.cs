@@ -24,11 +24,13 @@ public class HookController : MonoBehaviour
     [SerializeField] private float rotationDelay;
 
     [SerializeField] private Vector3 startHookScale;
-
+    
+    [SerializeField] private float timeToPutHookDown;
+    [SerializeField] private float timeToPutHookUp;
+    
     private Vector2 _currentHookPosition;
     private Camera _mainCamera;
     private FisherAnimator _fisherAnimator;
-    private float _timeToMoveHook;
     private int _hookStrength;
     private int _fishCount;
 
@@ -41,6 +43,7 @@ public class HookController : MonoBehaviour
         _mainCamera = Camera.main;
         _fisherAnimator = GetComponent<FisherAnimator>();
         startHookScale = hookTransform.localScale;
+        hookTransform.localScale = Vector3.zero;
     }
 
     private void Update()
@@ -84,9 +87,7 @@ public class HookController : MonoBehaviour
     {
         _canMove = true;
         cameraFollow.SetHookIsTarget(hookTransform);
-        _timeToMoveHook = hookMaxLength / 10;
-        Debug.Log(_timeToMoveHook);
-        hookTransform.DOMoveY((-hookMaxLength), _timeToMoveHook)
+        hookTransform.DOMoveY((-hookMaxLength), timeToPutHookDown)
             .OnComplete(delegate
             {
                 hookCollider.enabled = true;
@@ -96,14 +97,22 @@ public class HookController : MonoBehaviour
 
     private void TakeHookBack()
     {
-        _timeToMoveHook = hookMaxLength / 5;
-        hookTransform.DOMoveY((startHookPosition.y), _timeToMoveHook)
+        hookTransform.DOMoveY((startHookPosition.y), timeToPutHookUp)
             .OnComplete(delegate
             {
-                _fisherAnimator.EndFishingAnimation();
-                cameraFollow.SetTargetToNull();
-                cameraFollow.ChangeCameraPosition(startHookPosition);
                 _canMove = false;
+                PutHookOutOfWater();
             });
+    }
+    
+    private void PutHookOutOfWater()
+    {
+        hookTransform.DOScale(0, 1f).From(startHookScale).SetEase(Ease.Linear);
+        hookTransform.DOMoveY(hookTransform.position.y, 1f).OnComplete(delegate
+        {
+            _fisherAnimator.EndFishingAnimation();
+            cameraFollow.SetTargetToNull();
+            cameraFollow.ChangeCameraPosition(startHookPosition);
+        });
     }
 }

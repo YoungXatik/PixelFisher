@@ -9,7 +9,6 @@ public class CameraFollow : MonoBehaviour
 
     public Transform target;
     private Transform _cameraTransform;
-    [SerializeField] private float delay;
 
     private void Start()
     {
@@ -36,8 +35,7 @@ public class CameraFollow : MonoBehaviour
         if (target != null)
         {
             float yPos = target.position.y + followOffset;
-            //_cameraTransform.position = new Vector3(0, yPos + followOffset, 0);
-            _cameraTransform.DOMoveY(yPos + followOffset, delay);
+            _cameraTransform.position = new Vector3(0, yPos + followOffset, 0);
         }
         else
         {
