@@ -49,6 +49,7 @@ MonoBehaviour:
   fishType: {fileID: 11400000, guid: 53ac885e315dc5743ab391ee6f7a3cfc, type: 2}
   minSpeed: 1
   maxSpeed: 3
+  timeToChangeScale: 0.2
 --- !u!50 &-286614425014956231
 Rigidbody2D:
   serializedVersion: 4
@@ -166,7 +167,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f837d0690c92a364fa13a05f5621e791, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

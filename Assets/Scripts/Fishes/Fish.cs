@@ -8,11 +8,12 @@ using Random = UnityEngine.Random;
 public class Fish : MonoBehaviour
 {
     [SerializeField] private FishType fishType;
-    [SerializeField] private float minSpeed = 1, maxSpeed = 3;
-    [SerializeField] private float timeToChangeScale = 0.1f;
+    [SerializeField] private float minSpeed = 0.5f, maxSpeed = 1.8f;
+    [SerializeField] private float timeToChangeScale = 0.2f;
     
     private Rigidbody2D _rigidbody;
     private Transform _fishTransform;
+    private BoxCollider2D _boxCollider2D;
     private int _fishCost;
     private bool _canMove;
     private float _fishSpeed;
@@ -22,6 +23,7 @@ public class Fish : MonoBehaviour
     {
         _fishTransform = GetComponent<Transform>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        _boxCollider2D = GetComponent<BoxCollider2D>();
         _fishSpeed = Random.Range(minSpeed, maxSpeed);
     }
 
@@ -52,5 +54,16 @@ public class Fish : MonoBehaviour
             _moveDirection.x = 1;
             _fishTransform.DOScale(new Vector3(1, 1, 0), timeToChangeScale);
         }
+    }
+
+    public void FishHasBeenHooked(Transform hookTransform)
+    {
+        _canMove = false;
+        _boxCollider2D.enabled = false;
+        _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        _fishTransform.parent = hookTransform;
+        _fishTransform.localPosition = Vector2.zero.normalized;
+        _fishTransform.rotation = Quaternion.Euler(new Vector3(0f,0f,90f));
+        
     }
 }

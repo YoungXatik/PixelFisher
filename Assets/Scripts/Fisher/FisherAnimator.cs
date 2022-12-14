@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class FisherAnimator : MonoBehaviour
     {
         fisherAnimator.SetBool("fishing",true);
         fisherAnimator.SetBool("idle",false);
+        EventManager.OnGameStartedInvoke();
     }
 
     public void EndFishingAnimation()

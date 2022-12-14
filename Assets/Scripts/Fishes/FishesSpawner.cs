@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -35,6 +34,7 @@ public class FishesSpawner : MonoBehaviour
         fishCount = Mathf.RoundToInt(maxYPosition / _offsetY);
         _trueFishCount = fishCount;
         maxYPosition = -maxYPosition;
+        EventManager.OnGameStarted += StartSpawnFish;
     }
 
     [ContextMenu("Test Spawn")]
@@ -59,7 +59,7 @@ public class FishesSpawner : MonoBehaviour
         float currentYOffset = Random.Range(minimalSpawnOffsetY, maximalSpawnOffsetY);
         float offsetY = minYPosition - currentYOffset;
         Fish clone = Instantiate(fishPrefabs[Random.Range(0, fishPrefabs.Count)], new Vector3(offsetX, offsetY, 0),
-            Quaternion.identity, gameObject.transform);
+            Quaternion.identity);
         spawnedFish.Add(clone);
         
         

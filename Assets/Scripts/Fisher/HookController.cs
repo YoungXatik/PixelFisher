@@ -8,12 +8,12 @@ public class HookController : MonoBehaviour
 {
     [SerializeField] private CameraFollow cameraFollow;
     [SerializeField] private Transform hookTransform;
-    [SerializeField] private Rigidbody2D rigidbody;
+    [SerializeField] private Transform fishingHookTransform;
     [SerializeField] private BoxCollider2D hookCollider;
 
     [SerializeField] private Vector3 startHookPosition;
     [SerializeField] private Vector3 inWaterHookPosition;
-    
+
     [SerializeField] private float hookMaxLength;
 
     [SerializeField] private float rotationMultiplier = 1.2f;
@@ -24,20 +24,20 @@ public class HookController : MonoBehaviour
     [SerializeField] private float rotationDelay;
 
     [SerializeField] private Vector3 startHookScale;
-    
+
     [SerializeField] private float timeToPutHookDown;
     [SerializeField] private float timeToPutHookUp;
-    
+    [SerializeField] private float timeToPutFullHookUp;
+
     private Vector2 _currentHookPosition;
     private Camera _mainCamera;
     private FisherAnimator _fisherAnimator;
-    private int _hookStrength;
-    private int _fishCount;
 
     private bool _canMove;
 
-    private Tween _tween;
-    
+    private Tween _movementXTween;
+    private Tween _movementYTween;
+
     private void Awake()
     {
         _mainCamera = Camera.main;
@@ -58,19 +58,19 @@ public class HookController : MonoBehaviour
             Vector3 vector = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
             Vector3 position = hookTransform.position;
             position.x = Mathf.Clamp(vector.x, minimalXPosition, maximalXPosition);
-            _tween = hookTransform.DOMoveX(position.x, delay).SetEase(Ease.Linear);
+            _movementXTween = hookTransform.DOMoveX(position.x, delay).SetEase(Ease.Linear);
             _currentHookPosition = hookTransform.position;
-            
+
             Vector3 rotate = hookTransform.eulerAngles;
-            //rotate.z = (rotationMultiplier * hookTransform.position.x);
             rotate.z = Mathf.Clamp((rotationMultiplier * vector.x), -maxAngle, maxAngle);
             hookTransform.rotation = Quaternion.Euler(rotate);
+            fishingHookTransform.rotation = Quaternion.Euler(rotate * 2.5f);
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            if (_tween != null)
+            if (_movementXTween != null)
             {
-                _tween.Kill();
+                _movementXTween.Kill();
                 hookTransform.DORotate(new Vector3(0, 0, 0), rotationDelay).SetEase(Ease.Linear);
                 hookTransform.position = _currentHookPosition;
             }
@@ -82,7 +82,7 @@ public class HookController : MonoBehaviour
         hookTransform.DOScale(startHookScale, 1f).From(0).SetEase(Ease.Linear);
         hookTransform.DOMoveY(inWaterHookPosition.y, 1f).OnComplete(StartFishing);
     }
-    
+
     public void StartFishing()
     {
         _canMove = true;
@@ -97,19 +97,34 @@ public class HookController : MonoBehaviour
 
     private void TakeHookBack()
     {
-        hookTransform.DOMoveY((startHookPosition.y), timeToPutHookUp)
+        _movementYTween = hookTransform.DOMoveY((startHookPosition.y), timeToPutHookUp)
             .OnComplete(delegate
             {
                 _canMove = false;
                 PutHookOutOfWater();
             });
     }
-    
+
+    public void HookCountIsOver()
+    {
+        if (_movementYTween != null)
+        {
+            _canMove = false;
+            hookTransform.DOMoveX(startHookPosition.x, 0.5f).OnComplete(delegate
+            {
+                _movementYTween = hookTransform.DOMoveY(startHookPosition.y, timeToPutFullHookUp)
+                    .OnComplete(PutHookOutOfWater); 
+            });
+            
+        }
+    }
+
     private void PutHookOutOfWater()
     {
         hookTransform.DOScale(0, 1f).From(startHookScale).SetEase(Ease.Linear);
         hookTransform.DOMoveY(hookTransform.position.y, 1f).OnComplete(delegate
         {
+            hookCollider.enabled = false;
             _fisherAnimator.EndFishingAnimation();
             cameraFollow.SetTargetToNull();
             cameraFollow.ChangeCameraPosition(startHookPosition);

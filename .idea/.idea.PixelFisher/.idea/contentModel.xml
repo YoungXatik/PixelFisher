@@ -28,8 +28,12 @@
           <e p="Camera" t="Include">
             <e p="CameraFollow.cs" t="Include" />
           </e>
+          <e p="Events" t="Include">
+            <e p="EventManager.cs" t="Include" />
+          </e>
           <e p="Fisher" t="Include">
             <e p="FisherAnimator.cs" t="Include" />
+            <e p="Hook.cs" t="Include" />
             <e p="HookController.cs" t="Include" />
           </e>
           <e p="Fishes" t="Include">
