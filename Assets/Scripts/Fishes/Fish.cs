@@ -58,6 +58,7 @@ public class Fish : MonoBehaviour
 
     public void FishHasBeenHooked(Transform hookTransform)
     {
+        FishesSpawner.Instance.spawnedFish.Remove(this);
         _canMove = false;
         _boxCollider2D.enabled = false;
         _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;

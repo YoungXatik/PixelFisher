@@ -11,4 +11,11 @@ public class EventManager : MonoBehaviour
     {
         OnGameStarted?.Invoke();
     }
+
+    public static Action OnGameEnded;
+
+    public static void OnGameEndedInvoke()
+    {
+        OnGameEnded?.Invoke();
+    }
 }

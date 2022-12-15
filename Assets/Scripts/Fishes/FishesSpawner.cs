@@ -4,6 +4,12 @@ using Random = UnityEngine.Random;
 
 public class FishesSpawner : MonoBehaviour
 {
+    #region Singleton
+
+    public static FishesSpawner Instance;
+
+    #endregion
+    
     public List<Fish> fishPrefabs = new List<Fish>();
     public List<Fish> spawnedFish = new List<Fish>();
 
@@ -30,11 +36,13 @@ public class FishesSpawner : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         _offsetY = Random.Range(minimalSpawnOffsetY, maximalSpawnOffsetY);
         fishCount = Mathf.RoundToInt(maxYPosition / _offsetY);
         _trueFishCount = fishCount;
         maxYPosition = -maxYPosition;
         EventManager.OnGameStarted += StartSpawnFish;
+        EventManager.OnGameEnded += DeleteAllFishes;
     }
 
     [ContextMenu("Test Spawn")]
@@ -68,6 +76,15 @@ public class FishesSpawner : MonoBehaviour
 
         minYPosition -= currentYOffset;
         fishCount--;
+    }
+
+    private void DeleteAllFishes()
+    {
+        for (int i = 0; i < spawnedFish.Count; i++)
+        {
+            Destroy(spawnedFish[i].gameObject);
+        }
+        spawnedFish.Clear();
     }
 
 }

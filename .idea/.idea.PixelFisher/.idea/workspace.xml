@@ -31,12 +31,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookAnimator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/WaterColliders.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/FisherAnimator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishesSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/Fish.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishesSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
       </list>
     </option>
   </component>
@@ -84,7 +84,7 @@
       <workItem from="1670940501081" duration="1773000" />
       <workItem from="1671010493102" duration="11693000" />
       <workItem from="1671028888006" duration="6309000" />
-      <workItem from="1671096884315" duration="5655000" />
+      <workItem from="1671096884315" duration="7240000" />
     </task>
     <servers />
   </component>

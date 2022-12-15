@@ -12,7 +12,6 @@ public class HookController : MonoBehaviour
     [SerializeField] private BoxCollider2D hookCollider;
 
     [SerializeField] private Vector3 startHookPosition;
-    [SerializeField] private Vector3 inWaterHookPosition;
 
     [SerializeField] private float hookMaxLength;
     [SerializeField] private float cameraFollowLength = -14;
@@ -26,10 +25,8 @@ public class HookController : MonoBehaviour
 
     [SerializeField] private Vector3 startHookScale;
 
-    [SerializeField] private float timeToPutHookDown;
-    [SerializeField] private float timeToPutHookUp;
-    [SerializeField] private float timeToPutFullHookUp;
-
+    public List<Fish> hookedFishes = new List<Fish>();
+    
     private Vector2 _currentHookPosition;
     private Camera _mainCamera;
     private FisherAnimator _fisherAnimator;
@@ -86,6 +83,7 @@ public class HookController : MonoBehaviour
             _moveDirection = new Vector2(0, -1);
             _trueHookSpeed = withoutCameraHookSpeed;
             _canMoveDown = true;
+            hookCollider.enabled = true;
         });
         
     }
@@ -131,7 +129,6 @@ public class HookController : MonoBehaviour
     private void EnableMovementAndCameraFollow()
     {
         _canMove = true;
-        hookCollider.enabled = true;
         cameraFollow.SetHookIsTarget(hookTransform);
     }
 
@@ -163,70 +160,16 @@ public class HookController : MonoBehaviour
         PutHookOutOfWater();
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public void StartFishing()
-    {
-        _canMove = true;
-        cameraFollow.SetHookIsTarget(hookTransform);
-        hookTransform.DOMoveY((-hookMaxLength), timeToPutHookDown)
-            .OnComplete(delegate
-            {
-                hookCollider.enabled = true;
-                TakeHookBack();
-            });
-    }
-
-    private void TakeHookBack()
-    {
-        _movementYTween = hookTransform.DOMoveY((startHookPosition.y), timeToPutHookUp)
-            .OnComplete(delegate
-            {
-                _canMove = false;
-                PutHookOutOfWater();
-            });
-    }
-
     public void HookCountIsOver()
     {
-        if (_movementYTween != null)
-        {
-            _canMove = false;
-            hookTransform.DOMoveX(startHookPosition.x, 0.5f).OnComplete(delegate
-            {
-                _movementYTween = hookTransform.DOMoveY(startHookPosition.y, timeToPutFullHookUp)
-                    .OnComplete(PutHookOutOfWater); 
-            });
-            
-        }
+        hookCollider.enabled = false;
+        _canMove = false;
+        TakeHookUp();
     }
 
     private void PutHookOutOfWater()
     {
+        EventManager.OnGameEndedInvoke();
         hookTransform.DOScale(0, 1f).From(startHookScale).SetEase(Ease.Linear);
         hookTransform.DOMove(startHookPosition, 1f).OnComplete(delegate
         {
