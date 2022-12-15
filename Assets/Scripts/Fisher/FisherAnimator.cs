@@ -11,7 +11,6 @@ public class FisherAnimator : MonoBehaviour
     {
         fisherAnimator.SetBool("fishing",true);
         fisherAnimator.SetBool("idle",false);
-        EventManager.OnGameStartedInvoke();
     }
 
     public void EndFishingAnimation()

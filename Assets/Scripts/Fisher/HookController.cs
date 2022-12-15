@@ -78,12 +78,15 @@ public class HookController : MonoBehaviour
 
     public void PutHookInTheWater()
     {
+        rigidbody.constraints = RigidbodyConstraints2D.None;
+        EventManager.OnGameStartedInvoke();
         hookTransform.DOScale(startHookScale, 1f).From(0).SetEase(Ease.Linear).OnComplete(delegate
         {
             _moveDirection = new Vector2(0, -1);
             _trueHookSpeed = withoutCameraHookSpeed;
             _canMoveDown = true;
             hookCollider.enabled = true;
+            cameraFollow.SetHookIsTarget(hookTransform);
         });
         
     }
@@ -129,7 +132,6 @@ public class HookController : MonoBehaviour
     private void EnableMovementAndCameraFollow()
     {
         _canMove = true;
-        cameraFollow.SetHookIsTarget(hookTransform);
     }
 
     public void CheckForFirstFishEntry()
@@ -143,7 +145,7 @@ public class HookController : MonoBehaviour
     private void TakeHookUp()
     {
         _hookGoingUp = true;
-        DOTween.To(x => _trueHookSpeed = x, _trueHookSpeed, 0, 1f).SetEase(Ease.Linear).OnComplete(delegate
+        DOTween.To(x => _trueHookSpeed = x, _trueHookSpeed, 0, 0.25f).SetEase(Ease.Linear).OnComplete(delegate
         {
             _moveDirection = new Vector2(0, 1);
             _trueHookSpeed = hookSpeed;

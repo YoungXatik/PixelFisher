@@ -15,9 +15,9 @@ public class CameraFollow : MonoBehaviour
         _cameraTransform = GetComponent<Transform>();
     }
 
-    public void SetHookIsTarget(Transform target)
+    public void SetHookIsTarget(Transform _target)
     {
-        this.target = target;
+        target = _target;
     }
 
     public void SetTargetToNull()

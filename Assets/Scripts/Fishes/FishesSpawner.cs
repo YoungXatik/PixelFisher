@@ -37,10 +37,7 @@ public class FishesSpawner : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        _offsetY = Random.Range(minimalSpawnOffsetY, maximalSpawnOffsetY);
-        fishCount = Mathf.RoundToInt(maxYPosition / _offsetY);
-        _trueFishCount = fishCount;
-        maxYPosition = -maxYPosition;
+        _trueMinimalYPosition = minYPosition;
         EventManager.OnGameStarted += StartSpawnFish;
         EventManager.OnGameEnded += DeleteAllFishes;
     }
@@ -48,6 +45,9 @@ public class FishesSpawner : MonoBehaviour
     [ContextMenu("Test Spawn")]
     public void StartSpawnFish()
     {
+        _offsetY = Random.Range(minimalSpawnOffsetY, maximalSpawnOffsetY);
+        fishCount = Mathf.RoundToInt(-maxYPosition / _offsetY);
+        _trueFishCount = fishCount;
         for (int i = 0; i < _trueFishCount; i++)
         {
             if (fishCount <= 0)
@@ -85,6 +85,7 @@ public class FishesSpawner : MonoBehaviour
             Destroy(spawnedFish[i].gameObject);
         }
         spawnedFish.Clear();
+        minYPosition = _trueMinimalYPosition;
     }
 
 }
