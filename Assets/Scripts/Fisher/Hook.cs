@@ -21,6 +21,7 @@ public class Hook : MonoBehaviour
 
         if (other.gameObject.TryGetComponent<Fish>(out fish))
         {
+            
             countOfFish++;
             if (countOfFish >= maxCountOfFish)
             {

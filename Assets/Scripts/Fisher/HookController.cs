@@ -15,6 +15,7 @@ public class HookController : MonoBehaviour
     [SerializeField] private Vector3 inWaterHookPosition;
 
     [SerializeField] private float hookMaxLength;
+    [SerializeField] private float cameraFollowLength = -14;
 
     [SerializeField] private float rotationMultiplier = 1.2f;
     [SerializeField] private float maxAngle = 30;
@@ -72,6 +73,7 @@ public class HookController : MonoBehaviour
             {
                 _movementXTween.Kill();
                 hookTransform.DORotate(new Vector3(0, 0, 0), rotationDelay).SetEase(Ease.Linear);
+                fishingHookTransform.DORotate(new Vector3(0, 0, 0), rotationDelay).SetEase(Ease.Linear);
                 hookTransform.position = _currentHookPosition;
             }
         }
@@ -79,10 +81,114 @@ public class HookController : MonoBehaviour
 
     public void PutHookInTheWater()
     {
-        hookTransform.DOScale(startHookScale, 1f).From(0).SetEase(Ease.Linear);
-        hookTransform.DOMoveY(inWaterHookPosition.y, 1f).OnComplete(StartFishing);
+        hookTransform.DOScale(startHookScale, 1f).From(0).SetEase(Ease.Linear).OnComplete(delegate
+        {
+            _moveDirection = new Vector2(0, -1);
+            _trueHookSpeed = withoutCameraHookSpeed;
+            _canMoveDown = true;
+        });
+        
     }
 
+    private bool _canMoveDown;
+    private Vector2 _moveDirection;
+    private float _trueHookSpeed;
+    private bool _hookReachMaxLength;
+    private bool _hookGoingUp;
+    [SerializeField] private Rigidbody2D rigidbody;
+    [SerializeField] private float hookSpeed;
+    [SerializeField] private float withoutCameraHookSpeed = 15;
+    
+    
+    private void FixedUpdate()
+    {
+        if (_canMoveDown)
+        {
+            rigidbody.velocity = _moveDirection * _trueHookSpeed;
+            if (hookTransform.position.y <= cameraFollowLength)
+            {
+                EnableMovementAndCameraFollow();
+            }
+
+            if (hookTransform.position.y <= hookMaxLength)
+            {
+                if (!_hookGoingUp)
+                {
+                    TakeHookUp();
+                }
+            }
+
+            if (_hookGoingUp)
+            {
+                if (hookTransform.position.y >= startHookPosition.y)
+                {
+                    CancelFishing();
+                }
+            }
+        }
+    }
+
+    private void EnableMovementAndCameraFollow()
+    {
+        _canMove = true;
+        hookCollider.enabled = true;
+        cameraFollow.SetHookIsTarget(hookTransform);
+    }
+
+    public void CheckForFirstFishEntry()
+    {
+        if (!_hookReachMaxLength)
+        {
+            TakeHookUp();
+        }
+    }
+
+    private void TakeHookUp()
+    {
+        _hookGoingUp = true;
+        DOTween.To(x => _trueHookSpeed = x, _trueHookSpeed, 0, 1f).SetEase(Ease.Linear).OnComplete(delegate
+        {
+            _moveDirection = new Vector2(0, 1);
+            _trueHookSpeed = hookSpeed;
+        });
+    }
+
+    private void CancelFishing()
+    {
+        _canMoveDown = false;
+        _canMove = false;
+        hookCollider.enabled = false;
+        _hookGoingUp = false;
+        rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        PutHookOutOfWater();
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public void StartFishing()
     {
         _canMove = true;
@@ -122,7 +228,7 @@ public class HookController : MonoBehaviour
     private void PutHookOutOfWater()
     {
         hookTransform.DOScale(0, 1f).From(startHookScale).SetEase(Ease.Linear);
-        hookTransform.DOMoveY(hookTransform.position.y, 1f).OnComplete(delegate
+        hookTransform.DOMove(startHookPosition, 1f).OnComplete(delegate
         {
             hookCollider.enabled = false;
             _fisherAnimator.EndFishingAnimation();
