@@ -517,7 +517,7 @@ MonoBehaviour:
   hookCollider: {fileID: 1317466797}
   startHookPosition: {x: 0.14, y: 1.5, z: 0}
   hookMaxLength: -50
-  cameraFollowLength: -14
+  cameraFollowLength: -15
   rotationMultiplier: 12
   maxAngle: 30
   maximalXPosition: 2.5
@@ -579,7 +579,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677060335}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7659137, y: 10.963312, z: -0.18571506}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -731,8 +731,8 @@ MonoBehaviour:
   - {fileID: 6829943108658186330, guid: 32c5823d90c9f1745b099d42144ff2b4, type: 3}
   - {fileID: 8114386625997306908, guid: c034e7bf69d81dd4d9a1de4d6cd546ca, type: 3}
   spawnedFish: []
-  minYPosition: -4
-  maxYPosition: 50
+  minYPosition: -25
+  maxYPosition: -75
   minimalSpawnOffsetX: -2.4
   maximalSpawnOffsetX: 2.4
   minimalSpawnOffsetY: 1

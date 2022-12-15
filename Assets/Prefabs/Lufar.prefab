@@ -46,10 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e1d2b3f4ee66664c994e3045e36c612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishType: {fileID: 11400000, guid: d36ca50dabf92fb4582342b463f66c00, type: 2}
+  <fishType>k__BackingField: {fileID: 11400000, guid: d36ca50dabf92fb4582342b463f66c00, type: 2}
   minSpeed: 1
   maxSpeed: 3
   timeToChangeScale: 0.2
+  movementType: 0
 --- !u!50 &3762115373537919724
 Rigidbody2D:
   serializedVersion: 4

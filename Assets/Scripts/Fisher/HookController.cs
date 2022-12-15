@@ -42,6 +42,7 @@ public class HookController : MonoBehaviour
         _fisherAnimator = GetComponent<FisherAnimator>();
         startHookScale = hookTransform.localScale;
         hookTransform.localScale = Vector3.zero;
+        EventManager.OnGameEnded += SellHookedFishes;
     }
 
     private void Update()
@@ -80,6 +81,7 @@ public class HookController : MonoBehaviour
     {
         rigidbody.constraints = RigidbodyConstraints2D.None;
         EventManager.OnGameStartedInvoke();
+        hookTransform.position = startHookPosition;
         hookTransform.DOScale(startHookScale, 1f).From(0).SetEase(Ease.Linear).OnComplete(delegate
         {
             _moveDirection = new Vector2(0, -1);
@@ -138,7 +140,12 @@ public class HookController : MonoBehaviour
     {
         if (!_hookReachMaxLength)
         {
+            _hookReachMaxLength = true;
             TakeHookUp();
+        }
+        else
+        {
+            return;
         }
     }
 
@@ -180,5 +187,24 @@ public class HookController : MonoBehaviour
             cameraFollow.SetTargetToNull();
             cameraFollow.ChangeCameraPosition(startHookPosition);
         });
+    }
+
+    private void SellHookedFishes()
+    {
+        int costSum = 0;
+        if (hookedFishes.Count != 0)
+        {
+            for (int i = 0; i < hookedFishes.Count; i++)
+            {
+                costSum += hookedFishes[i].fishType.fishCost;
+                Destroy(hookedFishes[i].gameObject);
+            }
+        }
+        else
+        {
+            Debug.Log("No fishes for sell");
+        }
+        hookedFishes.Clear();
+        Debug.Log($"Summary Cost - {costSum}");
     }
 }

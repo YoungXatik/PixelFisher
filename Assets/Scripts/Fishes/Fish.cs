@@ -7,9 +7,16 @@ using Random = UnityEngine.Random;
 
 public class Fish : MonoBehaviour
 {
-    [SerializeField] private FishType fishType;
+    [field: SerializeField] public FishType fishType { get; private set; }
     [SerializeField] private float minSpeed = 0.5f, maxSpeed = 1.8f;
     [SerializeField] private float timeToChangeScale = 0.2f;
+    
+    private enum MovementType
+    {
+        Basic, Bouncing
+    }
+
+    [SerializeField] private MovementType movementType;
     
     private Rigidbody2D _rigidbody;
     private Transform _fishTransform;
@@ -25,6 +32,21 @@ public class Fish : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
         _fishSpeed = Random.Range(minSpeed, maxSpeed);
+    }
+
+    private void Start()
+    {
+        var Seq = DOTween.Sequence();
+        switch (movementType)
+        {
+            case MovementType.Bouncing:
+                Seq.Append(DOTween.To(x => _moveDirection.y = x, 1, -1, 1f).SetEase(Ease.Linear));
+                Seq.Append(DOTween.To(x => _moveDirection.y = x, -1, 1, 1f).SetEase(Ease.Linear));
+                Seq.SetLoops(-1);
+                break;
+            case MovementType.Basic:
+                return;
+        }
     }
 
     public void SetFishValues(Vector2 moveDirection, Vector2 moveScale)
