@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class Fish : MonoBehaviour
 {
     [field: SerializeField] public FishType fishType { get; private set; }
+    [field: SerializeField] public int fishCost { get; private set; }
     [SerializeField] private float minSpeed = 0.5f, maxSpeed = 1.8f;
     [SerializeField] private float timeToChangeScale = 0.2f;
     

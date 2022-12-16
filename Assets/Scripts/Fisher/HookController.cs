@@ -50,6 +50,19 @@ public class HookController : MonoBehaviour
         XAxisMovement();
     }
 
+    private void Start()
+    {
+        UpdateHookLength();
+        EventManager.OnLengthValueChanged += UpdateHookLength;
+    }
+
+    [SerializeField] private Booster boosterComponent;
+    
+    private void UpdateHookLength()
+    {
+        hookMaxLength = -boosterComponent.CurrentBoosterValue;
+    }
+
     private void XAxisMovement()
     {
         if (_canMove && Input.GetMouseButton(0))
@@ -113,7 +126,7 @@ public class HookController : MonoBehaviour
                 EnableMovementAndCameraFollow();
             }
 
-            if (hookTransform.position.y <= hookMaxLength)
+            if (hookTransform.position.y <= (hookMaxLength + cameraFollowLength))
             {
                 if (!_hookGoingUp)
                 {
@@ -196,7 +209,7 @@ public class HookController : MonoBehaviour
         {
             for (int i = 0; i < hookedFishes.Count; i++)
             {
-                costSum += hookedFishes[i].fishType.fishCost;
+                costSum += hookedFishes[i].fishCost;
                 Destroy(hookedFishes[i].gameObject);
             }
         }
@@ -205,6 +218,7 @@ public class HookController : MonoBehaviour
             Debug.Log("No fishes for sell");
         }
         hookedFishes.Clear();
-        Debug.Log($"Summary Cost - {costSum}");
+        Money.Instance.AddMoney(costSum);
     }
+    
 }

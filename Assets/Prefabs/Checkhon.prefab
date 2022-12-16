@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <fishType>k__BackingField: {fileID: 11400000, guid: 53ac885e315dc5743ab391ee6f7a3cfc, type: 2}
-  minSpeed: 1
-  maxSpeed: 3
+  <fishCost>k__BackingField: 10
+  minSpeed: 0.5
+  maxSpeed: 1.8
   timeToChangeScale: 0.2
   movementType: 0
 --- !u!50 &-286614425014956231

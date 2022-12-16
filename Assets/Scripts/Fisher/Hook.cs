@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,9 +11,23 @@ public class Hook : MonoBehaviour
 
     private Transform _hookTransform;
 
+    [SerializeField] private Booster strengthBooster;
+
     private void Awake()
     {
         _hookTransform = GetComponent<Transform>();
+    }
+
+    private void Start()
+    {
+        EventManager.OnStrengthValueChanged += UpdateStrengthValue;
+        EventManager.OnGameEnded += RefreshCountOfFishValue;
+        UpdateStrengthValue();
+    }
+
+    private void UpdateStrengthValue()
+    {
+        maxCountOfFish = strengthBooster.CurrentBoosterValue;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,5 +45,10 @@ public class Hook : MonoBehaviour
             }
             fish.FishHasBeenHooked(_hookTransform);
         }
+    }
+
+    private void RefreshCountOfFishValue()
+    {
+        countOfFish = 0;
     }
 }

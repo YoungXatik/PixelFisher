@@ -18,4 +18,36 @@ public class EventManager : MonoBehaviour
     {
         OnGameEnded?.Invoke();
     }
+
+    public static Action OnLengthValueChanged;
+    public static Action OnStrengthValueChanged;
+    public static Action OnOfflineMoneyValueChanged;
+
+    public static void OnLengthValueChangedInvoke()
+    {
+        OnLengthValueChanged?.Invoke();
+    }
+    
+    public static void OnStrengthValueChangedInvoke()
+    {
+        OnStrengthValueChanged?.Invoke();
+    }
+    
+    public static void OnOfflineMoneyValueChangedInvoke()
+    {
+        OnOfflineMoneyValueChanged?.Invoke();
+    }
+
+    public static Action OnMoneyAdded;
+    public static Action OnMoneyRemoved;
+
+    public static void OnMoneyAddedInvoke()
+    {
+        OnMoneyAdded?.Invoke();
+    }
+
+    public static void OnMoneyRemovedInvoke()
+    {
+        OnMoneyRemoved?.Invoke();
+    }
 }
