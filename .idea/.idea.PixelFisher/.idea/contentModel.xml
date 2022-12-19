@@ -50,6 +50,13 @@
           <e p="Levels" t="Include">
             <e p="LevelController.cs" t="Include" />
           </e>
+          <e p="UI" t="Include">
+            <e p="FishBook" t="Include">
+              <e p="FishBook.cs" t="Include" />
+              <e p="FishCard_UI.cs" t="Include" />
+            </e>
+            <e p="PlayerUI.cs" t="Include" />
+          </e>
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">
