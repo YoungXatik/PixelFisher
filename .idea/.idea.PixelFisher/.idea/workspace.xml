@@ -14,6 +14,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Fishes/WaterColliders.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Fishes/FishType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Farm/Assets/Scripts/Shop/Shop.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FindsList.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/PlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Fishes/FishMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../ClassRoomMaster/Assets/Scripts/Player/PlayerCamera/CameraRotation.cs" root0="SKIP_HIGHLIGHTING" />
@@ -43,18 +44,21 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishesSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/LengthBooster.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/Fish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelValues.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/Booster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/PlayerUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FindsList.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/Fish.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishBook.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishType.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard_UI.cs" />
       </list>
     </option>
   </component>
@@ -106,7 +110,7 @@
       <workItem from="1671108344260" duration="1869000" />
       <workItem from="1671113109967" duration="5350000" />
       <workItem from="1671182490669" duration="13985000" />
-      <workItem from="1671452325965" duration="3373000" />
+      <workItem from="1671452325965" duration="8132000" />
     </task>
     <servers />
   </component>

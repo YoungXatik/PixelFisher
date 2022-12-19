@@ -1,10 +1,8 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
-    public List<Fish> hookedFish = new List<Fish>();
 
     [SerializeField] private int maxCountOfFish, countOfFish;
     [SerializeField] private HookController hookController;

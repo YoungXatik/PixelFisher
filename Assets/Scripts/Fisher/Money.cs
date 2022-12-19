@@ -20,6 +20,7 @@ public class Money : MonoBehaviour
 
     [field: SerializeField] public float MoneyCount { get; private set; }
     [SerializeField] private TextMeshProUGUI moneyText;
+    [SerializeField] private TextMeshProUGUI fishBookMoneyText;
 
     private Tween _addTween;
     private Tween _removeTween;
@@ -32,10 +33,17 @@ public class Money : MonoBehaviour
     private void UpdateUI()
     {
         moneyText.text = $"{MoneyCount}";
+        fishBookMoneyText.text = $"{MoneyCount}";
     }
 
     public void AddMoney(int value)
     {
+         DOTween.To(x => MoneyCount = x, MoneyCount, MoneyCount + value, 1f)
+            .OnUpdate((() => fishBookMoneyText.text = $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
+            {
+                EventManager.OnMoneyAddedInvoke();
+            });
+        
         if (_addTween == null)
         {
             _addTween = DOTween.To(x => MoneyCount = x, MoneyCount, MoneyCount + value, 1f)
@@ -64,7 +72,6 @@ public class Money : MonoBehaviour
                     });
             }
         }
-        
     }
 
     public void RemoveMoney(int value)
@@ -75,6 +82,7 @@ public class Money : MonoBehaviour
                 OnUpdate((() => moneyText.text =  $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
                 {
                     EventManager.OnMoneyRemovedInvoke(); 
+                    fishBookMoneyText.text = $"{MoneyCount}";
                 });
         }
         else
@@ -86,6 +94,7 @@ public class Money : MonoBehaviour
                     OnUpdate((() => moneyText.text =  $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
                     {
                         EventManager.OnMoneyRemovedInvoke(); 
+                        fishBookMoneyText.text = $"{MoneyCount}";
                     });
             }
             else
@@ -94,10 +103,11 @@ public class Money : MonoBehaviour
                     OnUpdate((() => moneyText.text =  $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
                     {
                         EventManager.OnMoneyRemovedInvoke(); 
+                        fishBookMoneyText.text = $"{MoneyCount}";
                     });
             }
         }
-        
+
     }
 
     [ContextMenu("Test")]

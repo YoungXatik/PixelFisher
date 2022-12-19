@@ -52,6 +52,7 @@
           </e>
           <e p="UI" t="Include">
             <e p="FishBook" t="Include">
+              <e p="FindsList.cs" t="Include" />
               <e p="FishBook.cs" t="Include" />
               <e p="FishCard_UI.cs" t="Include" />
             </e>

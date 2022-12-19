@@ -13,22 +13,52 @@ public class FishCard_UI : MonoBehaviour
     [SerializeField] private Button collectRewardButton;
 
     [Header("Values")] 
-    [SerializeField] private FishType fishType;
+    [SerializeField] private int rewardCount;
     [SerializeField] private string lockedFishDescription;
+    [field: SerializeField] public FishType FishType { get; private set; }
 
-    private void Start()
+    private bool _rewardHasBeenCollected;
+
+    private void OnEnable()
     {
-        if (fishType.isCollected)
+        UnlockFishCard();
+    }
+
+    public void UnlockFishCard()
+    {
+        if (!_rewardHasBeenCollected)
         {
-            descriptionText.text = fishType.fishDescription;
-            fishImage.sprite = fishType.fishSprite;
-            collectRewardButton.gameObject.SetActive(true);
+            if (FishType.isCollected)
+            {
+                descriptionText.text = FishType.fishDescription;
+                fishImage.sprite = FishType.fishSprite;
+                collectRewardButton.gameObject.SetActive(true);
+                Debug.Log(FishType.fishName);
+            }
+            else
+            {
+                descriptionText.text = lockedFishDescription;
+                fishImage.sprite = FishType.lockedFishSprite;
+                collectRewardButton.gameObject.SetActive(false);
+            }
         }
         else
         {
-            descriptionText.text = lockedFishDescription;
-            fishImage.sprite = fishType.lockedFishSprite;
-            collectRewardButton.gameObject.SetActive(false);
+            if (collectRewardButton != null)
+            {
+                Destroy(collectRewardButton);
+            }
+            else
+            {
+                return;
+            }
         }
+    }
+
+    public void GetReward()
+    {
+        _rewardHasBeenCollected = true;
+        Money.Instance.AddMoney(rewardCount);
+        collectRewardButton.gameObject.SetActive(false);
     }
 }

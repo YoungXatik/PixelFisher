@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Plotva
   m_EditorClassIdentifier: 
   <fishName>k__BackingField: "\u041F\u043B\u043E\u0442\u0432\u0430"
-  <fishCost>k__BackingField: 10
+  fishDescription: "\u041F\u043B\u043E\u0442\u0432\u0430"
   <fishSprite>k__BackingField: {fileID: 21300000, guid: 6cb9fdeb6aca515408cd406753c81f84, type: 3}
   <lockedFishSprite>k__BackingField: {fileID: 21300000, guid: 099e819fa27b7ac4ea5e5eb611204ff8, type: 3}
+  isCollected: 1

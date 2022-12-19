@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Krasnoperka
   m_EditorClassIdentifier: 
   <fishName>k__BackingField: "\u041A\u0440\u0430\u0441\u043D\u043E\u043F\u0435\u0440\u043A\u0430"
-  <fishCost>k__BackingField: 10
+  fishDescription: "\u041A\u0440\u0430\u0441\u043D\u043E\u043F\u0435\u0440\u043A\u0430"
   <fishSprite>k__BackingField: {fileID: 21300000, guid: 219f897e31e5441418ee66dc165000aa, type: 3}
   <lockedFishSprite>k__BackingField: {fileID: 21300000, guid: 56bcaad0c01d6fe41814e08aab983023, type: 3}
+  isCollected: 0

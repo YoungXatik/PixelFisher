@@ -94,9 +94,10 @@ MonoBehaviour:
   descriptionText: {fileID: 801142560091215126}
   fishImage: {fileID: 1127026973580253854}
   collectRewardButton: {fileID: 9008077335527557966}
-  fishType: {fileID: 0}
+  rewardCount: 100
   lockedFishDescription: "\u042D\u0442\u0430 \u0440\u044B\u0431\u0430 \u0435\u0449\u0451
     \u043D\u0435 \u043F\u043E\u0439\u043C\u0430\u043D\u0430."
+  <FishType>k__BackingField: {fileID: 0}
 --- !u!1 &2998418546226887070
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +218,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5445911960123684591}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6155621372274112497}
+        m_TargetAssemblyTypeName: FishCard_UI, Assembly-CSharp
+        m_MethodName: GetReward
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5240201651751101973
 GameObject:
   m_ObjectHideFlags: 0
