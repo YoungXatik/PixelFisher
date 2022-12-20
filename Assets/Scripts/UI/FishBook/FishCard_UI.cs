@@ -24,6 +24,44 @@ public class FishCard_UI : MonoBehaviour
         UnlockFishCard();
     }
 
+    public void UnlockCommonCard()
+    {
+        if (FishType.FishQuality == FishQuality.Common)
+        {
+            if (!FishType.isCollected)
+            {
+                descriptionText.text = lockedFishDescription;
+                fishImage.sprite = FishType.lockedFishSprite;
+                collectRewardButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                descriptionText.text = FishType.fishDescription;
+                fishImage.sprite = FishType.fishSprite;
+                collectRewardButton.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public void UnlockRareCard()
+    {
+        if(FishType.FishQuality == FishQuality.Rare)
+        {
+            if (!FishType.isCollected)
+            {
+                descriptionText.text = lockedFishDescription;
+                fishImage.sprite = FishType.lockedFishSprite;
+                collectRewardButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                descriptionText.text = FishType.fishDescription;
+                fishImage.sprite = FishType.fishSprite;
+                collectRewardButton.gameObject.SetActive(true);
+            }
+        }
+    }
+
     public void UnlockFishCard()
     {
         if (!_rewardHasBeenCollected)

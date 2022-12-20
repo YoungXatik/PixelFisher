@@ -17,3 +17,4 @@ MonoBehaviour:
   <fishSprite>k__BackingField: {fileID: 21300000, guid: 95d538b1298fd88468bf1ab8b6a0b900, type: 3}
   <lockedFishSprite>k__BackingField: {fileID: 21300000, guid: e2b97f93f01454e4ab5cae18986be395, type: 3}
   isCollected: 0
+  <FishQuality>k__BackingField: 0

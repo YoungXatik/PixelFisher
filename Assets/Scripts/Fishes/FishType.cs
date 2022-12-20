@@ -10,4 +10,10 @@ public class FishType : ScriptableObject
     [field: SerializeField] public Sprite fishSprite { get; private set; }
     [field: SerializeField] public Sprite lockedFishSprite { get; private set; }
     public bool isCollected;
+    [field: SerializeField] public FishQuality FishQuality { get; private set; }
+
+}
+public enum FishQuality
+{
+    Common, Rare
 }

@@ -6,16 +6,24 @@ using System.Collections.Generic;
 
     public class FishBook : MonoBehaviour
     {
+        #region SingleTon
+
+        public static FishBook Instance;
+
+        #endregion
+        
         [Header("UI Elements")] 
         [SerializeField] private GameObject menuImage;
         [SerializeField] private Button mainMenuOpenButton;
         [SerializeField] private Button mainMenuCloseButton;
 
-        [Header("CommonMenu")]
+        [Header("CommonMenu")] 
+        [SerializeField] private Transform commonMenuScrollArea;
         [SerializeField] private GameObject commonMenu;
         [SerializeField] private Button commonMenuButton;
         
         [Header("RareMenu")]
+        [SerializeField] private Transform rareMenuScrollArea;
         [SerializeField] private GameObject rareMenu;
         [SerializeField] private Button rareMenuButton;
         
@@ -23,6 +31,22 @@ using System.Collections.Generic;
         [SerializeField] private GameObject findsMenu;
         [SerializeField] private Button findsMenuButton;
 
+        [SerializeField] private FishCard_UI fishCardPrefab;
+        
+        /*public void CreateNewCommonFishCard(FishType currentFish)
+        {
+            Debug.Log("Created new common Card with " +currentFish.fishName);
+            var cloneCard = Instantiate(fishCardPrefab, commonMenuScrollArea);
+            cloneCard.UnlockCommonOrRareCard(currentFish);
+        }
+
+        public void CreateNewRareFishCard(FishType currentFish)
+        {
+            Debug.Log("Created new Rare Card with " +currentFish.fishName);
+            var cloneCard = Instantiate(fishCardPrefab, rareMenuScrollArea);
+            cloneCard.UnlockCommonOrRareCard(currentFish);
+        }*/
+        
         public void OpenMainMenu()
         {
             menuImage.SetActive(true);

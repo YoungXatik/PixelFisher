@@ -52,6 +52,7 @@ MonoBehaviour:
   maxSpeed: 1.8
   timeToChangeScale: 0.2
   movementType: 1
+  fishQuality: 1
 --- !u!50 &-3753024117039654167
 Rigidbody2D:
   serializedVersion: 4

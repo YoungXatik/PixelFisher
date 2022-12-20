@@ -18,7 +18,7 @@ public class Fish : MonoBehaviour
     }
 
     [SerializeField] private MovementType movementType;
-    
+
     private Rigidbody2D _rigidbody;
     private Transform _fishTransform;
     private BoxCollider2D _boxCollider2D;
@@ -89,6 +89,5 @@ public class Fish : MonoBehaviour
         _fishTransform.parent = hookTransform;
         _fishTransform.localPosition = Vector2.zero.normalized;
         _fishTransform.rotation = Quaternion.Euler(new Vector3(0f,0f,90f));
-        
     }
 }
