@@ -6040,7 +6040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a04029a3c37ef3e4ebed2e3a0c5756e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishPrefabs:
+  commonFishPrefabs:
   - {fileID: 445803691692042912, guid: edbfa7483e58bd540aa8f0d5ac55cf61, type: 3}
   - {fileID: 4157493101149090491, guid: 32b63537b98815b4789c4a5ea10ec326, type: 3}
   - {fileID: 6363300984463458765, guid: e75a8081da651044085e3411323b902c, type: 3}
@@ -6059,6 +6059,7 @@ MonoBehaviour:
   - {fileID: 6742698903211932738, guid: 180e9d1064f10f94dbcddb7a44606d1a, type: 3}
   - {fileID: 6829943108658186330, guid: 32c5823d90c9f1745b099d42144ff2b4, type: 3}
   - {fileID: 8114386625997306908, guid: c034e7bf69d81dd4d9a1de4d6cd546ca, type: 3}
+  rareFishPrefabs: []
   spawnedFish: []
   minYPosition: -25
   maxYPosition: -75
@@ -6069,7 +6070,8 @@ MonoBehaviour:
   moveAndScaleDirection:
   - {x: 1, y: 0}
   - {x: -1, y: 0}
-  fishCount: 0
+  fishCount: 55
+  rareFishCount: 42
 --- !u!1 &983714753
 GameObject:
   m_ObjectHideFlags: 0

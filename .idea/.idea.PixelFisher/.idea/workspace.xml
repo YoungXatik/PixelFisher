@@ -43,7 +43,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/WaterColliders.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/FisherAnimator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishesSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/LengthBooster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelValues.cs" />
@@ -59,9 +58,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/Fish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishBook.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard_UI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/UnlockFishCards.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard_UI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishesSpawner.cs" />
       </list>
     </option>
   </component>
@@ -114,7 +114,8 @@
       <workItem from="1671113109967" duration="5350000" />
       <workItem from="1671182490669" duration="13985000" />
       <workItem from="1671452325965" duration="8702000" />
-      <workItem from="1671541961124" duration="3447000" />
+      <workItem from="1671541961124" duration="4019000" />
+      <workItem from="1671570803352" duration="505000" />
     </task>
     <servers />
   </component>
