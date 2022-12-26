@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class HookController : MonoBehaviour
 {
+    public static HookController Instance;
+    
     [SerializeField] private CameraFollow cameraFollow;
     [SerializeField] private Transform hookTransform;
     [SerializeField] private Transform fishingHookTransform;
@@ -15,6 +17,7 @@ public class HookController : MonoBehaviour
 
     [SerializeField] private float hookMaxLength;
     [SerializeField] private float cameraFollowLength = -14;
+    private float _trueCameraFollowLength;
 
     [SerializeField] private float rotationMultiplier = 1.2f;
     [SerializeField] private float maxAngle = 30;
@@ -35,9 +38,21 @@ public class HookController : MonoBehaviour
 
     private Tween _movementXTween;
     private Tween _movementYTween;
+    
+    private bool _canMoveDown;
+    private Vector2 _moveDirection;
+    private float _trueHookSpeed;
+    private bool _hookReachMaxLength;
+    private bool _hookGoingUp;
+    [SerializeField] private Rigidbody2D rigidbody;
+    [SerializeField] private float hookSpeed;
+    
+    [SerializeField] private float withoutCameraHookSpeed = 15;
+    private float _trueWithoutCameraHookSpeed;
 
     private void Awake()
     {
+        Instance = this;
         _mainCamera = Camera.main;
         _fisherAnimator = GetComponent<FisherAnimator>();
         startHookScale = hookTransform.localScale;
@@ -45,6 +60,18 @@ public class HookController : MonoBehaviour
         EventManager.OnGameEnded += SellHookedFish;
     }
 
+    public void BoostCameraFollowLenght(float lengthMultiplier, float newSpeedMultiplier)
+    {
+        cameraFollowLength += (lengthMultiplier * cameraFollowLength);
+        withoutCameraHookSpeed *= newSpeedMultiplier;
+    }
+
+    public void CancelBoostCameraFollowLength()
+    {
+        cameraFollowLength = _trueCameraFollowLength;
+        withoutCameraHookSpeed = _trueWithoutCameraHookSpeed;
+    }
+    
     private void Update()
     {
         XAxisMovement();
@@ -54,6 +81,8 @@ public class HookController : MonoBehaviour
     {
         UpdateHookLength();
         EventManager.OnLengthValueChanged += UpdateHookLength;
+        _trueCameraFollowLength = cameraFollowLength;
+        _trueWithoutCameraHookSpeed = withoutCameraHookSpeed;
     }
 
     [SerializeField] private Booster boosterComponent;
@@ -106,14 +135,7 @@ public class HookController : MonoBehaviour
         
     }
 
-    private bool _canMoveDown;
-    private Vector2 _moveDirection;
-    private float _trueHookSpeed;
-    private bool _hookReachMaxLength;
-    private bool _hookGoingUp;
-    [SerializeField] private Rigidbody2D rigidbody;
-    [SerializeField] private float hookSpeed;
-    [SerializeField] private float withoutCameraHookSpeed = 15;
+    
     
     
     private void FixedUpdate()

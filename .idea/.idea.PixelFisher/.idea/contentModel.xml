@@ -28,6 +28,9 @@
           <e p="Boosters" t="Include">
             <e p="Booster.cs" t="Include" />
           </e>
+          <e p="BuyableBoosters" t="Include">
+            <e p="BoostedHookDeep.cs" t="Include" />
+          </e>
           <e p="Camera" t="Include">
             <e p="CameraFollow.cs" t="Include" />
           </e>
@@ -60,6 +63,7 @@
             <e p="PlayerUI.cs" t="Include" />
             <e p="Shop" t="Include">
               <e p="Shop.cs" t="Include" />
+              <e p="ShopCell.cs" t="Include" />
             </e>
           </e>
         </e>

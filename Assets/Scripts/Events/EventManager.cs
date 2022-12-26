@@ -38,16 +38,16 @@ public class EventManager : MonoBehaviour
         OnOfflineMoneyValueChanged?.Invoke();
     }
 
-    public static Action OnMoneyAdded;
-    public static Action OnMoneyRemoved;
+    public static Action OnMoneyChanged;
+    public static Action OnDiamondsChanged;
 
-    public static void OnMoneyAddedInvoke()
+    public static void OnMoneyChangedInvoke()
     {
-        OnMoneyAdded?.Invoke();
+        OnMoneyChanged?.Invoke();
     }
 
-    public static void OnMoneyRemovedInvoke()
+    public static void OnDiamondsChangedInvoke()
     {
-        OnMoneyRemoved?.Invoke();
+        OnDiamondsChanged?.Invoke();
     }
 }

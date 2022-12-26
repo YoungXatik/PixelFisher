@@ -32,9 +32,8 @@ public class Booster : MonoBehaviour
 
         BoosterSwitch();
 
-        EventManager.OnMoneyAdded += CheckForMoney;
-        EventManager.OnMoneyRemoved += CheckForMoney;
-        
+        EventManager.OnMoneyChanged += CheckForMoney;
+
         CheckForMoney();
     }
 

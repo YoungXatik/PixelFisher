@@ -53,6 +53,7 @@ public class Money : MonoBehaviour
         DOTween.To(x => DiamondsCount = x, DiamondsCount, DiamondsCount + value, 1f)
             .OnUpdate((() => shopDiamondsText.text = $"{Mathf.RoundToInt(DiamondsCount)}")).OnComplete(delegate
             {
+                EventManager.OnDiamondsChangedInvoke();
                 shopDiamondsText.text = $"{Mathf.RoundToInt(DiamondsCount)}";
             });
 
@@ -61,6 +62,7 @@ public class Money : MonoBehaviour
             _diamondsAddTween = DOTween.To(x => DiamondsCount = x, DiamondsCount, DiamondsCount + value, 1f)
                 .OnUpdate((() => missionDiamondsText.text = $"{Mathf.RoundToInt(DiamondsCount)}")).OnComplete(delegate
                 {
+                    EventManager.OnDiamondsChangedInvoke();
                     missionDiamondsText.text = $"{DiamondsCount}";
                 });
         }
@@ -72,6 +74,7 @@ public class Money : MonoBehaviour
                 _diamondsAddTween = DOTween.To(x => DiamondsCount = x, DiamondsCount, DiamondsCount + value, 1f)
                     .OnUpdate((() => missionDiamondsText.text = $"{Mathf.RoundToInt(DiamondsCount)}")).OnComplete(delegate
                     {
+                        EventManager.OnDiamondsChangedInvoke();
                         missionDiamondsText.text = $"{DiamondsCount}";
                     });
             }
@@ -80,6 +83,7 @@ public class Money : MonoBehaviour
                 _diamondsAddTween = DOTween.To(x => DiamondsCount = x, DiamondsCount, DiamondsCount + value, 1f)
                     .OnUpdate((() => missionDiamondsText.text = $"{Mathf.RoundToInt(DiamondsCount)}")).OnComplete(delegate
                     {
+                        EventManager.OnDiamondsChangedInvoke();
                         missionDiamondsText.text = $"{DiamondsCount}";
                     });
             }
@@ -93,6 +97,7 @@ public class Money : MonoBehaviour
             _diamondsRemoveTween = DOTween.To(x => DiamondsCount = x, DiamondsCount, DiamondsCount - value, 1f).
                 OnUpdate((() => shopDiamondsText.text =  $"{Mathf.RoundToInt(DiamondsCount)}")).OnComplete(delegate
                 {
+                    EventManager.OnDiamondsChangedInvoke();
                     missionDiamondsText.text = $"{DiamondsCount}";
                     shopDiamondsText.text = $"{DiamondsCount}";
                 });
@@ -105,6 +110,7 @@ public class Money : MonoBehaviour
                 _diamondsRemoveTween = DOTween.To(x => DiamondsCount = x, DiamondsCount, DiamondsCount - value, 1f).
                     OnUpdate((() => shopDiamondsText.text =  $"{Mathf.RoundToInt(DiamondsCount)}")).OnComplete(delegate
                     {
+                        EventManager.OnDiamondsChangedInvoke();
                         missionDiamondsText.text = $"{DiamondsCount}";
                         shopDiamondsText.text = $"{DiamondsCount}";
                     });
@@ -114,6 +120,7 @@ public class Money : MonoBehaviour
                 _diamondsRemoveTween = DOTween.To(x => DiamondsCount = x, DiamondsCount, DiamondsCount - value, 1f).
                     OnUpdate((() => shopDiamondsText.text =  $"{Mathf.RoundToInt(DiamondsCount)}")).OnComplete(delegate
                     {
+                        EventManager.OnDiamondsChangedInvoke();
                         missionDiamondsText.text = $"{DiamondsCount}";
                         shopDiamondsText.text = $"{DiamondsCount}";
                     });
@@ -126,7 +133,7 @@ public class Money : MonoBehaviour
          DOTween.To(x => MoneyCount = x, MoneyCount, MoneyCount + value, 1f)
             .OnUpdate((() => fishBookMoneyText.text = $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
             {
-                EventManager.OnMoneyAddedInvoke();
+                EventManager.OnMoneyChangedInvoke();
                 fishBookMoneyText.text = $"{Mathf.RoundToInt(MoneyCount)}";
                 shopMoneyText.text = $"{MoneyCount}";
             });
@@ -136,7 +143,7 @@ public class Money : MonoBehaviour
             _addTween = DOTween.To(x => MoneyCount = x, MoneyCount, MoneyCount + value, 1f)
                 .OnUpdate((() => moneyText.text = $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
                 {
-                    EventManager.OnMoneyAddedInvoke();
+                    EventManager.OnMoneyChangedInvoke();
                     shopMoneyText.text = $"{MoneyCount}";
                 });
         }
@@ -148,7 +155,7 @@ public class Money : MonoBehaviour
                 _addTween = DOTween.To(x => MoneyCount = x, MoneyCount, MoneyCount + value, 1f)
                     .OnUpdate((() => moneyText.text = $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
                     {
-                        EventManager.OnMoneyAddedInvoke();
+                        EventManager.OnMoneyChangedInvoke();
                         shopMoneyText.text = $"{MoneyCount}";
                     });
             }
@@ -157,7 +164,7 @@ public class Money : MonoBehaviour
                 _addTween = DOTween.To(x => MoneyCount = x, MoneyCount, MoneyCount + value, 1f)
                     .OnUpdate((() => moneyText.text = $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
                     {
-                        EventManager.OnMoneyAddedInvoke();
+                        EventManager.OnMoneyChangedInvoke();
                         shopMoneyText.text = $"{MoneyCount}";
                     });
             }
@@ -171,7 +178,7 @@ public class Money : MonoBehaviour
             _removeTween = DOTween.To(x => MoneyCount = x, MoneyCount, MoneyCount - value, 1f).
                 OnUpdate((() => moneyText.text =  $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
                 {
-                    EventManager.OnMoneyRemovedInvoke(); 
+                    EventManager.OnMoneyChangedInvoke(); 
                     fishBookMoneyText.text = $"{MoneyCount}";
                     shopMoneyText.text = $"{MoneyCount}";
                 });
@@ -184,7 +191,7 @@ public class Money : MonoBehaviour
                 _removeTween = DOTween.To(x => MoneyCount = x, MoneyCount, MoneyCount - value, 1f).
                     OnUpdate((() => moneyText.text =  $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
                     {
-                        EventManager.OnMoneyRemovedInvoke(); 
+                        EventManager.OnMoneyChangedInvoke();
                         fishBookMoneyText.text = $"{MoneyCount}";
                         shopMoneyText.text = $"{MoneyCount}";
                     });
@@ -194,7 +201,7 @@ public class Money : MonoBehaviour
                 _removeTween = DOTween.To(x => MoneyCount = x, MoneyCount, MoneyCount - value, 1f).
                     OnUpdate((() => moneyText.text =  $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
                     {
-                        EventManager.OnMoneyRemovedInvoke(); 
+                        EventManager.OnMoneyChangedInvoke(); 
                         fishBookMoneyText.text = $"{MoneyCount}";
                         shopMoneyText.text = $"{MoneyCount}";
                     });
