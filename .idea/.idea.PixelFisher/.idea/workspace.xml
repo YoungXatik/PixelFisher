@@ -12,19 +12,20 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Fishes/WaterColliders.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Shop/Shop.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Fishes/FishType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Farm/Assets/Scripts/Shop/Shop.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FindsList.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/PlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Fishes/FishMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../ClassRoomMaster/Assets/Scripts/Player/PlayerCamera/CameraRotation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/LevelController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DunkShotClone/Assets/Scripts/Events/EventManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard_UI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PANDEMIC/Assets/Scripts/Player/Inventory/Inventory/Item.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishBook.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FindsList.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/PlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishBook.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DunkShotClone/Assets/Scripts/Camera/LockCameraZ.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DunkShotClone/Assets/Scripts/Basket/Basket.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Fisher/FisherAnimator.cs" root0="FORCE_HIGHLIGHTING" />
@@ -56,12 +57,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FindsList.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/Fish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishBook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/UnlockFishCards.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard_UI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishesSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/Fish.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/Shop.cs" />
       </list>
     </option>
   </component>
@@ -116,6 +118,9 @@
       <workItem from="1671452325965" duration="8702000" />
       <workItem from="1671541961124" duration="4019000" />
       <workItem from="1671570803352" duration="505000" />
+      <workItem from="1671709199712" duration="1247000" />
+      <workItem from="1672003188159" duration="52000" />
+      <workItem from="1672051142545" duration="2571000" />
     </task>
     <servers />
   </component>

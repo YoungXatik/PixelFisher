@@ -58,6 +58,9 @@
               <e p="UnlockFishCards.cs" t="Include" />
             </e>
             <e p="PlayerUI.cs" t="Include" />
+            <e p="Shop" t="Include">
+              <e p="Shop.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">
