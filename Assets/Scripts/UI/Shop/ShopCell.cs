@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ShopCell : MonoBehaviour
 {
 
-    [SerializeField] private Button cellBuyButton;
+    [field: SerializeField] public Button cellBuyButton { get; private set; }
     [SerializeField] private TextMeshProUGUI costText;
 
     [SerializeField] private int cost;
@@ -21,7 +21,7 @@ public class ShopCell : MonoBehaviour
     {
         Money.Instance.RemoveDiamonds(cost);
     }
-    
+
     public void CheckCost()
     {
         if (Money.Instance.DiamondsCount >= cost)

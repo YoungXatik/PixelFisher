@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb07b6fdb82fe14eba4afc6ce93984d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellBuyButton: {fileID: 1685509572849371433}
+  <cellBuyButton>k__BackingField: {fileID: 1685509572849371433}
   costText: {fileID: 380105009049267604}
   cost: 5
 --- !u!1 &6598389180326557071

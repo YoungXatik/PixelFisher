@@ -15,7 +15,13 @@ public class BoostedHookDeep : MonoBehaviour
     [SerializeField] private Button buyButton;
     
     private bool _available;
-    
+    private ShopCell _shopCell;
+
+    private void Start()
+    {
+        _shopCell = GetComponent<ShopCell>();
+    }
+
     public void StartBooster()
     {
         Debug.Log("BoostStarted");
@@ -37,6 +43,7 @@ public class BoostedHookDeep : MonoBehaviour
     {
         if (_available)
         {
+            _shopCell.cellBuyButton.interactable = false;
             _durationCounter -= Time.deltaTime;
             if (_durationCounter <= 0)
             {

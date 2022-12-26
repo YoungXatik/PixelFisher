@@ -66,8 +66,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/Booster.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoostedHookDeep.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/ShopCell.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoostedHookDeep.cs" />
       </list>
     </option>
   </component>
@@ -124,7 +124,7 @@
       <workItem from="1671570803352" duration="505000" />
       <workItem from="1671709199712" duration="1247000" />
       <workItem from="1672003188159" duration="52000" />
-      <workItem from="1672051142545" duration="9725000" />
+      <workItem from="1672051142545" duration="10043000" />
     </task>
     <servers />
   </component>
