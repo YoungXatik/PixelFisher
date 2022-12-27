@@ -31,21 +31,7 @@ using System.Collections.Generic;
         [SerializeField] private GameObject findsMenu;
         [SerializeField] private Button findsMenuButton;
 
-        [SerializeField] private FishCard_UI fishCardPrefab;
-        
-        /*public void CreateNewCommonFishCard(FishType currentFish)
-        {
-            Debug.Log("Created new common Card with " +currentFish.fishName);
-            var cloneCard = Instantiate(fishCardPrefab, commonMenuScrollArea);
-            cloneCard.UnlockCommonOrRareCard(currentFish);
-        }
-
-        public void CreateNewRareFishCard(FishType currentFish)
-        {
-            Debug.Log("Created new Rare Card with " +currentFish.fishName);
-            var cloneCard = Instantiate(fishCardPrefab, rareMenuScrollArea);
-            cloneCard.UnlockCommonOrRareCard(currentFish);
-        }*/
+        public bool IsOpen { get; private set; } 
         
         public void OpenMainMenu()
         {
@@ -54,6 +40,7 @@ using System.Collections.Generic;
             menuImage.transform.DOScale(1, 0.5f).From(0).SetEase(Ease.Linear).OnComplete(delegate
             {
                 mainMenuCloseButton.interactable = true;
+                IsOpen = true;
             });
             
         }
@@ -71,6 +58,7 @@ using System.Collections.Generic;
                 rareMenuButton.interactable = true;
                 findsMenuButton.interactable = true;
                 commonMenuButton.interactable = true;
+                IsOpen = false;
             });
         }
 

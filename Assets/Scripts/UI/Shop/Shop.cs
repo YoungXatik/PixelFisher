@@ -7,6 +7,17 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
+    #region Singleton
+
+    public static Shop Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    #endregion
+    
     [SerializeField] private GameObject shopMainImage;
 
     [SerializeField] private GameObject diamondsScrollArea;

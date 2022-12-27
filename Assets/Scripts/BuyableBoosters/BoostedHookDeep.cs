@@ -1,4 +1,4 @@
-using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +7,8 @@ public class BoostedHookDeep : MonoBehaviour
     [SerializeField] private float duration;
     private float _durationCounter;
 
+    [SerializeField] private Sprite boosterIcon;
+    
     [Range(0.1f,1f)]
     [SerializeField] private float lengthMultiplier;
     [Range(2,4)]
@@ -17,6 +19,8 @@ public class BoostedHookDeep : MonoBehaviour
     private bool _available;
     private ShopCell _shopCell;
 
+    [SerializeField] private BoosterTimer boosterTimer;
+    
     private void Start()
     {
         _shopCell = GetComponent<ShopCell>();
@@ -29,6 +33,7 @@ public class BoostedHookDeep : MonoBehaviour
         _durationCounter = duration;
         buyButton.interactable = false;
         HookController.Instance.BoostCameraFollowLenght(lengthMultiplier,newSpeedValueMultiplier);
+        ActivateTimer();
     }
 
     private void CancelBoost()
@@ -37,6 +42,17 @@ public class BoostedHookDeep : MonoBehaviour
         _available = false;
         buyButton.interactable = true;
         HookController.Instance.CancelBoostCameraFollowLength();
+        DeactivateTimer();
+    }
+
+    private void ActivateTimer()
+    {
+        boosterTimer.ActivateTimer(duration,boosterIcon);
+    }
+
+    private void DeactivateTimer()
+    {
+        boosterTimer.DeactivateTimer();
     }
 
     private void Update()
@@ -49,10 +65,6 @@ public class BoostedHookDeep : MonoBehaviour
             {
                 CancelBoost();
             }
-        }
-        else
-        {
-            return;
         }
     }
 
