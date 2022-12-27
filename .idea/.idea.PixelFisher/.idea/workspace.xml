@@ -22,6 +22,7 @@
     <setting file="file://$PROJECT_DIR$/../DunkShotClone/Assets/Scripts/Events/EventManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard_UI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PANDEMIC/Assets/Scripts/Player/Inventory/Inventory/Item.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenuValues.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoosterTimer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishBook.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Shop/ShopCell.cs" root0="FORCE_HIGHLIGHTING" />
@@ -35,6 +36,7 @@
     <setting file="file://$PROJECT_DIR$/../DunkShotClone/Assets/Scripts/Basket/Basket.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Fisher/FisherAnimator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FishBook/UnlockFishCards.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissionCard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../MonsterCarCrashClone/Assets/Scripts/Grid/BuildingGrid.cs" root0="SKIP_HIGHLIGHTING" />
@@ -67,7 +69,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/ShopCell.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/PlayerUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishBook.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/Shop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoostedHookDeep.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoosterTimer.cs" />
@@ -78,6 +79,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenuValues.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissionCard.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
       </list>
     </option>
   </component>
@@ -135,7 +139,8 @@
       <workItem from="1671709199712" duration="1247000" />
       <workItem from="1672003188159" duration="52000" />
       <workItem from="1672051142545" duration="10191000" />
-      <workItem from="1672131325287" duration="13200000" />
+      <workItem from="1672131325287" duration="13476000" />
+      <workItem from="1672161887226" duration="3829000" />
     </task>
     <servers />
   </component>

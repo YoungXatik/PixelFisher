@@ -65,7 +65,9 @@
               <e p="UnlockFishCards.cs" t="Include" />
             </e>
             <e p="Missions" t="Include">
+              <e p="DailyMissionCard.cs" t="Include" />
               <e p="MissionMenu.cs" t="Include" />
+              <e p="MissionMenuValues.cs" t="Include" />
             </e>
             <e p="PlayerUI.cs" t="Include" />
             <e p="Shop" t="Include">

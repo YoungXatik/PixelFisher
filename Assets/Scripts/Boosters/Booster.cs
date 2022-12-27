@@ -25,15 +25,22 @@ public class Booster : MonoBehaviour
 
     [SerializeField] private BoosterValue boostValue;
 
+    private void OnEnable()
+    {
+        
+    }
+
+    private void OnDisable()
+    {
+        //EventManager.OnMoneyChanged -= CheckForMoney;
+    }
+
     private void Start()
     {
         costText.text = costValue[_currentValueLevel + 1].ToString();
         CurrentBoosterValue = boostedValue[_currentValueLevel];
-
-        BoosterSwitch();
-
         EventManager.OnMoneyChanged += CheckForMoney;
-
+        BoosterSwitch();
         CheckForMoney();
     }
 

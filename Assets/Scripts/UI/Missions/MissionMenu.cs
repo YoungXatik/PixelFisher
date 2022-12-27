@@ -30,12 +30,12 @@ public class MissionMenu : MonoBehaviour
 
     public void CloseMenu()
     {
-        menuImage.gameObject.SetActive(false);
         openButton.interactable = false;
         closeButton.interactable = false;
         menuImage.DOScale(0, 0.25f).From(1).SetEase(Ease.Linear).OnComplete(delegate
         {
             openButton.interactable = true;
+            menuImage.gameObject.SetActive(false);
         });
     }
 
