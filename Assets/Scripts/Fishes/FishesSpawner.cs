@@ -28,7 +28,10 @@ public class FishesSpawner : MonoBehaviour
 
     [SerializeField] private int fishCount;
     [SerializeField] private int rareFishCount;
-    
+
+    [SerializeField] private float rareFishMultiplier;
+
+    private float _trueRareFishMultiplier;
     private int _trueFishCount;
     private int _trueRareFishCount;
     
@@ -37,6 +40,7 @@ public class FishesSpawner : MonoBehaviour
     {
         Instance = this;
         _trueMinimalYPosition = minYPosition;
+        _trueRareFishMultiplier = rareFishMultiplier;
         EventManager.OnGameStarted += StartSpawnFish;
         EventManager.OnGameEnded += DeleteAllFishes;
     }
@@ -51,16 +55,40 @@ public class FishesSpawner : MonoBehaviour
                 commonFishPrefabs.Remove(commonFishPrefabs[i]);
             }
         }
+        _trueRareFishCount = Mathf.RoundToInt(rareFishCount * rareFishMultiplier);
+        _trueFishCount = fishCount;
+    }
+
+    public void IncreaseRareFishCount(float multiplier)
+    {
+        rareFishMultiplier = multiplier;
+    }
+
+    public void DecreaseRareFishCount()
+    {
+        rareFishMultiplier = _trueRareFishMultiplier;
+        rareFishCount = _trueRareFishCount;
     }
 
     [ContextMenu("Test Spawn")]
     public void StartSpawnFish()
     {
         _offsetY = Random.Range(minimalSpawnOffsetY, maximalSpawnOffsetY);
-        //fishCount = Mathf.RoundToInt(-maxYPosition / _offsetY);
-        _trueFishCount = fishCount;
-        _trueRareFishCount = rareFishCount;
-        for (int i = 0; i < _trueFishCount; i++)
+        
+        rareFishCount *= Mathf.RoundToInt(rareFishMultiplier);
+        
+
+        while (fishCount >= 1)
+        {
+            SpawnFish();
+        }
+
+        while (rareFishCount >= 1)
+        {
+            SpawnRareFish();
+        }
+        
+        /*for (int i = 0; i < _trueFishCount; i++)
         {
             if (fishCount <= 0)
             {
@@ -82,7 +110,7 @@ public class FishesSpawner : MonoBehaviour
             {
                 SpawnRareFish();
             }
-        }
+        }*/
     }
 
     private void SpawnFish()
@@ -130,6 +158,7 @@ public class FishesSpawner : MonoBehaviour
 
         fishCount = _trueFishCount;
         rareFishCount = _trueRareFishCount;
+        DecreaseRareFishCount();
     }
 
 }
