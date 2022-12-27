@@ -202,7 +202,7 @@ public class HookController : MonoBehaviour
     private void TakeHookUp()
     {
         _hookGoingUp = true;
-        DOTween.To(x => _trueHookSpeed = x, _trueHookSpeed, 0, 0.25f).SetEase(Ease.Linear).OnComplete(delegate
+        DOTween.To(x => _trueHookSpeed = x, _trueHookSpeed, 0, 0.1f).SetEase(Ease.Linear).OnComplete(delegate
         {
             _moveDirection = new Vector2(0, 1);
             _trueHookSpeed = hookSpeed;

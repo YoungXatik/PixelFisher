@@ -1955,7 +1955,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &255281540
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1965,7 +1965,7 @@ RectTransform:
   m_GameObject: {fileID: 255281539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1701712063}
   m_Father: {fileID: 1347336669}
@@ -4525,6 +4525,7 @@ MonoBehaviour:
   rigidbody: {fileID: 215930457}
   hookSpeed: 8
   withoutCameraHookSpeed: 20
+  hookedFish: []
   boosterComponent: {fileID: 1973034834}
 --- !u!114 &627581149
 MonoBehaviour:
@@ -4551,7 +4552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c5d2cd92a104641b0b18195a2337f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MoneyCount>k__BackingField: 1000
+  <MoneyCount>k__BackingField: 10000
   <DiamondsCount>k__BackingField: 1000
   moneyText: {fileID: 1233814140}
   fishBookMoneyText: {fileID: 1041845072}
@@ -11660,7 +11661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1347336669
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11670,7 +11671,7 @@ RectTransform:
   m_GameObject: {fileID: 1347336668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 946927142}
   - {fileID: 915950134}
@@ -12109,7 +12110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1463885451
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12119,7 +12120,7 @@ RectTransform:
   m_GameObject: {fileID: 1463885450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 632042934}
   m_Father: {fileID: 1347336669}
@@ -15981,7 +15982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1815455078
 RectTransform:
   m_ObjectHideFlags: 0
