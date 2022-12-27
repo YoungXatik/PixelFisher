@@ -59,12 +59,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FindsList.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/UnlockFishCards.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard_UI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/Fish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/PlayerUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishBook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/Shop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoostedHookDeep.cs" />
@@ -73,14 +71,16 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/SecondChance.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedRareFishCount.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenuValues.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissionCard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/Booster.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishesSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/ShopCell.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenuValues.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishType.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/PlayerUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissionCard.cs" />
       </list>
     </option>
   </component>
@@ -139,7 +139,7 @@
       <workItem from="1672003188159" duration="52000" />
       <workItem from="1672051142545" duration="10191000" />
       <workItem from="1672131325287" duration="13476000" />
-      <workItem from="1672161887226" duration="4183000" />
+      <workItem from="1672161887226" duration="7050000" />
     </task>
     <servers />
   </component>
@@ -149,9 +149,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1672150752325">
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1672167722735">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1672150752325" />
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1672167722735" />
   </component>
 </project>

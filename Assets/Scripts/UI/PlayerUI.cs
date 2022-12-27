@@ -11,8 +11,18 @@ public class PlayerUI : MonoBehaviour
     private void Start()
     {
         _uiAnimator = GetComponent<Animator>();
+    }
+
+    private void OnEnable()
+    {
         EventManager.OnGameStarted += PlayDisableAnimation;
         EventManager.OnGameEnded += PlayEnableAnimation;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnGameStarted -= PlayDisableAnimation;
+        EventManager.OnGameEnded -= PlayEnableAnimation;
     }
 
     private void PlayDisableAnimation()

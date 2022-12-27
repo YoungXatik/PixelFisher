@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MissionMenuValues : MonoBehaviour
 {
@@ -18,4 +19,13 @@ public class MissionMenuValues : MonoBehaviour
     public List<FishType> commonFishTypes = new List<FishType>();
     
     public List<FishType> rareFishTypes = new List<FishType>();
+    
+    public List<FishType> fishTypes = new List<FishType>();
+
+    public FishType PickRandomFishType()
+    {
+        var fish =  fishTypes[Random.Range(0, fishTypes.Count)];
+        fishTypes.Remove(fish);
+        return fish;
+    }
 }

@@ -16,5 +16,6 @@ MonoBehaviour:
   fishDescription: "\u0429\u0443\u043A\u0430"
   <fishSprite>k__BackingField: {fileID: 21300000, guid: 9404c9b4f95d1ec4383b629e594219ff, type: 3}
   <lockedFishSprite>k__BackingField: {fileID: 21300000, guid: 7be7c6b5957e5b346a209fc94b009cf5, type: 3}
-  isCollected: 0
+  isCollected: 1
   <FishQuality>k__BackingField: 1
+  <TotallyCatch>k__BackingField: 0

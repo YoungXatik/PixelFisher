@@ -12,6 +12,18 @@ public class FishType : ScriptableObject
     public bool isCollected;
     [field: SerializeField] public FishQuality FishQuality { get; private set; }
 
+    [field: SerializeField] public int TotallyCatch { get; private set; }
+    
+    public void IncreaseCatchValue()
+    {
+        TotallyCatch++;
+    }
+
+    public void ResetCatchValue()
+    {
+        TotallyCatch = 0;
+    }
+
 }
 public enum FishQuality
 {

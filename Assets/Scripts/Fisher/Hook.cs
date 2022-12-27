@@ -65,6 +65,7 @@ public class Hook : MonoBehaviour
             hookController.CheckForFirstFishEntry();
             hookController.hookedFish.Add(fish);
             _hookedFish.Add(fish);
+            fish.fishType.IncreaseCatchValue();
             countOfFish++;
             if (countOfFish >= maxCountOfFish)
             {
