@@ -55,23 +55,23 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FindsList.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/UnlockFishCards.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard_UI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/Fish.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/Booster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/ShopCell.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/PlayerUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishesSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedFishCost.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishBook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/Shop.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoosterTimer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoostedHookDeep.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoosterTimer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedFishCost.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
       </list>
     </option>
   </component>
@@ -129,7 +129,7 @@
       <workItem from="1671709199712" duration="1247000" />
       <workItem from="1672003188159" duration="52000" />
       <workItem from="1672051142545" duration="10191000" />
-      <workItem from="1672131325287" duration="4474000" />
+      <workItem from="1672131325287" duration="6645000" />
     </task>
     <servers />
   </component>

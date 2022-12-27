@@ -28,8 +28,6 @@ public class HookController : MonoBehaviour
 
     [SerializeField] private Vector3 startHookScale;
 
-    public List<Fish> hookedFishes = new List<Fish>();
-    
     private Vector2 _currentHookPosition;
     private Camera _mainCamera;
     private FisherAnimator _fisherAnimator;
@@ -57,7 +55,8 @@ public class HookController : MonoBehaviour
         _fisherAnimator = GetComponent<FisherAnimator>();
         startHookScale = hookTransform.localScale;
         hookTransform.localScale = Vector3.zero;
-        EventManager.OnGameEnded += SellHookedFish;
+
+        Application.targetFrameRate = 60;
     }
 
     public void BoostCameraFollowLenght(float lengthMultiplier, float newSpeedMultiplier)
@@ -224,23 +223,4 @@ public class HookController : MonoBehaviour
         });
     }
 
-    private void SellHookedFish()
-    {
-        int costSum = 0;
-        if (hookedFishes.Count != 0)
-        {
-            for (int i = 0; i < hookedFishes.Count; i++)
-            {
-                costSum += hookedFishes[i].fishCost;
-                Destroy(hookedFishes[i].gameObject);
-            }
-        }
-        else
-        {
-            Debug.Log("No fishes for sell");
-        }
-        hookedFishes.Clear();
-        Money.Instance.AddMoney(costSum);
-    }
-    
 }
