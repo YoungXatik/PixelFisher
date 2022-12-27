@@ -47,14 +47,12 @@ public class Shop : MonoBehaviour
             closeShopButton.interactable = false;
             diamondsMenuButton.interactable = false;
             boostersMenuButton.interactable = false;
-            shopMainImage.SetActive(false);
         });
     }
 
     public void OpenDiamondsArea()
     {
         CloseBoosterArea();
-        diamondsScrollArea.SetActive(true);
         diamondsMenuButton.interactable = false;
         closeShopButton.interactable = false;
         diamondsScrollArea.transform.DOScale(1, 0.25f).SetEase(Ease.Linear).From(0).OnComplete(delegate
@@ -65,7 +63,6 @@ public class Shop : MonoBehaviour
 
     public void CloseDiamondsArea()
     {
-        diamondsScrollArea.SetActive(false);
         closeShopButton.interactable = false;
         diamondsScrollArea.transform.DOScale(0, 0.25f).SetEase(Ease.Linear).From(0).OnComplete(delegate
         {
@@ -77,7 +74,6 @@ public class Shop : MonoBehaviour
     public void OpenBoosterArea()
     {
         CloseDiamondsArea();
-        boostersScrollArea.SetActive(true);
         boostersMenuButton.interactable = false;
         closeShopButton.interactable = false;
         boostersScrollArea.transform.DOScale(1, 0.25f).SetEase(Ease.Linear).From(0).OnComplete(delegate
@@ -88,7 +84,6 @@ public class Shop : MonoBehaviour
 
     public void CloseBoosterArea()
     {
-        boostersScrollArea.SetActive(false);
         closeShopButton.interactable = false;
         boostersScrollArea.transform.DOScale(0, 0.25f).SetEase(Ease.Linear).From(0).OnComplete(delegate
         {

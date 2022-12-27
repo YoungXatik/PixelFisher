@@ -127,6 +127,9 @@ public class FishesSpawner : MonoBehaviour
         }
         spawnedFish.Clear();
         minYPosition = _trueMinimalYPosition;
+
+        fishCount = _trueFishCount;
+        rareFishCount = _trueRareFishCount;
     }
 
 }

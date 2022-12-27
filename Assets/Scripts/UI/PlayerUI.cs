@@ -35,7 +35,7 @@ public class PlayerUI : MonoBehaviour
     {
         for (int i = 0; i < uiObjects.Length; i++)
         {
-            uiObjects[i].SetActive(false);
+            //uiObjects[i].SetActive(false);
         }
     }
 
@@ -43,7 +43,7 @@ public class PlayerUI : MonoBehaviour
     {
         for (int i = 0; i < uiObjects.Length; i++)
         {
-            uiObjects[i].SetActive(true);
+            //uiObjects[i].SetActive(true);
         }
     }
 }
