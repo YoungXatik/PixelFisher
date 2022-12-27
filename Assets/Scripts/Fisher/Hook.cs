@@ -50,6 +50,7 @@ public class Hook : MonoBehaviour
         if (other.gameObject.TryGetComponent<Fish>(out fish))
         {
             hookController.CheckForFirstFishEntry();
+            hookController.hookedFish.Add(fish);
             _hookedFish.Add(fish);
             countOfFish++;
             if (countOfFish >= maxCountOfFish)

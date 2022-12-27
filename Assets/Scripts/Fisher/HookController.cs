@@ -7,7 +7,7 @@ using UnityEngine;
 public class HookController : MonoBehaviour
 {
     public static HookController Instance;
-    
+
     [SerializeField] private CameraFollow cameraFollow;
     [SerializeField] private Transform hookTransform;
     [SerializeField] private Transform fishingHookTransform;
@@ -36,7 +36,7 @@ public class HookController : MonoBehaviour
 
     private Tween _movementXTween;
     private Tween _movementYTween;
-    
+
     private bool _canMoveDown;
     private Vector2 _moveDirection;
     private float _trueHookSpeed;
@@ -44,9 +44,11 @@ public class HookController : MonoBehaviour
     private bool _hookGoingUp;
     [SerializeField] private Rigidbody2D rigidbody;
     [SerializeField] private float hookSpeed;
-    
+
     [SerializeField] private float withoutCameraHookSpeed = 15;
     private float _trueWithoutCameraHookSpeed;
+
+    public List<Fish> hookedFish = new List<Fish>();
 
     private void Awake()
     {
@@ -70,7 +72,7 @@ public class HookController : MonoBehaviour
         cameraFollowLength = _trueCameraFollowLength;
         withoutCameraHookSpeed = _trueWithoutCameraHookSpeed;
     }
-    
+
     private void Update()
     {
         XAxisMovement();
@@ -82,10 +84,11 @@ public class HookController : MonoBehaviour
         EventManager.OnLengthValueChanged += UpdateHookLength;
         _trueCameraFollowLength = cameraFollowLength;
         _trueWithoutCameraHookSpeed = withoutCameraHookSpeed;
+        _trueFishesToTakeHookUp = _fishesToTakeHookUp;
     }
 
     [SerializeField] private Booster boosterComponent;
-    
+
     private void UpdateHookLength()
     {
         hookMaxLength = -boosterComponent.CurrentBoosterValue;
@@ -131,12 +134,9 @@ public class HookController : MonoBehaviour
             hookCollider.enabled = true;
             cameraFollow.SetHookIsTarget(hookTransform);
         });
-        
     }
 
-    
-    
-    
+
     private void FixedUpdate()
     {
         if (_canMoveDown)
@@ -170,12 +170,28 @@ public class HookController : MonoBehaviour
         _canMove = true;
     }
 
+    public void IncreaseFishesToTakeHookUp(int value)
+    {
+        _fishesToTakeHookUp = value;
+    }
+
+    public void DecreaseFishedToTakeHookUp()
+    {
+        _fishesToTakeHookUp = _trueFishesToTakeHookUp;
+    }
+
+    private int _fishesToTakeHookUp = 0;
+    private int _trueFishesToTakeHookUp;
+
     public void CheckForFirstFishEntry()
     {
         if (!_hookReachMaxLength)
         {
-            _hookReachMaxLength = true;
-            TakeHookUp();
+            if (hookedFish.Count > _fishesToTakeHookUp)
+            {
+                _hookReachMaxLength = true;
+                TakeHookUp();
+            }
         }
         else
         {
@@ -219,8 +235,8 @@ public class HookController : MonoBehaviour
             _fisherAnimator.EndFishingAnimation();
             cameraFollow.SetTargetToNull();
             cameraFollow.ChangeCameraPosition(startHookPosition);
+            //_hookReachMaxLength = false;
             EventManager.OnGameEndedInvoke();
         });
     }
-
 }

@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IncreasedRareFishCount : MonoBehaviour
+public class SecondChance : MonoBehaviour
 {
     [SerializeField] private float duration;
     private float _durationCounter;
 
     [SerializeField] private Sprite boosterIcon;
 
-    [Range(2,4)] 
-    [SerializeField] private int increasedRareFishMultiplier;
+    [Range(1f,3f)] 
+    [SerializeField] private int increasedFishCountValue;
 
     [SerializeField] private Button buyButton;
 
@@ -31,7 +31,7 @@ public class IncreasedRareFishCount : MonoBehaviour
         _available = true;
         _durationCounter = duration;
         buyButton.interactable = false;
-        FishesSpawner.Instance.IncreaseRareFishCount(increasedRareFishMultiplier);
+        HookController.Instance.IncreaseFishesToTakeHookUp(increasedFishCountValue);
         ActivateTimer();
     }
 
@@ -40,7 +40,7 @@ public class IncreasedRareFishCount : MonoBehaviour
         Debug.Log("BoostFinished");
         _available = false;
         buyButton.interactable = true;
-        FishesSpawner.Instance.DecreaseRareFishCount();
+        HookController.Instance.DecreaseFishedToTakeHookUp();
         DeactivateTimer();
     }
 

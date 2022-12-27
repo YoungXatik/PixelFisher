@@ -27,6 +27,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Shop/ShopCell.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedRareFishCount.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FindsList.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/SecondChance.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/PlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -70,10 +71,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoostedHookDeep.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoosterTimer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedFishCost.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishesSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/SecondChance.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedRareFishCount.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedRareFishCount.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishesSpawner.cs" />
       </list>
     </option>
   </component>
@@ -131,7 +133,7 @@
       <workItem from="1671709199712" duration="1247000" />
       <workItem from="1672003188159" duration="52000" />
       <workItem from="1672051142545" duration="10191000" />
-      <workItem from="1672131325287" duration="8382000" />
+      <workItem from="1672131325287" duration="10608000" />
     </task>
     <servers />
   </component>
