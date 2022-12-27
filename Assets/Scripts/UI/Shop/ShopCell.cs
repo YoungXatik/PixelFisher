@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,8 +14,18 @@ public class ShopCell : MonoBehaviour
     private void Start()
     {
         costText.text = $"{cost}";
-        EventManager.OnDiamondsChanged += CheckCost;
+        
         CheckCost();
+    }
+
+    private void OnEnable()
+    {
+        EventManager.OnDiamondsChanged += CheckCost;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnDiamondsChanged -= CheckCost;
     }
 
     public void Buy()

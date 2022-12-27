@@ -41,8 +41,19 @@ public class FishesSpawner : MonoBehaviour
         Instance = this;
         _trueMinimalYPosition = minYPosition;
         _trueRareFishMultiplier = rareFishMultiplier;
+        
+    }
+
+    private void OnEnable()
+    {
         EventManager.OnGameStarted += StartSpawnFish;
         EventManager.OnGameEnded += DeleteAllFishes;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnGameStarted -= StartSpawnFish;
+        EventManager.OnGameEnded -= DeleteAllFishes;
     }
 
     private void Start()

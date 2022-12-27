@@ -78,10 +78,19 @@ public class HookController : MonoBehaviour
         XAxisMovement();
     }
 
+    private void OnEnable()
+    {
+        EventManager.OnLengthValueChanged += UpdateHookLength;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnLengthValueChanged -= UpdateHookLength;
+    }
+
     private void Start()
     {
         UpdateHookLength();
-        EventManager.OnLengthValueChanged += UpdateHookLength;
         _trueCameraFollowLength = cameraFollowLength;
         _trueWithoutCameraHookSpeed = withoutCameraHookSpeed;
         _trueFishesToTakeHookUp = _fishesToTakeHookUp;

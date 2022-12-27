@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,12 +31,24 @@ public class Hook : MonoBehaviour
     private void Start()
     {
         _hookTransform = GetComponent<Transform>();
-        EventManager.OnStrengthValueChanged += UpdateStrengthValue;
-        EventManager.OnGameEnded += RefreshCountOfFishValue;
-        EventManager.OnGameEnded += SellHookedFish;
+        
         UpdateStrengthValue();
 
         _trueFishCostMultiplier = fishCostMultiplier;
+    }
+
+    private void OnEnable()
+    {
+        EventManager.OnStrengthValueChanged += UpdateStrengthValue;
+        EventManager.OnGameEnded += RefreshCountOfFishValue;
+        EventManager.OnGameEnded += SellHookedFish;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnStrengthValueChanged -= UpdateStrengthValue;
+        EventManager.OnGameEnded -= RefreshCountOfFishValue;
+        EventManager.OnGameEnded -= SellHookedFish;
     }
 
     private void UpdateStrengthValue()

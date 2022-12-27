@@ -27,19 +27,18 @@ public class Booster : MonoBehaviour
 
     private void OnEnable()
     {
-        
+        EventManager.OnMoneyChanged += CheckForMoney;
     }
 
     private void OnDisable()
     {
-        //EventManager.OnMoneyChanged -= CheckForMoney;
+        EventManager.OnMoneyChanged -= CheckForMoney;
     }
 
     private void Start()
     {
         costText.text = costValue[_currentValueLevel + 1].ToString();
         CurrentBoosterValue = boostedValue[_currentValueLevel];
-        EventManager.OnMoneyChanged += CheckForMoney;
         BoosterSwitch();
         CheckForMoney();
     }
