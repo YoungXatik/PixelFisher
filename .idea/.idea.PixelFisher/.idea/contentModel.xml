@@ -65,6 +65,7 @@
             </e>
             <e p="Missions" t="Include">
               <e p="DailyMissionCard.cs" t="Include" />
+              <e p="MissionChestReward.cs" t="Include" />
               <e p="MissionMenu.cs" t="Include" />
               <e p="MissionMenuValues.cs" t="Include" />
             </e>

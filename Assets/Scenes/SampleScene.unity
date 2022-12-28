@@ -1635,6 +1635,7 @@ GameObject:
   - component: {fileID: 184422803}
   - component: {fileID: 184422805}
   - component: {fileID: 184422804}
+  - component: {fileID: 184422808}
   - component: {fileID: 184422806}
   - component: {fileID: 184422807}
   m_Layer: 5
@@ -1760,6 +1761,26 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fbff1bc14f930a34ca7947329823e907, type: 2}
   - {fileID: 11400000, guid: be10bb2d1e86643468853e058b025f0a, type: 2}
   - {fileID: 11400000, guid: 526dddf82e929f6499e137334d4f92b4, type: 2}
+--- !u!114 &184422808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184422802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43fcb201e3c33fc4b92fe5d89148996c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <FishCoins>k__BackingField: 0
+  fishCoinsCountText: {fileID: 936695432}
+  textReaches:
+  - {fileID: 2014712177}
+  - {fileID: 1085078706}
+  - {fileID: 367268629}
+  textReachesValues: 960000002c010000c2010000
+  progressBarImage: {fileID: 2134838852}
 --- !u!1001 &189096255
 PrefabInstance:
   m_ObjectHideFlags: 0

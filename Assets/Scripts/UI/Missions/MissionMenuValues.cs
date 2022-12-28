@@ -24,7 +24,7 @@ public class MissionMenuValues : MonoBehaviour
 
     public FishType PickRandomFishType()
     {
-        var fish =  fishTypes[Random.Range(0, fishTypes.Count)];
+        var fish =  fishTypes[0];
         fishTypes.Remove(fish);
         return fish;
     }

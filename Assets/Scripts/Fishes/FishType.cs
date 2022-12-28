@@ -13,6 +13,8 @@ public class FishType : ScriptableObject
     [field: SerializeField] public FishQuality FishQuality { get; private set; }
 
     [field: SerializeField] public int TotallyCatch { get; private set; }
+
+    public bool isAchieved;
     
     public void IncreaseCatchValue()
     {

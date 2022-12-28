@@ -19,3 +19,4 @@ MonoBehaviour:
   isCollected: 1
   <FishQuality>k__BackingField: 1
   <TotallyCatch>k__BackingField: 0
+  isAchieved: 0
