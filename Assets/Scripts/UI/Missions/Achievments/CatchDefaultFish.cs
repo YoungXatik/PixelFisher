@@ -20,12 +20,17 @@ public class CatchDefaultFish : MonoBehaviour, ICatchable
     private void OnEnable()
     {
         EventManager.OnCommonFishHooked += UpdateAchievementValue;
-        UpdateAchievementValue();
+        _step = 1f / needCatchValue;
+        UpdateUI();
     }
 
     private void OnDisable()
     {
         EventManager.OnCommonFishHooked -= UpdateAchievementValue;
+        if (PlayerPrefs.HasKey("HookedCommonFish"))
+        {
+            currentCatchValue = PlayerPrefs.GetInt("HookedCommonFish");
+        }
     }
 
     private void Start()
@@ -33,9 +38,7 @@ public class CatchDefaultFish : MonoBehaviour, ICatchable
         currentCatchValue = PlayerPrefs.GetInt("HookedCommonFish");
         coinsRewardText.text = $"{coinsReward}";
         fishCoinsRewardText.text = $"{fishCoinsReward}";
-        _step = 1f / needCatchValue;
         getRewardButton.interactable = false;
-        UpdateAchievementValue();
 
         if (PlayerPrefs.GetInt("CommonFishRewardTaken") == 1)
         {
@@ -46,7 +49,14 @@ public class CatchDefaultFish : MonoBehaviour, ICatchable
             return;
         }
 
-        currentCatchValue = 0;
+        if (PlayerPrefs.HasKey("HookedCommonFish"))
+        {
+            currentCatchValue = PlayerPrefs.GetInt("HookedCommonFish");
+        }
+        else
+        {
+            currentCatchValue = 0;
+        }
     }
 
     public void UpdateAchievementValue()
@@ -63,6 +73,7 @@ public class CatchDefaultFish : MonoBehaviour, ICatchable
 
     public void UpdateUI()
     {
+        currentCatchValue = PlayerPrefs.GetInt("HookedCommonFish");
         descriptionText.text = description;
         progressText.text = $"{currentCatchValue}/{needCatchValue}";
         UpdateProgressBar();

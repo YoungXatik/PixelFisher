@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CatchRareFish : MonoBehaviour, ICatchable
+public class CatchHookDrops : MonoBehaviour, ICatchable
 {
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Image progressImage;
@@ -21,23 +21,19 @@ public class CatchRareFish : MonoBehaviour, ICatchable
 
     private void OnEnable()
     {
-        EventManager.OnRareFishHooked += UpdateAchievementValue;
+        EventManager.OnGameStarted += UpdateAchievementValue;
         _step = 1f / needCatchValue;
         UpdateUI();
     }
 
     private void OnDisable()
     {
-        EventManager.OnRareFishHooked -= UpdateAchievementValue;
-        if (PlayerPrefs.HasKey("HookedRareFish"))
-        {
-            currentCatchValue = PlayerPrefs.GetInt("HookedRareFish");
-        }
+        EventManager.OnGameStarted -= UpdateAchievementValue;
     }
 
     private void Start()
     {
-        currentCatchValue = PlayerPrefs.GetInt("HookedRareFish");
+        currentCatchValue = PlayerPrefs.GetInt("HookDrops");
         coinsRewardText.text = $"{coinsReward}";
         fishCoinsRewardText.text = $"{fishCoinsReward}";
         getRewardButton.interactable = false;
@@ -51,9 +47,9 @@ public class CatchRareFish : MonoBehaviour, ICatchable
             return;
         }
         
-        if (PlayerPrefs.HasKey("HookedRareFish"))
+        if (PlayerPrefs.HasKey("HookDrops"))
         {
-            currentCatchValue = PlayerPrefs.GetInt("HookedRareFish");
+            currentCatchValue = PlayerPrefs.GetInt("HookDrops");
         }
         else
         {
@@ -64,7 +60,7 @@ public class CatchRareFish : MonoBehaviour, ICatchable
     public void UpdateAchievementValue()
     {
         currentCatchValue++;
-        PlayerPrefs.SetInt("HookedRareFish",currentCatchValue);
+        PlayerPrefs.SetInt("HookDrops",currentCatchValue);
         if (currentCatchValue >= needCatchValue)
         {
             UnlockReward();
@@ -75,7 +71,7 @@ public class CatchRareFish : MonoBehaviour, ICatchable
 
     public void UpdateUI()
     {
-        currentCatchValue = PlayerPrefs.GetInt("HookedRareFish");
+        currentCatchValue = PlayerPrefs.GetInt("HookDrops");
         descriptionText.text = description;
         progressText.text = $"{currentCatchValue}/{needCatchValue}";
         UpdateProgressBar();
@@ -96,8 +92,8 @@ public class CatchRareFish : MonoBehaviour, ICatchable
         Money.Instance.AddMoney(coinsReward);
         MissionChestReward.Instance.AddFishCoins(fishCoinsReward);
         getRewardButton.interactable = false;
-        PlayerPrefs.SetInt("RareFishRewardTaken", true ? 1 : 0);
-        Debug.Log(PlayerPrefs.GetInt("RareFishRewardTaken"));
+        PlayerPrefs.SetInt("HookDropsRewardTaken", true ? 1 : 0);
+        Debug.Log(PlayerPrefs.GetInt("HookDropsRewardTaken"));
         Destroy(gameObject);
     }
 }

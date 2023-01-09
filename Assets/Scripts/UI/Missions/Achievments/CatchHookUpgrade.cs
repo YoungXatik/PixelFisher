@@ -53,7 +53,7 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
 
     public void UpdateAchievementValue()
     {
-        currentCatchValue = PlayerPrefs.GetInt("HookLengthLevel");
+        currentCatchValue = PlayerPrefs.GetInt("HookLengthLevel") + 1;
         if (currentCatchValue >= needCatchValue)
         {
             UnlockReward();

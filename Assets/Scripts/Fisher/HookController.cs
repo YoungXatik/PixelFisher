@@ -244,7 +244,7 @@ public class HookController : MonoBehaviour
             _fisherAnimator.EndFishingAnimation();
             cameraFollow.SetTargetToNull();
             cameraFollow.ChangeCameraPosition(startHookPosition);
-            //_hookReachMaxLength = false;
+            _hookReachMaxLength = false;
             EventManager.OnGameEndedInvoke();
         });
     }

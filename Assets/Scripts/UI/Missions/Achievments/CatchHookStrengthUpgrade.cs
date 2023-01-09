@@ -54,7 +54,7 @@ public class CatchHookStrengthUpgrade :  MonoBehaviour,ICatchable
 
     public void UpdateAchievementValue()
     {
-        currentCatchValue = PlayerPrefs.GetInt("HookStrengthLevel");
+        currentCatchValue = PlayerPrefs.GetInt("HookStrengthLevel") + 1;
         if (currentCatchValue >= needCatchValue)
         {
             UnlockReward();
