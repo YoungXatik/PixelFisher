@@ -89,11 +89,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissionCard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/IAchievmentable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenu.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/BoosterValues.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookStrengthUpgrade.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookUpgrade.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookStrengthUpgrade.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/Booster.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" />
       </list>
     </option>
   </component>
@@ -154,7 +154,7 @@
       <workItem from="1672131325287" duration="13476000" />
       <workItem from="1672161887226" duration="7050000" />
       <workItem from="1672234494113" duration="3355000" />
-      <workItem from="1673255498001" duration="11635000" />
+      <workItem from="1673255498001" duration="12706000" />
     </task>
     <servers />
   </component>

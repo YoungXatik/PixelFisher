@@ -39,18 +39,23 @@ public class CatchHookStrengthUpgrade :  MonoBehaviour,ICatchable
         coinsRewardText.text = $"{coinsReward}";
         fishCoinsRewardText.text = $"{fishCoinsReward}";
         _step = 1f / needCatchValue;
+        getRewardButton.interactable = false;
         UpdateAchievementValue();
 
-        if (currentCatchValue >= needCatchValue)
+        if (PlayerPrefs.GetInt("StrengthRewardTaken") == 1)
         {
             Destroy(gameObject);
+        }
+        else
+        {
+            return;
         }
     }
 
     public void UpdateAchievementValue()
     {
         currentCatchValue = PlayerPrefs.GetInt("HookStrengthLevel");
-        if (currentCatchValue == needCatchValue)
+        if (currentCatchValue >= needCatchValue)
         {
             UnlockReward();
         }
@@ -79,6 +84,8 @@ public class CatchHookStrengthUpgrade :  MonoBehaviour,ICatchable
         Money.Instance.AddMoney(coinsReward);
         MissionChestReward.Instance.AddFishCoins(fishCoinsReward);
         getRewardButton.interactable = false;
+        PlayerPrefs.SetInt("StrengthRewardTaken",true ? 1 : 0);
+        Debug.Log(PlayerPrefs.GetInt("StrengthRewardTaken"));
         Destroy(gameObject);
     }
 }

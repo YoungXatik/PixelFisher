@@ -24,7 +24,7 @@ public class Money : MonoBehaviour
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI fishBookMoneyText;
     [SerializeField] private TextMeshProUGUI shopMoneyText;
-    
+
     [SerializeField] private TextMeshProUGUI shopDiamondsText;
     [SerializeField] private TextMeshProUGUI missionDiamondsText;
 

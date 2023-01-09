@@ -38,6 +38,7 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
         coinsRewardText.text = $"{coinsReward}";
         fishCoinsRewardText.text = $"{fishCoinsReward}";
         _step = 1f / needCatchValue;
+        getRewardButton.interactable = false;
         UpdateAchievementValue();
 
         if (PlayerPrefs.GetInt("LengthRewardTaken") == 1)
@@ -53,7 +54,7 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
     public void UpdateAchievementValue()
     {
         currentCatchValue = PlayerPrefs.GetInt("HookLengthLevel");
-        if (currentCatchValue == needCatchValue)
+        if (currentCatchValue >= needCatchValue)
         {
             UnlockReward();
         }
