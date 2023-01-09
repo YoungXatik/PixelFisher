@@ -37,6 +37,18 @@ public class Money : MonoBehaviour
     private void Start()
     { 
         UpdateUI();
+
+        if (PlayerPrefs.HasKey("Money"))
+        {
+            MoneyCount = PlayerPrefs.GetFloat("Money");
+            UpdateUI();
+        }
+
+        if (PlayerPrefs.HasKey("Diamonds"))
+        {
+            DiamondsCount = PlayerPrefs.GetFloat("Diamonds");
+            UpdateUI();
+        }
     }
 
     private void UpdateUI()
@@ -55,6 +67,7 @@ public class Money : MonoBehaviour
             {
                 EventManager.OnDiamondsChangedInvoke();
                 shopDiamondsText.text = $"{Mathf.RoundToInt(DiamondsCount)}";
+                PlayerPrefs.SetFloat("Diamonds",DiamondsCount);
             });
 
         if (_diamondsAddTween == null)
@@ -64,6 +77,7 @@ public class Money : MonoBehaviour
                 {
                     EventManager.OnDiamondsChangedInvoke();
                     missionDiamondsText.text = $"{DiamondsCount}";
+                    PlayerPrefs.SetFloat("Diamonds",DiamondsCount);
                 });
         }
         else
@@ -76,6 +90,7 @@ public class Money : MonoBehaviour
                     {
                         EventManager.OnDiamondsChangedInvoke();
                         missionDiamondsText.text = $"{DiamondsCount}";
+                        PlayerPrefs.SetFloat("Diamonds",DiamondsCount);
                     });
             }
             else
@@ -85,6 +100,7 @@ public class Money : MonoBehaviour
                     {
                         EventManager.OnDiamondsChangedInvoke();
                         missionDiamondsText.text = $"{DiamondsCount}";
+                        PlayerPrefs.SetFloat("Diamonds",DiamondsCount);
                     });
             }
         }
@@ -100,6 +116,7 @@ public class Money : MonoBehaviour
                     EventManager.OnDiamondsChangedInvoke();
                     missionDiamondsText.text = $"{DiamondsCount}";
                     shopDiamondsText.text = $"{DiamondsCount}";
+                    PlayerPrefs.SetFloat("Diamonds",DiamondsCount);
                 });
         }
         else
@@ -113,6 +130,7 @@ public class Money : MonoBehaviour
                         EventManager.OnDiamondsChangedInvoke();
                         missionDiamondsText.text = $"{DiamondsCount}";
                         shopDiamondsText.text = $"{DiamondsCount}";
+                        PlayerPrefs.SetFloat("Diamonds",DiamondsCount);
                     });
             }
             else
@@ -123,6 +141,7 @@ public class Money : MonoBehaviour
                         EventManager.OnDiamondsChangedInvoke();
                         missionDiamondsText.text = $"{DiamondsCount}";
                         shopDiamondsText.text = $"{DiamondsCount}";
+                        PlayerPrefs.SetFloat("Diamonds",DiamondsCount);
                     });
             }
         }
@@ -136,6 +155,7 @@ public class Money : MonoBehaviour
                 EventManager.OnMoneyChangedInvoke();
                 fishBookMoneyText.text = $"{Mathf.RoundToInt(MoneyCount)}";
                 shopMoneyText.text = $"{MoneyCount}";
+                PlayerPrefs.SetFloat("Money",MoneyCount);
             });
         
         if (_addTween == null)
@@ -145,6 +165,7 @@ public class Money : MonoBehaviour
                 {
                     EventManager.OnMoneyChangedInvoke();
                     shopMoneyText.text = $"{MoneyCount}";
+                    PlayerPrefs.SetFloat("Money",MoneyCount);
                 });
         }
         else
@@ -157,6 +178,7 @@ public class Money : MonoBehaviour
                     {
                         EventManager.OnMoneyChangedInvoke();
                         shopMoneyText.text = $"{MoneyCount}";
+                        PlayerPrefs.SetFloat("Money",MoneyCount);
                     });
             }
             else
@@ -166,6 +188,7 @@ public class Money : MonoBehaviour
                     {
                         EventManager.OnMoneyChangedInvoke();
                         shopMoneyText.text = $"{MoneyCount}";
+                        PlayerPrefs.SetFloat("Money",MoneyCount);
                     });
             }
         }
@@ -181,6 +204,7 @@ public class Money : MonoBehaviour
                     EventManager.OnMoneyChangedInvoke(); 
                     fishBookMoneyText.text = $"{MoneyCount}";
                     shopMoneyText.text = $"{MoneyCount}";
+                    PlayerPrefs.SetFloat("Money",MoneyCount);
                 });
         }
         else
@@ -194,6 +218,7 @@ public class Money : MonoBehaviour
                         EventManager.OnMoneyChangedInvoke();
                         fishBookMoneyText.text = $"{MoneyCount}";
                         shopMoneyText.text = $"{MoneyCount}";
+                        PlayerPrefs.SetFloat("Money",MoneyCount);
                     });
             }
             else
@@ -204,6 +229,7 @@ public class Money : MonoBehaviour
                         EventManager.OnMoneyChangedInvoke(); 
                         fishBookMoneyText.text = $"{MoneyCount}";
                         shopMoneyText.text = $"{MoneyCount}";
+                        PlayerPrefs.SetFloat("Money",MoneyCount);
                     });
             }
         }

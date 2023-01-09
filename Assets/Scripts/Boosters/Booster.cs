@@ -14,7 +14,7 @@ public class Booster : MonoBehaviour
     public List<int> boostedValue = new List<int>();
     public List<int> costValue = new List<int>();
 
-    public int _currentValueLevel { get; private set; }
+    public int currentValueLevel;
     
     [field: SerializeField] public int CurrentBoosterValue { get; private set; }
 
@@ -37,9 +37,32 @@ public class Booster : MonoBehaviour
 
     private void Start()
     {
-        costText.text = costValue[_currentValueLevel + 1].ToString();
-        CurrentBoosterValue = boostedValue[_currentValueLevel];
-        BoosterSwitch();
+        costText.text = costValue[currentValueLevel + 1].ToString();
+        CurrentBoosterValue = boostedValue[currentValueLevel];
+
+        UpdateCurrentValueLevel();
+    }
+
+    public void UpdateCurrentValueLevel()
+    {
+        switch (boostValue)
+        {
+            case BoosterValue.Length:
+                currentValueLevel = PlayerPrefs.GetInt("HookLengthLevel");
+                currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("HookLengthLevel")]}m";
+                costText.text = costValue[currentValueLevel + 1].ToString();
+                break;
+            case BoosterValue.Strength:
+                currentValueLevel = PlayerPrefs.GetInt("HookStrengthLevel");
+                currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("HookStrengthLevel")]}fishes";
+                costText.text = costValue[currentValueLevel + 1].ToString();
+                break;
+            case BoosterValue.OfflineMoney:
+                currentValueLevel = PlayerPrefs.GetInt("OfflineMoneyLevel");
+                currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("OfflineMoneyLevel")]}min";
+                costText.text = costValue[currentValueLevel + 1].ToString();
+                break;
+        }
         CheckForMoney();
     }
 
@@ -47,11 +70,11 @@ public class Booster : MonoBehaviour
     {
         if (CurrentBoosterValue != costValue[costValue.Count - 1])
         {
-            if (costValue[_currentValueLevel + 1] > Money.Instance.MoneyCount)
+            if (costValue[currentValueLevel + 1] > Money.Instance.MoneyCount)
             {
                 buyButton.interactable = false;
             }
-            else if (costValue[_currentValueLevel + 1] <= Money.Instance.MoneyCount)
+            else if (costValue[currentValueLevel + 1] <= Money.Instance.MoneyCount)
             {
                 buyButton.interactable = true;
             }
@@ -63,11 +86,11 @@ public class Booster : MonoBehaviour
         
         if (CurrentBoosterValue != boostedValue[boostedValue.Count - 1])
         {
-            if (Money.Instance.MoneyCount >= costValue[_currentValueLevel+1])
+            if (Money.Instance.MoneyCount >= costValue[currentValueLevel+1])
             {
-                _currentValueLevel++;
-                Money.Instance.RemoveMoney(costValue[_currentValueLevel]);
-                CurrentBoosterValue = boostedValue[_currentValueLevel];
+                currentValueLevel++;
+                Money.Instance.RemoveMoney(costValue[currentValueLevel]);
+                CurrentBoosterValue = boostedValue[currentValueLevel];
                 UpdateUI();
                 CheckForMoney();
             }
@@ -86,7 +109,7 @@ public class Booster : MonoBehaviour
     {
         if (CurrentBoosterValue != boostedValue[boostedValue.Count - 1])
         {
-            costText.text = costValue[_currentValueLevel +1].ToString();
+            costText.text = costValue[currentValueLevel +1].ToString();
             BoosterSwitch();
         }
         else
@@ -101,15 +124,15 @@ public class Booster : MonoBehaviour
         {
             case BoosterValue.Length:
                 EventManager.OnLengthValueChangedInvoke();
-                currentValue.text = $"{boostedValue[_currentValueLevel]}m";
+                currentValue.text = $"{boostedValue[currentValueLevel]}m";
                 break;
             case BoosterValue.Strength:
                 EventManager.OnStrengthValueChangedInvoke();
-                currentValue.text = $"{boostedValue[_currentValueLevel]}fishes";
+                currentValue.text = $"{boostedValue[currentValueLevel]}fishes";
                 break;
             case BoosterValue.OfflineMoney:
                 EventManager.OnOfflineMoneyValueChangedInvoke();
-                currentValue.text = $"{boostedValue[_currentValueLevel]}/min";
+                currentValue.text = $"{boostedValue[currentValueLevel]}/min";
                 break;
         }
     }

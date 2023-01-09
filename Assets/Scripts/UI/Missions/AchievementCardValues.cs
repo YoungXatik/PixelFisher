@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class DailyMissionCard : MonoBehaviour
+public class AchievementCardValues : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Image progressImage;
@@ -24,35 +24,18 @@ public class DailyMissionCard : MonoBehaviour
 
     private void Start()
     {
-        CreateMissionCardValues();
         UpdateUI();
     }
 
-    private void OnEnable()
+    private void UpdateAchievementValue()
     {
-        if (FishType != null)
-        {
-            UpdateUI();
-        }
+        
     }
-
-    private void CreateMissionCardValues()
-    {
-        FishType = MissionMenuValues.Instance.PickRandomFishType();
-        description = $"Поймать {needCatchValue} {FishType.fishName}";
-        coinsReward = Random.Range(needCatchValue * 5, needCatchValue * 10);
-        fishCoinsReward = Random.Range(needCatchValue * 5, needCatchValue * 10);
-    }
-
+    
     [SerializeField] private float step;
     private void UpdateUI()
     {
-        descriptionText.text = description;
-        currentCatchValue = FishType.TotallyCatch;
-        progressText.text = $"{currentCatchValue}/{needCatchValue}";
-        coinsRewardText.text = $"{coinsReward}";
-        fishCoinsRewardText.text = $"{fishCoinsReward}";
-        UpdateProgressBar();
+        
         if (currentCatchValue == needCatchValue)
         {
             UnlockReward();

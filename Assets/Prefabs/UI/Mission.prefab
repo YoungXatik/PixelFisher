@@ -120,7 +120,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 448385855750026612}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DailyMissionCard, Assembly-CSharp
         m_MethodName: TakeReward
         m_Mode: 1
@@ -833,7 +833,6 @@ GameObject:
   - component: {fileID: 3366859820047507796}
   - component: {fileID: 2705810560595904679}
   - component: {fileID: 604810675194877251}
-  - component: {fileID: 448385855750026612}
   m_Layer: 5
   m_Name: Mission
   m_TagString: Untagged
@@ -901,32 +900,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &448385855750026612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6057893600138263033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e340154d578988441aa883c49fb01749, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  descriptionText: {fileID: 1144660036424819628}
-  progressImage: {fileID: 5543116103480610392}
-  progressText: {fileID: 5754800508657438394}
-  coinsRewardText: {fileID: 6681822688383254359}
-  fishCoinsRewardText: {fileID: 2626577196930433318}
-  getRewardButton: {fileID: 1125960463972663395}
-  description: "\u041F\u043E\u0439\u043C\u0430\u0442\u044C 15 \u0448\u0442\u0443\u043A
-    \u0440\u044B\u0431\u044B"
-  currentCatchValue: 0
-  needCatchValue: 15
-  coinsReward: 125
-  fishCoinsReward: 35
-  <FishType>k__BackingField: {fileID: 0}
-  step: 0
 --- !u!1 &6964580746544794890
 GameObject:
   m_ObjectHideFlags: 0

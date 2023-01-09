@@ -27,6 +27,7 @@
         <e p="Scripts" t="Include">
           <e p="Boosters" t="Include">
             <e p="Booster.cs" t="Include" />
+            <e p="BoosterValues.cs" t="Include" />
           </e>
           <e p="BuyableBoosters" t="Include">
             <e p="BoostedHookDeep.cs" t="Include" />
@@ -64,7 +65,11 @@
               <e p="UnlockFishCards.cs" t="Include" />
             </e>
             <e p="Missions" t="Include">
-              <e p="DailyMissionCard.cs" t="Include" />
+              <e p="AchievementCardValues.cs" t="Include" />
+              <e p="Achievments" t="Include">
+                <e p="CatchHookUpgrade.cs" t="Include" />
+                <e p="IAchievmentable.cs" t="Include" />
+              </e>
               <e p="MissionChestReward.cs" t="Include" />
               <e p="MissionMenu.cs" t="Include" />
               <e p="MissionMenuValues.cs" t="Include" />
