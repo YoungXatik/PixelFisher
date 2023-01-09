@@ -19,9 +19,9 @@ public class BoosterValues : MonoBehaviour
         EventManager.OnOfflineMoneyValueChanged -= UpdateOfflineMoneyLevel;
     }
 
-    private int _hookLengthLevel = 0;
-    private int _hookStrengthLevel = 0;
-    private int _offlineMoneyLevel = 0;
+    private int _hookLengthLevel = 1;
+    private int _hookStrengthLevel = 1;
+    private int _offlineMoneyLevel = 1;
     
 
     private void Start()

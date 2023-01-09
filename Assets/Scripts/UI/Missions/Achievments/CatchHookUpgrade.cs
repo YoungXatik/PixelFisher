@@ -16,6 +16,8 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
 
     [SerializeField] private int coinsReward, fishCoinsReward;
 
+    [SerializeField] private Booster booster;
+    
     private float _step;
 
     private void OnEnable()
@@ -32,10 +34,16 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
     private void Start()
     {
         currentCatchValue = PlayerPrefs.GetInt("HookLengthLevel");
+        needCatchValue = booster.boostedValue.Count - 1;
         coinsRewardText.text = $"{coinsReward}";
         fishCoinsRewardText.text = $"{fishCoinsReward}";
         _step = 1f / needCatchValue;
         UpdateAchievementValue();
+
+        if (currentCatchValue >= needCatchValue)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void UpdateAchievementValue()
@@ -70,6 +78,8 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
         Money.Instance.AddMoney(coinsReward);
         MissionChestReward.Instance.AddFishCoins(fishCoinsReward);
         getRewardButton.interactable = false;
+        PlayerPrefs.SetInt("RewardTaken",true ? 1 : 0);
+        Debug.Log(PlayerPrefs.GetInt("RewardTaken"));
         Destroy(gameObject);
     }
 }

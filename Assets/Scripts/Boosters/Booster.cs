@@ -68,7 +68,7 @@ public class Booster : MonoBehaviour
 
     private void CheckForMoney()
     {
-        if (CurrentBoosterValue != costValue[costValue.Count - 1])
+        if (currentValueLevel + 1 != boostedValue.Count)
         {
             if (costValue[currentValueLevel + 1] > Money.Instance.MoneyCount)
             {
@@ -83,10 +83,9 @@ public class Booster : MonoBehaviour
 
     public void UpgradeCurrentValue()
     {
-        
-        if (CurrentBoosterValue != boostedValue[boostedValue.Count - 1])
+        if (currentValueLevel + 1 != boostedValue.Count)
         {
-            if (Money.Instance.MoneyCount >= costValue[currentValueLevel+1])
+            if (Money.Instance.MoneyCount >= costValue[currentValueLevel + 1])
             {
                 currentValueLevel++;
                 Money.Instance.RemoveMoney(costValue[currentValueLevel]);
@@ -94,27 +93,26 @@ public class Booster : MonoBehaviour
                 UpdateUI();
                 CheckForMoney();
             }
-            else
-            {
-                return;
-            }
         }
         else
         {
             return;
         }
     }
+    
 
     private void UpdateUI()
     {
-        if (CurrentBoosterValue != boostedValue[boostedValue.Count - 1])
+        if (currentValueLevel + 1 != boostedValue.Count)
         {
             costText.text = costValue[currentValueLevel +1].ToString();
             BoosterSwitch();
         }
         else
         {
-            return;
+            costText.text = "-";
+            buyButton.interactable = false;
+            currentValue.text = $"{boostedValue[boostedValue.Count - 1]}";
         }
     }
 

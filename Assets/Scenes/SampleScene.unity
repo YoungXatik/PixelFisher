@@ -5806,7 +5806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c5d2cd92a104641b0b18195a2337f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MoneyCount>k__BackingField: 10000
+  <MoneyCount>k__BackingField: 100000
   <DiamondsCount>k__BackingField: 1000
   moneyText: {fileID: 1233814140}
   fishBookMoneyText: {fileID: 1041845072}
@@ -21221,9 +21221,10 @@ MonoBehaviour:
   getRewardButton: {fileID: 2085412560}
   description: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u0435 \u0443\u0434\u043E\u0447\u043A\u0443"
   currentCatchValue: 0
-  needCatchValue: 10
+  needCatchValue: 0
   coinsReward: 1250
   fishCoinsReward: 125
+  booster: {fileID: 1973034834}
 --- !u!224 &2023368448 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7457010506719152704, guid: 04f587bfaa80466488fc9c1e80743c1b, type: 3}
