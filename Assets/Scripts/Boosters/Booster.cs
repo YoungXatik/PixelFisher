@@ -37,8 +37,8 @@ public class Booster : MonoBehaviour
 
     private void Start()
     {
-        costText.text = costValue[currentValueLevel + 1].ToString();
-        CurrentBoosterValue = boostedValue[currentValueLevel];
+        //costText.text = costValue[currentValueLevel + 1].ToString();
+        //CurrentBoosterValue = boostedValue[currentValueLevel];
         
         UpdateCurrentValueLevel();
     }
@@ -48,19 +48,37 @@ public class Booster : MonoBehaviour
         switch (boostValue)
         {
             case BoosterValue.Length:
-                currentValueLevel = PlayerPrefs.GetInt("HookLengthLevel");
-                currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("HookLengthLevel")]}m";
+                if (currentValueLevel >= boostedValue.Count - 1)
+                {
+                    currentValueLevel = PlayerPrefs.GetInt("HookLengthLevel");
+                }
+                else
+                {
+                    currentValueLevel = boostedValue.Count - 1;
+                    PlayerPrefs.SetInt("HookLengthLevel",currentValueLevel);
+                }
+                CurrentBoosterValue = boostedValue[currentValueLevel];
+                currentValue.text = $"{boostedValue[currentValueLevel]}m";
                 if (PlayerPrefs.GetInt("HookLengthLevel") != boostedValue.Count - 1)
                 {
                     costText.text = costValue[currentValueLevel + 1].ToString();
                 }
-                else
+                else if(PlayerPrefs.GetInt("HookLengthLevel") == boostedValue.Count - 1)
                 {
-                    UpdateUI();
+                   UpdateUI();
                 }
                 break;
             case BoosterValue.Strength:
-                currentValueLevel = PlayerPrefs.GetInt("HookStrengthLevel");
+                if (currentValueLevel >= boostedValue.Count - 1)
+                {
+                    currentValueLevel = PlayerPrefs.GetInt("HookStrengthLevel");
+                }
+                else
+                {
+                    currentValueLevel = boostedValue.Count - 1;
+                    PlayerPrefs.SetInt("HookStrengthLevel",currentValueLevel);
+                }
+                CurrentBoosterValue = boostedValue[currentValueLevel];
                 currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("HookStrengthLevel")]}fishes";
                 if (PlayerPrefs.GetInt("HookStrengthLevel") != boostedValue.Count - 1)
                 {
@@ -72,7 +90,16 @@ public class Booster : MonoBehaviour
                 }
                 break;
             case BoosterValue.OfflineMoney:
-                currentValueLevel = PlayerPrefs.GetInt("OfflineMoneyLevel");
+                if (currentValueLevel >= boostedValue.Count - 1)
+                {
+                    currentValueLevel = PlayerPrefs.GetInt("OfflineMoneyLevel");
+                }
+                else
+                {
+                    currentValueLevel = boostedValue.Count - 1;
+                    PlayerPrefs.SetInt("OfflineMoneyLevel",currentValueLevel);
+                }
+                CurrentBoosterValue = boostedValue[currentValueLevel];
                 currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("OfflineMoneyLevel")]}min";
                 if (PlayerPrefs.GetInt("OfflineMoneyLevel") != boostedValue.Count - 1)
                 {
@@ -84,7 +111,6 @@ public class Booster : MonoBehaviour
                 }
                 break;
         }
-        //CheckForMoney();
     }
 
     private void CheckForMoney()
@@ -131,6 +157,7 @@ public class Booster : MonoBehaviour
         }
         else
         {
+            BoosterSwitch();
             costText.text = "-";
             buyButton.interactable = false;
             currentValue.text = $"{boostedValue[boostedValue.Count - 1]}";

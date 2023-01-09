@@ -62,6 +62,14 @@ public class Hook : MonoBehaviour
 
         if (other.gameObject.TryGetComponent<Fish>(out fish))
         {
+            if (fish.fishType.FishQuality == FishQuality.Common)
+            {
+                EventManager.OnCommonFishHookedInvoke();
+            }
+            else
+            {
+                EventManager.OnRareFishHookedInvoke();
+            }
             hookController.CheckForFirstFishEntry();
             hookController.hookedFish.Add(fish);
             _hookedFish.Add(fish);

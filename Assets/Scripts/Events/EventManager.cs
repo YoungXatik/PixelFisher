@@ -50,4 +50,18 @@ public class EventManager : MonoBehaviour
     {
         OnDiamondsChanged?.Invoke();
     }
+
+    public static Action OnCommonFishHooked;
+
+    public static void OnCommonFishHookedInvoke()
+    {
+        OnCommonFishHooked?.Invoke();
+    }
+    
+    public static Action OnRareFishHooked;
+
+    public static void OnRareFishHookedInvoke()
+    {
+        OnRareFishHooked?.Invoke();
+    }
 }
