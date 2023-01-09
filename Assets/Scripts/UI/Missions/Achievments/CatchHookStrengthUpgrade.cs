@@ -1,9 +1,10 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CatchHookUpgrade : MonoBehaviour,ICatchable
+public class CatchHookStrengthUpgrade :  MonoBehaviour,ICatchable
 {
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Image progressImage;
@@ -22,37 +23,33 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
 
     private void OnEnable()
     {
-        EventManager.OnLengthValueChanged += UpdateAchievementValue;
+        EventManager.OnStrengthValueChanged += UpdateAchievementValue;
         UpdateAchievementValue();
     }
 
     private void OnDisable()
     {
-        EventManager.OnLengthValueChanged -= UpdateAchievementValue;
+        EventManager.OnStrengthValueChanged -= UpdateAchievementValue;
     }
 
     private void Start()
     {
-        currentCatchValue = PlayerPrefs.GetInt("HookLengthLevel");
+        currentCatchValue = PlayerPrefs.GetInt("HookStrengthLevel");
         needCatchValue = booster.boostedValue.Count - 1;
         coinsRewardText.text = $"{coinsReward}";
         fishCoinsRewardText.text = $"{fishCoinsReward}";
         _step = 1f / needCatchValue;
         UpdateAchievementValue();
 
-        if (PlayerPrefs.GetInt("LengthRewardTaken") == 1)
+        if (currentCatchValue >= needCatchValue)
         {
             Destroy(gameObject);
-        }
-        else
-        {
-            return;
         }
     }
 
     public void UpdateAchievementValue()
     {
-        currentCatchValue = PlayerPrefs.GetInt("HookLengthLevel");
+        currentCatchValue = PlayerPrefs.GetInt("HookStrengthLevel");
         if (currentCatchValue == needCatchValue)
         {
             UnlockReward();
@@ -82,8 +79,6 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
         Money.Instance.AddMoney(coinsReward);
         MissionChestReward.Instance.AddFishCoins(fishCoinsReward);
         getRewardButton.interactable = false;
-        PlayerPrefs.SetInt("LengthRewardTaken",true ? 1 : 0);
-        Debug.Log(PlayerPrefs.GetInt("LengthRewardTaken"));
         Destroy(gameObject);
     }
 }

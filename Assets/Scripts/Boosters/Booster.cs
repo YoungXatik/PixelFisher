@@ -39,7 +39,7 @@ public class Booster : MonoBehaviour
     {
         costText.text = costValue[currentValueLevel + 1].ToString();
         CurrentBoosterValue = boostedValue[currentValueLevel];
-
+        
         UpdateCurrentValueLevel();
     }
 
@@ -50,20 +50,41 @@ public class Booster : MonoBehaviour
             case BoosterValue.Length:
                 currentValueLevel = PlayerPrefs.GetInt("HookLengthLevel");
                 currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("HookLengthLevel")]}m";
-                costText.text = costValue[currentValueLevel + 1].ToString();
+                if (PlayerPrefs.GetInt("HookLengthLevel") != boostedValue.Count - 1)
+                {
+                    costText.text = costValue[currentValueLevel + 1].ToString();
+                }
+                else
+                {
+                    UpdateUI();
+                }
                 break;
             case BoosterValue.Strength:
                 currentValueLevel = PlayerPrefs.GetInt("HookStrengthLevel");
                 currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("HookStrengthLevel")]}fishes";
-                costText.text = costValue[currentValueLevel + 1].ToString();
+                if (PlayerPrefs.GetInt("HookStrengthLevel") != boostedValue.Count - 1)
+                {
+                    costText.text = costValue[currentValueLevel + 1].ToString();
+                }
+                else
+                {
+                    UpdateUI();
+                }
                 break;
             case BoosterValue.OfflineMoney:
                 currentValueLevel = PlayerPrefs.GetInt("OfflineMoneyLevel");
                 currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("OfflineMoneyLevel")]}min";
-                costText.text = costValue[currentValueLevel + 1].ToString();
+                if (PlayerPrefs.GetInt("OfflineMoneyLevel") != boostedValue.Count - 1)
+                {
+                    costText.text = costValue[currentValueLevel + 1].ToString();
+                }
+                else
+                {
+                    UpdateUI();
+                }
                 break;
         }
-        CheckForMoney();
+        //CheckForMoney();
     }
 
     private void CheckForMoney()
