@@ -13,18 +13,22 @@ public class CatchHookStrengthUpgrade :  MonoBehaviour,ICatchable
     [SerializeField] private Button getRewardButton;
 
     [SerializeField] private string description;
-    [SerializeField] private int currentCatchValue, needCatchValue;
+    [SerializeField] private int currentCatchValue;
+    private int _needCatchValue;
 
     [SerializeField] private int coinsReward, fishCoinsReward;
 
-    [SerializeField] private Booster booster;
-    
     private float _step;
+    
+    public List<int> neededCatchValues = new List<int>();
+    private int _currentAchievementStage;
 
     private void OnEnable()
     {
         EventManager.OnStrengthValueChanged += UpdateAchievementValue;
-        UpdateAchievementValue();
+        _currentAchievementStage = PlayerPrefs.GetInt("CatchHookStrengthStage");
+        UpdateUI();
+        CheckForReward();
     }
 
     private void OnDisable()
@@ -35,37 +39,33 @@ public class CatchHookStrengthUpgrade :  MonoBehaviour,ICatchable
     private void Start()
     {
         currentCatchValue = PlayerPrefs.GetInt("HookStrengthLevel");
-        needCatchValue = booster.boostedValue.Count - 1;
         coinsRewardText.text = $"{coinsReward}";
         fishCoinsRewardText.text = $"{fishCoinsReward}";
-        _step = 1f / needCatchValue;
+        _step = 1f / _needCatchValue;
         getRewardButton.interactable = false;
-        UpdateAchievementValue();
+        CheckForReward();
 
         if (PlayerPrefs.GetInt("StrengthRewardTaken") == 1)
         {
             Destroy(gameObject);
         }
-        else
-        {
-            return;
-        }
     }
 
     public void UpdateAchievementValue()
     {
-        currentCatchValue = PlayerPrefs.GetInt("HookStrengthLevel") + 1;
-        if (currentCatchValue >= needCatchValue)
-        {
-            UnlockReward();
-        }
+        currentCatchValue++;
+        PlayerPrefs.SetInt("HookStrengthLevel",currentCatchValue);
+        CheckForReward();
         UpdateUI();
     }
 
     public void UpdateUI()
     {
+        _needCatchValue = neededCatchValues[_currentAchievementStage];
+        _step = 1f / _needCatchValue;
+        currentCatchValue = PlayerPrefs.GetInt("HookStrengthLevel");
         descriptionText.text = description;
-        progressText.text = $"{currentCatchValue}/{needCatchValue}";
+        progressText.text = $"{currentCatchValue}/{_needCatchValue}";
         UpdateProgressBar();
     }
     
@@ -74,6 +74,14 @@ public class CatchHookStrengthUpgrade :  MonoBehaviour,ICatchable
         progressImage.fillAmount = _step * currentCatchValue;
     }
 
+    public void CheckForReward()
+    {
+        if (currentCatchValue >= _needCatchValue)
+        {
+            UnlockReward();
+        }
+    }
+    
     public void UnlockReward()
     {
         getRewardButton.interactable = true;
@@ -84,14 +92,23 @@ public class CatchHookStrengthUpgrade :  MonoBehaviour,ICatchable
         Money.Instance.AddMoney(coinsReward);
         MissionChestReward.Instance.AddFishCoins(fishCoinsReward);
         getRewardButton.interactable = false;
-        PlayerPrefs.SetInt("StrengthRewardTaken",true ? 1 : 0);
-        Debug.Log(PlayerPrefs.GetInt("StrengthRewardTaken"));
+        if(_currentAchievementStage == (neededCatchValues.Count - 1))
+        {
+            PlayerPrefs.SetInt("StrengthRewardTaken",true ? 1 : 0);
+            Debug.Log(PlayerPrefs.GetInt("StrengthRewardTaken"));
+        }
         EventManager.OnAchievementCollectedInvoke();
-        Destroy(gameObject);
+        UpdateReward();
     }
 
     public void UpdateReward()
     {
-        
+        _currentAchievementStage++;
+        _needCatchValue = neededCatchValues[_currentAchievementStage];
+        PlayerPrefs.SetInt("CatchHookStrengthStage",_currentAchievementStage);
+        coinsReward *= _currentAchievementStage;
+        fishCoinsReward *= _currentAchievementStage;
+        _step = 1f / _needCatchValue;
+        UpdateUI();
     }
 }

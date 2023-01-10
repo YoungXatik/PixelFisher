@@ -4743,7 +4743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -131350.4}
+  m_AnchoredPosition: {x: 0, y: -177584.67}
   m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &509900449
@@ -16187,10 +16187,9 @@ MonoBehaviour:
   getRewardButton: {fileID: 836326457}
   description: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u043A\u0440\u044E\u0447\u043E\u043A"
   currentCatchValue: 0
-  needCatchValue: 0
-  coinsReward: 2500
-  fishCoinsReward: 175
-  booster: {fileID: 1219951525}
+  coinsReward: 750
+  fishCoinsReward: 75
+  neededCatchValues: 020000000400000009000000
 --- !u!1 &1505433496
 GameObject:
   m_ObjectHideFlags: 0
@@ -21736,10 +21735,9 @@ MonoBehaviour:
   getRewardButton: {fileID: 2085412560}
   description: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u0435 \u043B\u0435\u0441\u043A\u0443"
   currentCatchValue: 0
-  needCatchValue: 0
-  coinsReward: 1250
-  fishCoinsReward: 125
-  booster: {fileID: 1973034834}
+  coinsReward: 600
+  fishCoinsReward: 55
+  neededCatchValues: 020000000400000008000000
 --- !u!224 &2023368448 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7457010506719152704, guid: 04f587bfaa80466488fc9c1e80743c1b, type: 3}

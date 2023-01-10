@@ -50,11 +50,7 @@ public class CatchRareFish : MonoBehaviour, ICatchable
         {
             Destroy(gameObject);
         }
-        else
-        {
-            return;
-        }
-        
+
         if (PlayerPrefs.HasKey("HookedRareFish"))
         {
             currentCatchValue = PlayerPrefs.GetInt("HookedRareFish");
@@ -69,11 +65,7 @@ public class CatchRareFish : MonoBehaviour, ICatchable
     {
         currentCatchValue++;
         PlayerPrefs.SetInt("HookedRareFish",currentCatchValue);
-        if (currentCatchValue >= _needCatchValue)
-        {
-            UnlockReward();
-        }
-
+        CheckForReward();
         UpdateUI();
     }
 
@@ -92,6 +84,14 @@ public class CatchRareFish : MonoBehaviour, ICatchable
         progressImage.fillAmount = _step * currentCatchValue;
     }
 
+    public void CheckForReward()
+    {
+        if (currentCatchValue >= _needCatchValue)
+        {
+            UnlockReward();
+        }
+    }
+    
     public void UnlockReward()
     {
         getRewardButton.interactable = true;

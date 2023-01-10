@@ -12,4 +12,6 @@ public interface ICatchable
     public void TakeReward();
 
     public void UpdateReward();
+
+    public void CheckForReward();
 }

@@ -84,6 +84,14 @@ public class CatchDefaultFish : MonoBehaviour, ICatchable
         progressImage.fillAmount = _step * currentCatchValue;
     }
 
+    public void CheckForReward()
+    {
+        if (currentCatchValue >= needCatchValue)
+        {
+            UnlockReward();
+        }
+    }
+    
     public void UnlockReward()
     {
         getRewardButton.interactable = true;
