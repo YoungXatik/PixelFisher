@@ -96,6 +96,7 @@ public class CatchDefaultFish : MonoBehaviour, ICatchable
         getRewardButton.interactable = false;
         PlayerPrefs.SetInt("CommonFishRewardTaken", true ? 1 : 0);
         Debug.Log(PlayerPrefs.GetInt("CommonFishRewardTaken"));
+        EventManager.OnAchievementCollectedInvoke();
         Destroy(gameObject);
     }
 }

@@ -64,4 +64,11 @@ public class EventManager : MonoBehaviour
     {
         OnRareFishHooked?.Invoke();
     }
+
+    public static Action OnAchievementCollected;
+
+    public static void OnAchievementCollectedInvoke()
+    {
+        OnAchievementCollected?.Invoke();
+    }
 }

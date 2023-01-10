@@ -85,6 +85,7 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
         getRewardButton.interactable = false;
         PlayerPrefs.SetInt("LengthRewardTaken",true ? 1 : 0);
         Debug.Log(PlayerPrefs.GetInt("LengthRewardTaken"));
+        EventManager.OnAchievementCollectedInvoke();
         Destroy(gameObject);
     }
 }

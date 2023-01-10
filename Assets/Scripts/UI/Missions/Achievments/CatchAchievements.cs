@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CatchHookStrengthUpgrade :  MonoBehaviour,ICatchable
+public class CatchAchievements : MonoBehaviour, ICatchable
 {
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Image progressImage;
@@ -17,32 +18,29 @@ public class CatchHookStrengthUpgrade :  MonoBehaviour,ICatchable
 
     [SerializeField] private int coinsReward, fishCoinsReward;
 
-    [SerializeField] private Booster booster;
-    
     private float _step;
 
     private void OnEnable()
     {
-        EventManager.OnStrengthValueChanged += UpdateAchievementValue;
-        UpdateAchievementValue();
+        EventManager.OnAchievementCollected += UpdateAchievementValue;
+        _step = 1f / needCatchValue;
+        UpdateUI();
     }
 
     private void OnDisable()
     {
-        EventManager.OnStrengthValueChanged -= UpdateAchievementValue;
+        EventManager.OnAchievementCollected -= UpdateAchievementValue;
+        UpdateUI();
     }
 
     private void Start()
     {
-        currentCatchValue = PlayerPrefs.GetInt("HookStrengthLevel");
-        needCatchValue = booster.boostedValue.Count - 1;
+        currentCatchValue = PlayerPrefs.GetInt("AchievementsCollected");
         coinsRewardText.text = $"{coinsReward}";
         fishCoinsRewardText.text = $"{fishCoinsReward}";
-        _step = 1f / needCatchValue;
         getRewardButton.interactable = false;
-        UpdateAchievementValue();
 
-        if (PlayerPrefs.GetInt("StrengthRewardTaken") == 1)
+        if (PlayerPrefs.GetInt("AchievementsCollectedRewardTaken") == 1)
         {
             Destroy(gameObject);
         }
@@ -50,25 +48,37 @@ public class CatchHookStrengthUpgrade :  MonoBehaviour,ICatchable
         {
             return;
         }
+        
+        if (PlayerPrefs.HasKey("AchievementsCollected"))
+        {
+            currentCatchValue = PlayerPrefs.GetInt("AchievementsCollected");
+        }
+        else
+        {
+            currentCatchValue = 0;
+        }
     }
 
     public void UpdateAchievementValue()
     {
-        currentCatchValue = PlayerPrefs.GetInt("HookStrengthLevel") + 1;
+        currentCatchValue++;
+        PlayerPrefs.SetInt("AchievementsCollected",currentCatchValue);
         if (currentCatchValue >= needCatchValue)
         {
             UnlockReward();
         }
+
         UpdateUI();
     }
 
     public void UpdateUI()
     {
+        currentCatchValue = PlayerPrefs.GetInt("AchievementsCollected");
         descriptionText.text = description;
         progressText.text = $"{currentCatchValue}/{needCatchValue}";
         UpdateProgressBar();
     }
-    
+
     public void UpdateProgressBar()
     {
         progressImage.fillAmount = _step * currentCatchValue;
@@ -84,9 +94,8 @@ public class CatchHookStrengthUpgrade :  MonoBehaviour,ICatchable
         Money.Instance.AddMoney(coinsReward);
         MissionChestReward.Instance.AddFishCoins(fishCoinsReward);
         getRewardButton.interactable = false;
-        PlayerPrefs.SetInt("StrengthRewardTaken",true ? 1 : 0);
-        Debug.Log(PlayerPrefs.GetInt("StrengthRewardTaken"));
-        EventManager.OnAchievementCollectedInvoke();
+        PlayerPrefs.SetInt("AchievementsCollectedRewardTaken", true ? 1 : 0);
+        Debug.Log(PlayerPrefs.GetInt("AchievementsCollectedRewardTaken"));
         Destroy(gameObject);
     }
 }

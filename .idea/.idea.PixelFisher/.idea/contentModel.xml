@@ -67,6 +67,7 @@
             <e p="Missions" t="Include">
               <e p="AchievementCardValues.cs" t="Include" />
               <e p="Achievments" t="Include">
+                <e p="CatchAchievements.cs" t="Include" />
                 <e p="CatchDefaultFish.cs" t="Include" />
                 <e p="CatchHookDrops.cs" t="Include" />
                 <e p="CatchHookStrengthUpgrade.cs" t="Include" />

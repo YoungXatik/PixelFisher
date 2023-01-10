@@ -94,6 +94,7 @@ public class CatchHookDrops : MonoBehaviour, ICatchable
         getRewardButton.interactable = false;
         PlayerPrefs.SetInt("HookDropsRewardTaken", true ? 1 : 0);
         Debug.Log(PlayerPrefs.GetInt("HookDropsRewardTaken"));
+        EventManager.OnAchievementCollectedInvoke();
         Destroy(gameObject);
     }
 }

@@ -98,6 +98,7 @@ public class CatchRareFish : MonoBehaviour, ICatchable
         getRewardButton.interactable = false;
         PlayerPrefs.SetInt("RareFishRewardTaken", true ? 1 : 0);
         Debug.Log(PlayerPrefs.GetInt("RareFishRewardTaken"));
+        EventManager.OnAchievementCollectedInvoke();
         Destroy(gameObject);
     }
 }
