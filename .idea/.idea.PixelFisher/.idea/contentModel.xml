@@ -78,6 +78,7 @@
               <e p="DailyMissions" t="Include">
                 <e p="DailyCollectCurrentFish.cs" t="Include" />
                 <e p="DailyCollectRareFish.cs" t="Include" />
+                <e p="DailyMissionSwap.cs" t="Include" />
               </e>
               <e p="MissionChestReward.cs" t="Include" />
               <e p="MissionMenu.cs" t="Include" />

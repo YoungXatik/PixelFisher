@@ -39,6 +39,7 @@
     <setting file="file://$PROJECT_DIR$/../Rocket Buidler 3D/Assets/Scripts/IShootable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyCollectCurrentFish.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookDrops.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyMissionSwap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookStrengthUpgrade.cs" root0="FORCE_HIGHLIGHTING" />
@@ -106,6 +107,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyCollectRareFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenuValues.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyCollectCurrentFish.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyMissionSwap.cs" />
       </list>
     </option>
   </component>
@@ -167,7 +169,8 @@
       <workItem from="1672161887226" duration="7050000" />
       <workItem from="1672234494113" duration="3355000" />
       <workItem from="1673255498001" duration="19837000" />
-      <workItem from="1673339476123" duration="11157000" />
+      <workItem from="1673339476123" duration="11764000" />
+      <workItem from="1673356712239" duration="5511000" />
     </task>
     <servers />
   </component>
@@ -181,9 +184,9 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="794" y="217" key="RiderGenerateDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1673257458550" />
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1673260448521">
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1673362487284">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1673260448521" />
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1673362487284" />
   </component>
 </project>
