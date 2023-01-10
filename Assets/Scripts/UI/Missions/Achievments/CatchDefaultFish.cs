@@ -112,7 +112,6 @@ public class CatchDefaultFish : MonoBehaviour, ICatchable
             UpdateReward();
         }
         EventManager.OnAchievementCollectedInvoke();
-        UpdateReward();
     }
 
     public void UpdateReward()

@@ -103,7 +103,6 @@ public class CatchHookStrengthUpgrade :  MonoBehaviour,ICatchable
             UpdateReward();
         }
         EventManager.OnAchievementCollectedInvoke();
-        UpdateReward();
     }
 
     public void UpdateReward()

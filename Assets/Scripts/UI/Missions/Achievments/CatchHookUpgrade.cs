@@ -23,6 +23,8 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
     public List<int> neededCatchValues = new List<int>();
     private int _currentAchievementStage;
 
+    [SerializeField] private Image completeBanner;
+
     private void OnEnable()
     {
         EventManager.OnLengthValueChanged += UpdateAchievementValue;
@@ -47,7 +49,8 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
 
         if (PlayerPrefs.GetInt("LengthRewardTaken") == 1)
         {
-            Destroy(gameObject);
+            completeBanner.gameObject.SetActive(true);
+            //Destroy(gameObject);
         }
     }
 
@@ -97,13 +100,13 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
         {
             PlayerPrefs.SetInt("LengthRewardTaken", true ? 1 : 0);
             Debug.Log(PlayerPrefs.GetInt("LengthRewardTaken"));
+            completeBanner.gameObject.SetActive(true);
         }
         else
         {
             UpdateReward();
         }
         EventManager.OnAchievementCollectedInvoke();
-        UpdateReward();
     }
 
     public void UpdateReward()

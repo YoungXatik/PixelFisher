@@ -4,56 +4,66 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CatchRareFish : MonoBehaviour, ICatchable
+public class DailyCollectRareFish : MonoBehaviour, ICatchable
 {
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Image progressImage;
     [SerializeField] private TextMeshProUGUI progressText;
-    [SerializeField] private TextMeshProUGUI coinsRewardText, fishCoinsRewardText;
+    [SerializeField] private TextMeshProUGUI coinsRewardText;
     [SerializeField] private Button getRewardButton;
 
     [SerializeField] private string description;
     [SerializeField] private int currentCatchValue;
     private int _needCatchValue;
 
-    [SerializeField] private int coinsReward, fishCoinsReward;
-    
-    public List<int> neededCatchValues = new List<int>();
-    private int _currentAchievementStage;
+    [SerializeField] private int minCatchValue, maxCatchValue;
+    [SerializeField] private int minMoneyReward, maxMoneyReward;
+
+    private int _coinsReward;
 
     private float _step;
 
     private void OnEnable()
     {
         EventManager.OnRareFishHooked += UpdateAchievementValue;
-        _currentAchievementStage = PlayerPrefs.GetInt("CatchRareFishStage");
         UpdateUI();
     }
 
     private void OnDisable()
     {
         EventManager.OnRareFishHooked -= UpdateAchievementValue;
-        if (PlayerPrefs.HasKey("HookedRareFish"))
+        if (PlayerPrefs.HasKey("DailyHookedRareFish"))
         {
-            currentCatchValue = PlayerPrefs.GetInt("HookedRareFish");
+            currentCatchValue = PlayerPrefs.GetInt("DailyHookedRareFish");
         }
     }
 
     private void Start()
     {
-        currentCatchValue = PlayerPrefs.GetInt("HookedRareFish");
-        coinsRewardText.text = $"{coinsReward}";
-        fishCoinsRewardText.text = $"{fishCoinsReward}";
+        currentCatchValue = PlayerPrefs.GetInt("DailyHookedRareFish");
+        coinsRewardText.text = $"{_coinsReward}";
         getRewardButton.interactable = false;
 
-        if (PlayerPrefs.GetInt("RareFishRewardTaken") == 1)
+        if (!PlayerPrefs.HasKey("DailyHookedRareFishNeedValue") && !PlayerPrefs.HasKey("DailyHookedRareFishMoneyReward"))
         {
-            Destroy(gameObject);
+            _needCatchValue = Random.Range(minCatchValue, maxCatchValue);
+            PlayerPrefs.SetInt("DailyHookedRareFishNeedValue",_needCatchValue);
+            _coinsReward = Random.Range(minMoneyReward, maxMoneyReward);
+            PlayerPrefs.SetInt("DailyHookedRareFishMoneyReward",_coinsReward);
+            description = $"Поймайте редкую рыбу";
+            UpdateUI();
+        }
+        else
+        {
+            _needCatchValue = PlayerPrefs.GetInt("DailyHookedRareFishNeedValue");
+            _coinsReward = PlayerPrefs.GetInt("DailyHookedRareFishMoneyReward");
+            description = $"Поймайте редкую рыбу";
+            UpdateUI();
         }
 
-        if (PlayerPrefs.HasKey("HookedRareFish"))
+        if (PlayerPrefs.HasKey("DailyHookedRareFish"))
         {
-            currentCatchValue = PlayerPrefs.GetInt("HookedRareFish");
+            currentCatchValue = PlayerPrefs.GetInt("DailyHookedRareFish");
         }
         else
         {
@@ -64,18 +74,18 @@ public class CatchRareFish : MonoBehaviour, ICatchable
     public void UpdateAchievementValue()
     {
         currentCatchValue++;
-        PlayerPrefs.SetInt("HookedRareFish",currentCatchValue);
+        PlayerPrefs.SetInt("DailyHookedRareFish", currentCatchValue);
         CheckForReward();
         UpdateUI();
     }
 
     public void UpdateUI()
     {
-        _needCatchValue = neededCatchValues[_currentAchievementStage];
         _step = 1f / _needCatchValue;
-        currentCatchValue = PlayerPrefs.GetInt("HookedRareFish");
+        currentCatchValue = PlayerPrefs.GetInt("DailyHookedRareFish");
         descriptionText.text = description;
         progressText.text = $"{currentCatchValue}/{_needCatchValue}";
+        coinsRewardText.text = $"{_coinsReward}";
         UpdateProgressBar();
         CheckForReward();
     }
@@ -92,7 +102,7 @@ public class CatchRareFish : MonoBehaviour, ICatchable
             UnlockReward();
         }
     }
-    
+
     public void UnlockReward()
     {
         getRewardButton.interactable = true;
@@ -100,29 +110,13 @@ public class CatchRareFish : MonoBehaviour, ICatchable
 
     public void TakeReward()
     {
-        Money.Instance.AddMoney(coinsReward);
-        MissionChestReward.Instance.AddFishCoins(fishCoinsReward);
+        Money.Instance.AddMoney(_coinsReward);
         getRewardButton.interactable = false;
-        if(_currentAchievementStage == (neededCatchValues.Count - 1))
-        {
-            PlayerPrefs.SetInt("RareFishRewardTaken", true ? 1 : 0);
-            Debug.Log(PlayerPrefs.GetInt("RareFishRewardTaken"));
-        }
-        else
-        {
-            UpdateReward();
-        }
         EventManager.OnAchievementCollectedInvoke();
+        Destroy(gameObject);
     }
 
     public void UpdateReward()
     {
-        _currentAchievementStage++;
-        _needCatchValue = neededCatchValues[_currentAchievementStage];
-        PlayerPrefs.SetInt("CatchRareFishStage",_currentAchievementStage);
-        coinsReward *= _currentAchievementStage;
-        fishCoinsReward *= _currentAchievementStage;
-        _step = 1f / _needCatchValue;
-        UpdateUI();
     }
 }

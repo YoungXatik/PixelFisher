@@ -111,7 +111,6 @@ public class CatchAchievements : MonoBehaviour, ICatchable
         {
             UpdateReward();
         }
-        UpdateReward();
     }
 
     public void UpdateReward()

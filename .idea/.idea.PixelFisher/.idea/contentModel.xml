@@ -75,6 +75,9 @@
                 <e p="CatchRareFish.cs" t="Include" />
                 <e p="IAchievmentable.cs" t="Include" />
               </e>
+              <e p="DailyMissions" t="Include">
+                <e p="DailyCollectRareFish.cs" t="Include" />
+              </e>
               <e p="MissionChestReward.cs" t="Include" />
               <e p="MissionMenu.cs" t="Include" />
               <e p="MissionMenuValues.cs" t="Include" />
