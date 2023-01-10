@@ -96,11 +96,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchAchievments.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/IAchievmentable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchRareFish.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookStrengthUpgrade.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookUpgrade.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchAchievements.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookDrops.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchAchievements.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookUpgrade.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookStrengthUpgrade.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchRareFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchDefaultFish.cs" />
       </list>
     </option>
@@ -163,7 +163,7 @@
       <workItem from="1672161887226" duration="7050000" />
       <workItem from="1672234494113" duration="3355000" />
       <workItem from="1673255498001" duration="19837000" />
-      <workItem from="1673339476123" duration="3753000" />
+      <workItem from="1673339476123" duration="5256000" />
     </task>
     <servers />
   </component>

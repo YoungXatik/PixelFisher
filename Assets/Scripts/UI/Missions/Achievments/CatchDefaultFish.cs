@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,16 +12,20 @@ public class CatchDefaultFish : MonoBehaviour, ICatchable
     [SerializeField] private Button getRewardButton;
 
     [SerializeField] private string description;
-    [SerializeField] private int currentCatchValue, needCatchValue;
+    [SerializeField] private int currentCatchValue;
+    private int _needCatchValue;
 
     [SerializeField] private int coinsReward, fishCoinsReward;
+    
+    public List<int> neededCatchValues = new List<int>();
+    private int _currentAchievementStage;
 
     private float _step;
 
     private void OnEnable()
     {
         EventManager.OnCommonFishHooked += UpdateAchievementValue;
-        _step = 1f / needCatchValue;
+        _currentAchievementStage = PlayerPrefs.GetInt("CatchCommonFishStage");
         UpdateUI();
     }
 
@@ -44,10 +49,6 @@ public class CatchDefaultFish : MonoBehaviour, ICatchable
         {
             Destroy(gameObject);
         }
-        else
-        {
-            return;
-        }
 
         if (PlayerPrefs.HasKey("HookedCommonFish"))
         {
@@ -63,20 +64,19 @@ public class CatchDefaultFish : MonoBehaviour, ICatchable
     {
         currentCatchValue++;
         PlayerPrefs.SetInt("HookedCommonFish",currentCatchValue);
-        if (currentCatchValue >= needCatchValue)
-        {
-            UnlockReward();
-        }
-
+        CheckForReward();
         UpdateUI();
     }
 
     public void UpdateUI()
     {
+        _needCatchValue = neededCatchValues[_currentAchievementStage];
+        _step = 1f / _needCatchValue;
         currentCatchValue = PlayerPrefs.GetInt("HookedCommonFish");
         descriptionText.text = description;
-        progressText.text = $"{currentCatchValue}/{needCatchValue}";
+        progressText.text = $"{currentCatchValue}/{_needCatchValue}";
         UpdateProgressBar();
+        CheckForReward();
     }
 
     public void UpdateProgressBar()
@@ -86,7 +86,7 @@ public class CatchDefaultFish : MonoBehaviour, ICatchable
 
     public void CheckForReward()
     {
-        if (currentCatchValue >= needCatchValue)
+        if (currentCatchValue >= _needCatchValue)
         {
             UnlockReward();
         }
@@ -102,14 +102,27 @@ public class CatchDefaultFish : MonoBehaviour, ICatchable
         Money.Instance.AddMoney(coinsReward);
         MissionChestReward.Instance.AddFishCoins(fishCoinsReward);
         getRewardButton.interactable = false;
-        PlayerPrefs.SetInt("CommonFishRewardTaken", true ? 1 : 0);
-        Debug.Log(PlayerPrefs.GetInt("CommonFishRewardTaken"));
+        if(_currentAchievementStage == (neededCatchValues.Count - 1))
+        {
+            PlayerPrefs.SetInt("CommonFishRewardTaken", true ? 1 : 0);
+            Debug.Log(PlayerPrefs.GetInt("CommonFishRewardTaken"));
+        }
+        else
+        {
+            UpdateReward();
+        }
         EventManager.OnAchievementCollectedInvoke();
-        Destroy(gameObject);
+        UpdateReward();
     }
 
     public void UpdateReward()
     {
-        
+        _currentAchievementStage++;
+        _needCatchValue = neededCatchValues[_currentAchievementStage];
+        PlayerPrefs.SetInt("CatchCommonFishStage",_currentAchievementStage);
+        coinsReward *= _currentAchievementStage;
+        fishCoinsReward *= _currentAchievementStage;
+        _step = 1f / _needCatchValue;
+        UpdateUI();
     }
 }

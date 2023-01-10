@@ -77,6 +77,7 @@ public class CatchRareFish : MonoBehaviour, ICatchable
         descriptionText.text = description;
         progressText.text = $"{currentCatchValue}/{_needCatchValue}";
         UpdateProgressBar();
+        CheckForReward();
     }
 
     public void UpdateProgressBar()
@@ -106,6 +107,10 @@ public class CatchRareFish : MonoBehaviour, ICatchable
         {
             PlayerPrefs.SetInt("RareFishRewardTaken", true ? 1 : 0);
             Debug.Log(PlayerPrefs.GetInt("RareFishRewardTaken"));
+        }
+        else
+        {
+            UpdateReward();
         }
         EventManager.OnAchievementCollectedInvoke();
         UpdateReward();

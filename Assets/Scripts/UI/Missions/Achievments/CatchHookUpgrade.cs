@@ -67,6 +67,7 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
         descriptionText.text = description;
         progressText.text = $"{currentCatchValue}/{_needCatchValue}";
         UpdateProgressBar();
+        CheckForReward();
     }
     
     public void UpdateProgressBar()
@@ -94,8 +95,12 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
         getRewardButton.interactable = false;
         if(_currentAchievementStage == (neededCatchValues.Count - 1))
         {
-            PlayerPrefs.SetInt("LengthRewardTaken",true ? 1 : 0);
+            PlayerPrefs.SetInt("LengthRewardTaken", true ? 1 : 0);
             Debug.Log(PlayerPrefs.GetInt("LengthRewardTaken"));
+        }
+        else
+        {
+            UpdateReward();
         }
         EventManager.OnAchievementCollectedInvoke();
         UpdateReward();

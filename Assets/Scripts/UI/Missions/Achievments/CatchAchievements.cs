@@ -14,23 +14,27 @@ public class CatchAchievements : MonoBehaviour, ICatchable
     [SerializeField] private Button getRewardButton;
 
     [SerializeField] private string description;
-    [SerializeField] private int currentCatchValue, needCatchValue;
+    [SerializeField] private int currentCatchValue;
+    private int _needCatchValue;
 
     [SerializeField] private int coinsReward, fishCoinsReward;
 
     private float _step;
+    
+    public List<int> neededCatchValues = new List<int>();
+    private int _currentAchievementStage;
 
     private void OnEnable()
     {
         EventManager.OnAchievementCollected += UpdateAchievementValue;
-        _step = 1f / needCatchValue;
+        _currentAchievementStage = PlayerPrefs.GetInt("CatchAchievementsStage");
         UpdateUI();
+        CheckForReward();
     }
 
     private void OnDisable()
     {
         EventManager.OnAchievementCollected -= UpdateAchievementValue;
-        UpdateUI();
     }
 
     private void Start()
@@ -39,16 +43,13 @@ public class CatchAchievements : MonoBehaviour, ICatchable
         coinsRewardText.text = $"{coinsReward}";
         fishCoinsRewardText.text = $"{fishCoinsReward}";
         getRewardButton.interactable = false;
-
+        CheckForReward();
+        
         if (PlayerPrefs.GetInt("AchievementsCollectedRewardTaken") == 1)
         {
             Destroy(gameObject);
         }
-        else
-        {
-            return;
-        }
-        
+
         if (PlayerPrefs.HasKey("AchievementsCollected"))
         {
             currentCatchValue = PlayerPrefs.GetInt("AchievementsCollected");
@@ -63,20 +64,19 @@ public class CatchAchievements : MonoBehaviour, ICatchable
     {
         currentCatchValue++;
         PlayerPrefs.SetInt("AchievementsCollected",currentCatchValue);
-        if (currentCatchValue >= needCatchValue)
-        {
-            UnlockReward();
-        }
-
+        CheckForReward();
         UpdateUI();
     }
 
     public void UpdateUI()
     {
+        _needCatchValue = neededCatchValues[_currentAchievementStage];
+        _step = 1f / _needCatchValue;
         currentCatchValue = PlayerPrefs.GetInt("AchievementsCollected");
         descriptionText.text = description;
-        progressText.text = $"{currentCatchValue}/{needCatchValue}";
+        progressText.text = $"{currentCatchValue}/{_needCatchValue}";
         UpdateProgressBar();
+        CheckForReward();
     }
 
     public void UpdateProgressBar()
@@ -86,7 +86,7 @@ public class CatchAchievements : MonoBehaviour, ICatchable
 
     public void CheckForReward()
     {
-        if (currentCatchValue >= needCatchValue)
+        if (currentCatchValue >= _needCatchValue)
         {
             UnlockReward();
         }
@@ -102,13 +102,26 @@ public class CatchAchievements : MonoBehaviour, ICatchable
         Money.Instance.AddMoney(coinsReward);
         MissionChestReward.Instance.AddFishCoins(fishCoinsReward);
         getRewardButton.interactable = false;
-        PlayerPrefs.SetInt("AchievementsCollectedRewardTaken", true ? 1 : 0);
-        Debug.Log(PlayerPrefs.GetInt("AchievementsCollectedRewardTaken"));
-        Destroy(gameObject);
+        if(_currentAchievementStage == (neededCatchValues.Count - 1))
+        {
+            PlayerPrefs.SetInt("AchievementsCollectedRewardTaken", true ? 1 : 0);
+            Debug.Log(PlayerPrefs.GetInt("AchievementsCollectedRewardTaken"));
+        }
+        else
+        {
+            UpdateReward();
+        }
+        UpdateReward();
     }
 
     public void UpdateReward()
     {
-        
+        _currentAchievementStage++;
+        _needCatchValue = neededCatchValues[_currentAchievementStage];
+        PlayerPrefs.SetInt("CatchAchievementsStage",_currentAchievementStage);
+        coinsReward *= _currentAchievementStage;
+        fishCoinsReward *= _currentAchievementStage;
+        _step = 1f / _needCatchValue;
+        UpdateUI();   
     }
 }
