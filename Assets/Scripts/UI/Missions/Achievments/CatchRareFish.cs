@@ -13,16 +13,20 @@ public class CatchRareFish : MonoBehaviour, ICatchable
     [SerializeField] private Button getRewardButton;
 
     [SerializeField] private string description;
-    [SerializeField] private int currentCatchValue, needCatchValue;
+    [SerializeField] private int currentCatchValue;
+    private int _needCatchValue;
 
     [SerializeField] private int coinsReward, fishCoinsReward;
+    
+    public List<int> neededCatchValues = new List<int>();
+    private int _currentAchievementStage;
 
     private float _step;
 
     private void OnEnable()
     {
         EventManager.OnRareFishHooked += UpdateAchievementValue;
-        _step = 1f / needCatchValue;
+        _currentAchievementStage = PlayerPrefs.GetInt("CatchRareFishStage");
         UpdateUI();
     }
 
@@ -65,7 +69,7 @@ public class CatchRareFish : MonoBehaviour, ICatchable
     {
         currentCatchValue++;
         PlayerPrefs.SetInt("HookedRareFish",currentCatchValue);
-        if (currentCatchValue >= needCatchValue)
+        if (currentCatchValue >= _needCatchValue)
         {
             UnlockReward();
         }
@@ -75,9 +79,11 @@ public class CatchRareFish : MonoBehaviour, ICatchable
 
     public void UpdateUI()
     {
+        _needCatchValue = neededCatchValues[_currentAchievementStage];
+        _step = 1f / _needCatchValue;
         currentCatchValue = PlayerPrefs.GetInt("HookedRareFish");
         descriptionText.text = description;
-        progressText.text = $"{currentCatchValue}/{needCatchValue}";
+        progressText.text = $"{currentCatchValue}/{_needCatchValue}";
         UpdateProgressBar();
     }
 
@@ -96,9 +102,23 @@ public class CatchRareFish : MonoBehaviour, ICatchable
         Money.Instance.AddMoney(coinsReward);
         MissionChestReward.Instance.AddFishCoins(fishCoinsReward);
         getRewardButton.interactable = false;
-        PlayerPrefs.SetInt("RareFishRewardTaken", true ? 1 : 0);
-        Debug.Log(PlayerPrefs.GetInt("RareFishRewardTaken"));
+        if(_currentAchievementStage == (neededCatchValues.Count - 1))
+        {
+            PlayerPrefs.SetInt("RareFishRewardTaken", true ? 1 : 0);
+            Debug.Log(PlayerPrefs.GetInt("RareFishRewardTaken"));
+        }
         EventManager.OnAchievementCollectedInvoke();
-        Destroy(gameObject);
+        UpdateReward();
+    }
+
+    public void UpdateReward()
+    {
+        _currentAchievementStage++;
+        _needCatchValue = neededCatchValues[_currentAchievementStage];
+        PlayerPrefs.SetInt("CatchRareFishStage",_currentAchievementStage);
+        coinsReward *= _currentAchievementStage;
+        fishCoinsReward *= _currentAchievementStage;
+        _step = 1f / _needCatchValue;
+        UpdateUI();
     }
 }

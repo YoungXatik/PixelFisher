@@ -97,4 +97,9 @@ public class CatchHookDrops : MonoBehaviour, ICatchable
         EventManager.OnAchievementCollectedInvoke();
         Destroy(gameObject);
     }
+
+    public void UpdateReward()
+    {
+        
+    }
 }

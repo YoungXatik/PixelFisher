@@ -10,4 +10,6 @@ public interface ICatchable
     public void UnlockReward();
 
     public void TakeReward();
+
+    public void UpdateReward();
 }

@@ -98,4 +98,9 @@ public class CatchAchievements : MonoBehaviour, ICatchable
         Debug.Log(PlayerPrefs.GetInt("AchievementsCollectedRewardTaken"));
         Destroy(gameObject);
     }
+
+    public void UpdateReward()
+    {
+        
+    }
 }

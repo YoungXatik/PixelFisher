@@ -99,4 +99,9 @@ public class CatchDefaultFish : MonoBehaviour, ICatchable
         EventManager.OnAchievementCollectedInvoke();
         Destroy(gameObject);
     }
+
+    public void UpdateReward()
+    {
+        
+    }
 }

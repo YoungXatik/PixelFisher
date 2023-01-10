@@ -88,4 +88,9 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
         EventManager.OnAchievementCollectedInvoke();
         Destroy(gameObject);
     }
+
+    public void UpdateReward()
+    {
+        
+    }
 }
