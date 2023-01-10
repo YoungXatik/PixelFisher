@@ -56,12 +56,16 @@ public class Hook : MonoBehaviour
         maxCountOfFish = strengthBooster.CurrentBoosterValue;
     }
 
+    [field: SerializeField] public FishType currentHookedFish;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         Fish fish;
 
         if (other.gameObject.TryGetComponent<Fish>(out fish))
         {
+            currentHookedFish = fish.fishType;
+            
             if (fish.fishType.FishQuality == FishQuality.Common)
             {
                 EventManager.OnCommonFishHookedInvoke();

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DailyCollectRareFish : MonoBehaviour, ICatchable
+public class DailyCollectCurrentFish : MonoBehaviour, ICatchable
 {
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Image progressImage;
@@ -25,52 +25,75 @@ public class DailyCollectRareFish : MonoBehaviour, ICatchable
 
     private void OnEnable()
     {
-        EventManager.OnRareFishHooked += UpdateAchievementValue;
+        EventManager.OnRareFishHooked += CheckFish;
+        EventManager.OnCommonFishHooked += CheckFish;
         UpdateUI();
     }
 
     private void OnDisable()
     {
-        EventManager.OnRareFishHooked -= UpdateAchievementValue;
-        if (PlayerPrefs.HasKey("DailyHookedRareFish"))
+        EventManager.OnRareFishHooked -= CheckFish;
+        EventManager.OnCommonFishHooked -= CheckFish;
+        if (PlayerPrefs.HasKey("DailyHookedCurrentFish"))
         {
-            currentCatchValue = PlayerPrefs.GetInt("DailyHookedRareFish");
+            currentCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFish");
+        }
+    }
+
+    private FishType _currentFishType;
+    [SerializeField] private FishType neededFish;
+    
+    private void CheckFish()
+    {
+        _currentFishType = Hook.Instance.currentHookedFish;
+        if (_currentFishType == neededFish)
+        {
+            UpdateAchievementValue();
         }
     }
 
     private void Start()
     {
-        currentCatchValue = PlayerPrefs.GetInt("DailyHookedRareFish");
+        if (PlayerPrefs.HasKey("CurrentFishIndex"))
+        {
+            neededFish = MissionMenuValues.Instance.fishTypes[PlayerPrefs.GetInt("CurrentFishIndex")];
+        }
+        else
+        {
+            neededFish = MissionMenuValues.Instance.PickRandomFishType();
+            PlayerPrefs.SetInt("CurrentFishIndex",MissionMenuValues.Instance.Index); 
+        }
+        currentCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFish");
         coinsRewardText.text = $"{_coinsReward}";
         getRewardButton.interactable = false;
 
-        if (!PlayerPrefs.HasKey("DailyHookedRareFishNeedValue") && !PlayerPrefs.HasKey("DailyHookedRareFishMoneyReward"))
+        if (!PlayerPrefs.HasKey("DailyHookedCurrentFishNeedValue") && !PlayerPrefs.HasKey("DailyHookedCurrentFishMoneyReward"))
         {
             _needCatchValue = Random.Range(minCatchValue, maxCatchValue);
-            PlayerPrefs.SetInt("DailyHookedRareFishNeedValue",_needCatchValue);
+            PlayerPrefs.SetInt("DailyHookedCurrentFishNeedValue",_needCatchValue);
             _coinsReward = Random.Range(minMoneyReward, maxMoneyReward);
-            PlayerPrefs.SetInt("DailyHookedRareFishMoneyReward",_coinsReward);
-            description = $"Поймайте редкую рыбу";
+            PlayerPrefs.SetInt("DailyHookedCurrentFishMoneyReward",_coinsReward);
+            description = $"Поймайте {neededFish.fishName}";
             UpdateUI();
         }
         else
         {
-            _needCatchValue = PlayerPrefs.GetInt("DailyHookedRareFishNeedValue");
-            _coinsReward = PlayerPrefs.GetInt("DailyHookedRareFishMoneyReward");
-            description = $"Поймайте редкую рыбу";
+            _needCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFishNeedValue");
+            _coinsReward = PlayerPrefs.GetInt("DailyHookedCurrentFishMoneyReward");
+            description = $"Поймайте {neededFish.fishName}";
             UpdateUI();
         }
 
-        if (PlayerPrefs.HasKey("DailyHookedRareFish"))
+        if (PlayerPrefs.HasKey("DailyHookedCurrentFish"))
         {
-            currentCatchValue = PlayerPrefs.GetInt("DailyHookedRareFish");
+            currentCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFish");
         }
         else
         {
             currentCatchValue = 0;
         }
 
-        if (PlayerPrefs.GetInt("DailyRareFishCollected") == 1)
+        if (PlayerPrefs.GetInt("DailyCurrentFishCollected") == 1)
         {
             Destroy(gameObject);
         }
@@ -79,7 +102,7 @@ public class DailyCollectRareFish : MonoBehaviour, ICatchable
     public void UpdateAchievementValue()
     {
         currentCatchValue++;
-        PlayerPrefs.SetInt("DailyHookedRareFish", currentCatchValue);
+        PlayerPrefs.SetInt("DailyHookedCurrentFish", currentCatchValue);
         CheckForReward();
         UpdateUI();
     }
@@ -87,7 +110,7 @@ public class DailyCollectRareFish : MonoBehaviour, ICatchable
     public void UpdateUI()
     {
         _step = 1f / _needCatchValue;
-        currentCatchValue = PlayerPrefs.GetInt("DailyHookedRareFish");
+        currentCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFish");
         descriptionText.text = description;
         progressText.text = $"{currentCatchValue}/{_needCatchValue}";
         coinsRewardText.text = $"{_coinsReward}";
@@ -117,8 +140,8 @@ public class DailyCollectRareFish : MonoBehaviour, ICatchable
     {
         Money.Instance.AddMoney(_coinsReward);
         getRewardButton.interactable = false;
-        PlayerPrefs.SetInt("DailyRareFishCollected", true ? 1 : 0);
-        Debug.Log(PlayerPrefs.GetInt("DailyRareFishCollected"));
+        PlayerPrefs.SetInt("DailyCurrentFishCollected", true ? 1 : 0);
+        Debug.Log(PlayerPrefs.GetInt("DailyCurrentFishCollected"));
         Destroy(gameObject);
     }
 

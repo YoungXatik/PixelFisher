@@ -53,11 +53,11 @@ public class Money : MonoBehaviour
 
     private void UpdateUI()
     {
-        moneyText.text = $"{MoneyCount}";
-        fishBookMoneyText.text = $"{MoneyCount}";
-        shopMoneyText.text = $"{MoneyCount}";
-        shopDiamondsText.text = $"{DiamondsCount}";
-        missionDiamondsText.text = $"{DiamondsCount}";
+        moneyText.text = $"{Mathf.RoundToInt(MoneyCount)}";
+        fishBookMoneyText.text = $"{Mathf.RoundToInt(MoneyCount)}";
+        shopMoneyText.text = $"{Mathf.RoundToInt(MoneyCount)}";
+        shopDiamondsText.text = $"{Mathf.RoundToInt(DiamondsCount)}";
+        missionDiamondsText.text = $"{Mathf.RoundToInt(DiamondsCount)}";
     }
 
     public void AddDiamonds(int value)

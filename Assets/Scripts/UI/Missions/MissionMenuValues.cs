@@ -22,9 +22,12 @@ public class MissionMenuValues : MonoBehaviour
     
     public List<FishType> fishTypes = new List<FishType>();
 
+    public int Index { get; private set; }
+    
     public FishType PickRandomFishType()
     {
-        var fish =  fishTypes[0];
+        Index = Random.Range(0, fishTypes.Count);
+        var fish =  fishTypes[Index];
         fishTypes.Remove(fish);
         return fish;
     }
