@@ -87,7 +87,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishesSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/ShopCell.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/PlayerUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionChestReward.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/QuestAreaCards.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissionCard.cs" />
@@ -111,6 +110,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyCollectCurrentFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DateTimeUtils.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyMissionSwap.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionChestReward.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/ChestBubble.cs" />
       </list>
     </option>
@@ -175,7 +175,7 @@
       <workItem from="1673255498001" duration="19837000" />
       <workItem from="1673339476123" duration="11764000" />
       <workItem from="1673356712239" duration="5775000" />
-      <workItem from="1673429865305" duration="12964000" />
+      <workItem from="1673429865305" duration="15451000" />
     </task>
     <servers />
   </component>

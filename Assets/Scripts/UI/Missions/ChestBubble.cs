@@ -19,6 +19,10 @@ public class ChestBubble : MonoBehaviour
     [SerializeField] private GameObject boosterRewardObject;
     [SerializeField] private Sprite boosterRewardSprite;
     [SerializeField] private Image boosterRewardImage;
+
+    [SerializeField] private Button chestOpenButton;
+
+    private bool _isReached;
     
     private enum RewardType
     {
@@ -29,7 +33,8 @@ public class ChestBubble : MonoBehaviour
 
     private void Start()
     {
-        //UpdateUI();
+        chestOpenButton.interactable = false;
+        UpdateUI();
     }
 
     private void UpdateUI()
@@ -39,21 +44,34 @@ public class ChestBubble : MonoBehaviour
             case RewardType.Money:
                 coinsRewardText.text = $"{coinsReward}";
                 ShowReward(coinsRewardObject);
-                /*HideReward(gemRewardObject);
-                HideReward(boosterRewardObject);*/
+                HideReward(gemRewardObject);
+                HideReward(boosterRewardObject);
                 break;
-            /*case RewardType.Gems:
+            case RewardType.Gems:
                 gemsRewardText.text = $"{gemsReward}";
                 ShowReward(gemRewardObject);
                 HideReward(coinsRewardObject);
                 HideReward(boosterRewardObject);
                 break;
             case RewardType.Booster:
+                
                 ShowReward(boosterRewardObject);
                 HideReward(coinsRewardObject);
                 HideReward(gemRewardObject);
-                break;*/
+                break;
         }
+    }
+
+    public void ChestReached()
+    {
+        _isReached = true;
+        chestOpenButton.interactable = true;
+    }
+
+    public void ClearChestReach()
+    {
+        _isReached = false;
+        chestOpenButton.interactable = false;
     }
 
     private void ShowReward(GameObject rewardTransform)
@@ -69,11 +87,18 @@ public class ChestBubble : MonoBehaviour
     public void OnChestClick()
     {
         UpdateUI();
-        chestInformationObject.DOScale(1, 0.5f).From(0).SetEase(Ease.Linear);
+        chestOpenButton.interactable = false;
+        chestInformationObject.DOScale(1, 0.2f).From(0).SetEase(Ease.Linear);
     }
 
     public void OnOpenChestClick()
     {
-        chestInformationObject.DOScale(0, 0.5f).From(1).SetEase(Ease.Linear);
+        chestOpenButton.interactable = false;
+        chestInformationObject.DOScale(0, 0.2f).From(1).SetEase(Ease.Linear);
+    }
+
+    private void TakeReward()
+    {
+        
     }
 }

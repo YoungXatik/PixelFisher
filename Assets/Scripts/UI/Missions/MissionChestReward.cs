@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using TMPro;
@@ -24,6 +25,8 @@ public class MissionChestReward : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI[] textReaches;
     [SerializeField] private int[] textReachesValues;
+    
+    [SerializeField] private List<ChestBubble> chestBubbles = new List<ChestBubble>();
 
     [SerializeField] private Image progressBarImage;
 
@@ -82,6 +85,13 @@ public class MissionChestReward : MonoBehaviour
     private void UpdateProgressBar()
     {
         progressBarImage.fillAmount = _step * FishCoins;
+        for (int i = 0; i < chestBubbles.Count; i++)
+        {
+            if (FishCoins >= textReachesValues[i])
+            {
+                chestBubbles[i].ChestReached();
+            }
+        }
     }
 
     private void UpdateUI()

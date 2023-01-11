@@ -10260,6 +10260,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1158469664 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5460091130249466294, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+  m_PrefabInstance: {fileID: 5126658670951282481}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e074fc6efb1c83349a546ab6da5ac269, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1166260530 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3326413378787599787, guid: 2c32c5c0e61463c42a31e841b700be5a, type: 3}
@@ -18746,6 +18757,14 @@ PrefabInstance:
       propertyPath: rewardButton
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4921861048277362281, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1158469664}
+    - target: {fileID: 4921861048277362281, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnChestClick
+      objectReference: {fileID: 0}
     - target: {fileID: 5126658670895250908, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -18788,11 +18807,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5126658671044208290, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5126658671044208290, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5126658671044208290, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
       propertyPath: m_LocalPosition.x
