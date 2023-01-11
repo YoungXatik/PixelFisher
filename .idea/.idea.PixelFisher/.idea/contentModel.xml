@@ -39,6 +39,7 @@
           <e p="Camera" t="Include">
             <e p="CameraFollow.cs" t="Include" />
           </e>
+          <e p="DateTimeUtils.cs" t="Include" />
           <e p="Events" t="Include">
             <e p="EventManager.cs" t="Include" />
           </e>
@@ -75,6 +76,7 @@
                 <e p="CatchRareFish.cs" t="Include" />
                 <e p="IAchievmentable.cs" t="Include" />
               </e>
+              <e p="ChestBubble.cs" t="Include" />
               <e p="DailyMissions" t="Include">
                 <e p="DailyCollectCurrentFish.cs" t="Include" />
                 <e p="DailyCollectRareFish.cs" t="Include" />
