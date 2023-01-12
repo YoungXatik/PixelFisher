@@ -105,18 +105,18 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyCollectCurrentFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DateTimeUtils.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyMissionSwap.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionChestReward.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/UI/JAbgoaengengl.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/OnButtonClick.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishBook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/BoosterValues.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IBoostable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoostedHookDeep.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedFishCost.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedRareFishCount.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/SecondChance.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionChestReward.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IBoostable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/ChestBubble.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" />
       </list>
     </option>
   </component>
@@ -182,7 +182,7 @@
       <workItem from="1673356712239" duration="5775000" />
       <workItem from="1673429865305" duration="15668000" />
       <workItem from="1673479326911" duration="1305000" />
-      <workItem from="1673518390218" duration="3830000" />
+      <workItem from="1673518390218" duration="6244000" />
     </task>
     <servers />
   </component>

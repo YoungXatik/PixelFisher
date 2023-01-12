@@ -48,8 +48,23 @@ public class ChestBubble : MonoBehaviour
 
     private void Start()
     {
-        chestOpenButton.interactable = false;
-        UpdateUI();
+        if (PlayerPrefs.GetInt("Chest" + gameObject.name) == 1)
+        {
+            ChestReached();
+        }
+        else
+        {
+            UpdateUI();
+            chestOpenButton.interactable = false;   
+        }
+        if (PlayerPrefs.GetInt("ChestRewardTaken" + gameObject.name) == 1)
+        {
+            RewardTaken();
+        }
+        else
+        {
+            UpdateUI();
+        }
     }
 
     private void UpdateUI()
@@ -82,6 +97,7 @@ public class ChestBubble : MonoBehaviour
     {
         _isReached = true;
         chestOpenButton.interactable = true;
+        PlayerPrefs.SetInt("Chest" + gameObject.name, true ? 1 : 0);
     }
 
     public void ClearChestReach()
@@ -112,10 +128,34 @@ public class ChestBubble : MonoBehaviour
     {
         chestOpenButton.interactable = false;
         chestInformationObject.DOScale(0, 0.2f).From(1).SetEase(Ease.Linear);
+        TakeReward();
     }
 
+    private void RewardTaken()
+    {
+        chestOpenButton.gameObject.SetActive(false);
+        Destroy(gameObject);
+    }
+    
     private void TakeReward()
     {
-        
+        switch (rewardType)
+        {
+            case RewardType.Money:
+                Money.Instance.AddMoney(coinsReward);
+                PlayerPrefs.SetInt("ChestRewardTaken" + gameObject.name, true ? 1 : 0);
+                Destroy(gameObject);
+                break;
+            case RewardType.Gems:
+                Money.Instance.AddDiamonds(gemsReward);
+                PlayerPrefs.SetInt("ChestRewardTaken" + gameObject.name, true ? 1 : 0);
+                Destroy(gameObject);
+                break;
+            case RewardType.Booster:
+                _currentBooster.StartBooster();
+                PlayerPrefs.SetInt("ChestRewardTaken" + gameObject.name, true ? 1 : 0);
+                Destroy(gameObject);
+                break;
+        }
     }
 }
