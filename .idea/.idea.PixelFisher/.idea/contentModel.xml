@@ -86,6 +86,7 @@
               <e p="MissionMenu.cs" t="Include" />
               <e p="MissionMenuValues.cs" t="Include" />
             </e>
+            <e p="OnButtonClick.cs" t="Include" />
             <e p="PlayerUI.cs" t="Include" />
             <e p="Shop" t="Include">
               <e p="Shop.cs" t="Include" />

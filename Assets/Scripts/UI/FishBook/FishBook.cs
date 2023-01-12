@@ -37,7 +37,7 @@ using System.Collections.Generic;
         {
             menuImage.SetActive(true);
             mainMenuCloseButton.interactable = false;
-            menuImage.transform.DOScale(1, 0.5f).From(0).SetEase(Ease.Linear).OnComplete(delegate
+            menuImage.transform.DOScale(1, 0.25f).From(0).SetEase(Ease.Linear).OnComplete(delegate
             {
                 mainMenuCloseButton.interactable = true;
                 IsOpen = true;
@@ -48,7 +48,7 @@ using System.Collections.Generic;
         public void CloseMainMenu()
         {
             mainMenuOpenButton.interactable = false;
-            menuImage.transform.DOScale(0, 0.5f).From(1).SetEase(Ease.Linear).OnComplete(delegate
+            menuImage.transform.DOScale(0, 0.25f).From(1).SetEase(Ease.Linear).OnComplete(delegate
             {
                 mainMenuOpenButton.interactable = true;
                 menuImage.SetActive(false);

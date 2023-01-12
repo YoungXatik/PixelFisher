@@ -89,6 +89,7 @@ public class ChestBubble : MonoBehaviour
         UpdateUI();
         chestOpenButton.interactable = false;
         chestInformationObject.DOScale(1, 0.2f).From(0).SetEase(Ease.Linear);
+        chestOpenButton.transform.DOPunchScale(chestOpenButton.transform.position, 0.2f);
     }
 
     public void OnOpenChestClick()
