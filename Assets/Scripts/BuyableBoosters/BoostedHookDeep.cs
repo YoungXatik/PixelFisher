@@ -2,7 +2,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BoostedHookDeep : MonoBehaviour
+public class BoostedHookDeep : MonoBehaviour, IBoostable
 {
     [SerializeField] private float duration;
     private float _durationCounter;
@@ -36,7 +36,7 @@ public class BoostedHookDeep : MonoBehaviour
         ActivateTimer();
     }
 
-    private void CancelBoost()
+    public void CancelBoost()
     {
         Debug.Log("BoostFinished");
         _available = false;
@@ -45,12 +45,12 @@ public class BoostedHookDeep : MonoBehaviour
         DeactivateTimer();
     }
 
-    private void ActivateTimer()
+    public void ActivateTimer()
     {
         boosterTimer.ActivateTimer(duration,boosterIcon);
     }
 
-    private void DeactivateTimer()
+    public void DeactivateTimer()
     {
         boosterTimer.DeactivateTimer();
     }
@@ -68,13 +68,18 @@ public class BoostedHookDeep : MonoBehaviour
         }
     }
 
-    private void StopBoost()
+    public void StopBoost()
     {
         _available = false;
     }
 
-    private void ContinueBoost()
+    public void ContinueBoost()
     {
         _available = true;
+    }
+
+    public Sprite GetBoosterImage()
+    {
+        return boosterIcon;
     }
 }

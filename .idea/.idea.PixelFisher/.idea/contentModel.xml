@@ -32,6 +32,7 @@
           <e p="BuyableBoosters" t="Include">
             <e p="BoostedHookDeep.cs" t="Include" />
             <e p="BoosterTimer.cs" t="Include" />
+            <e p="IBoostable.cs" t="Include" />
             <e p="IncreasedFishCost.cs" t="Include" />
             <e p="IncreasedRareFishCount.cs" t="Include" />
             <e p="SecondChance.cs" t="Include" />

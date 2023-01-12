@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class ChestBubble : MonoBehaviour
 {
@@ -17,13 +19,26 @@ public class ChestBubble : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gemsRewardText;
 
     [SerializeField] private GameObject boosterRewardObject;
-    [SerializeField] private Sprite boosterRewardSprite;
     [SerializeField] private Image boosterRewardImage;
 
     [SerializeField] private Button chestOpenButton;
 
+    private List<IBoostable> _boostersList = new List<IBoostable>();
+    [SerializeField] private List<GameObject> _boostersObjects = new List<GameObject>();
+
+    private IBoostable _currentBooster;
+
     private bool _isReached;
-    
+
+
+    private void Awake()
+    {
+        for (int i = 0; i < _boostersObjects.Count; i++)
+        {
+            _boostersList.Add(_boostersObjects[i].GetComponent<IBoostable>());
+        }
+    }
+
     private enum RewardType
     {
         Money, Gems, Booster
@@ -54,7 +69,8 @@ public class ChestBubble : MonoBehaviour
                 HideReward(boosterRewardObject);
                 break;
             case RewardType.Booster:
-                
+                boosterRewardImage.sprite = _boostersList[Random.Range(0, _boostersList.Count)].GetBoosterImage();
+                _currentBooster = _boostersList[Random.Range(0, _boostersList.Count)];
                 ShowReward(boosterRewardObject);
                 HideReward(coinsRewardObject);
                 HideReward(gemRewardObject);

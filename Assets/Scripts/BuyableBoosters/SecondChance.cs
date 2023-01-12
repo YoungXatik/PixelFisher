@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SecondChance : MonoBehaviour
+public class SecondChance : MonoBehaviour, IBoostable
 {
     [SerializeField] private float duration;
     private float _durationCounter;
@@ -35,7 +35,7 @@ public class SecondChance : MonoBehaviour
         ActivateTimer();
     }
 
-    private void CancelBoost()
+    public void CancelBoost()
     {
         Debug.Log("BoostFinished");
         _available = false;
@@ -44,12 +44,12 @@ public class SecondChance : MonoBehaviour
         DeactivateTimer();
     }
 
-    private void ActivateTimer()
+    public void ActivateTimer()
     {
         boosterTimer.ActivateTimer(duration,boosterIcon);
     }
 
-    private void DeactivateTimer()
+    public void DeactivateTimer()
     {
         boosterTimer.DeactivateTimer();
     }
@@ -67,13 +67,18 @@ public class SecondChance : MonoBehaviour
         }
     }
 
-    private void StopBoost()
+    public void StopBoost()
     {
         _available = false;
     }
 
-    private void ContinueBoost()
+    public void ContinueBoost()
     {
         _available = true;
+    }
+    
+    public Sprite GetBoosterImage()
+    {
+        return boosterIcon;
     }
 }

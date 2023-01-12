@@ -19099,6 +19099,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1001856528}
     m_Modifications:
+    - target: {fileID: 2206725040348436637, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2925875220493823911, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
       propertyPath: _msToWait
       value: 86400000
@@ -19107,6 +19111,26 @@ PrefabInstance:
       propertyPath: rewardButton
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4082776889524441012, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: _boostersObjects.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4082776889524441012, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: _boostersObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1716346863}
+    - target: {fileID: 4082776889524441012, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: _boostersObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 577266091}
+    - target: {fileID: 4082776889524441012, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: _boostersObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 778020733}
+    - target: {fileID: 4082776889524441012, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: _boostersObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 1796037268}
     - target: {fileID: 4921861048277362281, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -19227,6 +19251,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -7178.428
       objectReference: {fileID: 0}
+    - target: {fileID: 5460091130249466294, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: _boostersObjects.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460091130249466294, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: _boostersObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1716346863}
+    - target: {fileID: 5460091130249466294, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: _boostersObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 577266091}
+    - target: {fileID: 5460091130249466294, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: _boostersObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 778020733}
+    - target: {fileID: 5460091130249466294, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: _boostersObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 1796037268}
+    - target: {fileID: 6330294518324508387, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7610223330985937156, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -19355,6 +19403,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8209651022264492490, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: _boostersObjects.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209651022264492490, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: _boostersObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1716346863}
+    - target: {fileID: 8209651022264492490, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: _boostersObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 577266091}
+    - target: {fileID: 8209651022264492490, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: _boostersObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 778020733}
+    - target: {fileID: 8209651022264492490, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: _boostersObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 1796037268}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
 --- !u!224 &5621169953896545306 stripped
