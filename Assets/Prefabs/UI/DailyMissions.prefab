@@ -3277,8 +3277,8 @@ MonoBehaviour:
   getRewardButton: {fileID: 5225789606230915586}
   description: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u0435 \u043B\u0435\u0441\u043A\u0443"
   currentCatchValue: 0
-  coinsReward: 600
-  fishCoinsReward: 55
+  coinsReward: 500
+  fishCoinsReward: 45
   neededCatchValues: 020000000400000008000000
   completeBanner: {fileID: 5151843349791810641}
 --- !u!1001 &5126658670824443652
@@ -3487,8 +3487,8 @@ MonoBehaviour:
   description: "\u0417\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u0439\u0442\u0435
     \u0434\u043E\u0441\u0442\u0438\u0436\u0435\u043D\u0438\u044F"
   currentCatchValue: 0
-  coinsReward: 1500
-  fishCoinsReward: 125
+  coinsReward: 1100
+  fishCoinsReward: 110
   neededCatchValues: 010000000300000005000000
 --- !u!1001 &5126658671225965412
 PrefabInstance:
@@ -3699,8 +3699,8 @@ MonoBehaviour:
   getRewardButton: {fileID: 5225789606680595207}
   description: "\u0423\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u043A\u0440\u044E\u0447\u043E\u043A"
   currentCatchValue: 0
-  coinsReward: 750
-  fishCoinsReward: 75
+  coinsReward: 600
+  fishCoinsReward: 60
   neededCatchValues: 020000000400000008000000
 --- !u!1001 &5126658671373893582
 PrefabInstance:
@@ -3908,7 +3908,7 @@ MonoBehaviour:
   description: "\u041F\u043E\u0439\u043C\u0430\u0439\u0442\u0435 \u0440\u0435\u0434\u043A\u0443\u044E
     \u0440\u044B\u0431\u0443"
   currentCatchValue: 0
-  coinsReward: 1250
+  coinsReward: 850
   fishCoinsReward: 75
   neededCatchValues: 190000004b00000096000000
 --- !u!1001 &5126658671785426203
@@ -4117,8 +4117,8 @@ MonoBehaviour:
   description: "\u041F\u043E\u0439\u043C\u0430\u0439\u0442\u0435 \u043E\u0431\u044B\u0447\u043D\u0443\u044E
     \u0440\u044B\u0431\u0443"
   currentCatchValue: 0
-  coinsReward: 900
-  fishCoinsReward: 55
+  coinsReward: 750
+  fishCoinsReward: 60
   neededCatchValues: 32000000960000005e010000
 --- !u!1001 &5126658672427608144
 PrefabInstance:
@@ -4325,7 +4325,7 @@ MonoBehaviour:
   getRewardButton: {fileID: 5225789607609673779}
   description: "\u0417\u0430\u043A\u0438\u043D\u044C\u0442\u0435 \u0443\u0434\u043E\u0447\u043A\u0443"
   currentCatchValue: 0
-  coinsReward: 500
+  coinsReward: 375
   fishCoinsReward: 35
   neededCatchValues: 64000000fa000000f4010000
 --- !u!1001 &8004076560584801686

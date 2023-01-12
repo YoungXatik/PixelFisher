@@ -21,6 +21,7 @@ public class Money : MonoBehaviour
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI fishBookMoneyText;
     [SerializeField] private TextMeshProUGUI shopMoneyText;
+    [SerializeField] private TextMeshProUGUI missionMoneyText;
 
     [SerializeField] private TextMeshProUGUI shopDiamondsText;
     [SerializeField] private TextMeshProUGUI missionDiamondsText;
@@ -53,6 +54,7 @@ public class Money : MonoBehaviour
         moneyText.text = $"{Mathf.RoundToInt(MoneyCount)}";
         fishBookMoneyText.text = $"{Mathf.RoundToInt(MoneyCount)}";
         shopMoneyText.text = $"{Mathf.RoundToInt(MoneyCount)}";
+        missionMoneyText.text = $"{Mathf.RoundToInt(MoneyCount)}";
         shopDiamondsText.text = $"{Mathf.RoundToInt(DiamondsCount)}";
         missionDiamondsText.text = $"{Mathf.RoundToInt(DiamondsCount)}";
     }
@@ -189,6 +191,42 @@ public class Money : MonoBehaviour
                     });
             }
         }
+        
+        if (_addTween == null)
+        {
+            _addTween = DOTween.To(x => MoneyCount = x, MoneyCount, MoneyCount + value, 1f)
+                .OnUpdate((() => missionMoneyText.text = $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
+                {
+                    EventManager.OnMoneyChangedInvoke();
+                    shopMoneyText.text = $"{MoneyCount}";
+                    PlayerPrefs.SetFloat("Money",MoneyCount);
+                });
+        }
+        else
+        {
+            if (_addTween.IsActive())
+            {
+                _addTween.Complete();
+                _addTween = DOTween.To(x => MoneyCount = x, MoneyCount, MoneyCount + value, 1f)
+                    .OnUpdate((() => missionMoneyText.text = $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
+                    {
+                        EventManager.OnMoneyChangedInvoke();
+                        shopMoneyText.text = $"{MoneyCount}";
+                        PlayerPrefs.SetFloat("Money",MoneyCount);
+                    });
+            }
+            else
+            {
+                _addTween = DOTween.To(x => MoneyCount = x, MoneyCount, MoneyCount + value, 1f)
+                    .OnUpdate((() => missionMoneyText.text = $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
+                    {
+                        EventManager.OnMoneyChangedInvoke();
+                        shopMoneyText.text = $"{MoneyCount}";
+                        PlayerPrefs.SetFloat("Money",MoneyCount);
+                    });
+            }
+        }
+        
     }
 
     public void RemoveMoney(int value)
@@ -222,6 +260,30 @@ public class Money : MonoBehaviour
             {
                 _removeTween = DOTween.To(x => MoneyCount = x, MoneyCount, MoneyCount - value, 1f).
                     OnUpdate((() => moneyText.text =  $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
+                    {
+                        EventManager.OnMoneyChangedInvoke(); 
+                        fishBookMoneyText.text = $"{MoneyCount}";
+                        shopMoneyText.text = $"{MoneyCount}";
+                        PlayerPrefs.SetFloat("Money",MoneyCount);
+                    });
+            }
+            
+            if (_removeTween.IsActive())
+            {
+                _removeTween.Complete();
+                _removeTween = DOTween.To(x => MoneyCount = x, MoneyCount, MoneyCount - value, 1f).
+                    OnUpdate((() => missionMoneyText.text =  $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
+                    {
+                        EventManager.OnMoneyChangedInvoke();
+                        fishBookMoneyText.text = $"{MoneyCount}";
+                        shopMoneyText.text = $"{MoneyCount}";
+                        PlayerPrefs.SetFloat("Money",MoneyCount);
+                    });
+            }
+            else
+            {
+                _removeTween = DOTween.To(x => MoneyCount = x, MoneyCount, MoneyCount - value, 1f).
+                    OnUpdate((() => missionMoneyText.text =  $"{Mathf.RoundToInt(MoneyCount)}")).OnComplete(delegate
                     {
                         EventManager.OnMoneyChangedInvoke(); 
                         fishBookMoneyText.text = $"{MoneyCount}";

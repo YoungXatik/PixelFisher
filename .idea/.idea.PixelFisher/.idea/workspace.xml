@@ -92,13 +92,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchAchievments.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookDrops.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/IAchievmentable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookUpgrade.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookStrengthUpgrade.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchAchievements.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchRareFish.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchDefaultFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyCollectRareFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenuValues.cs" />
@@ -117,6 +111,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IBoostable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/ChestBubble.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchAchievements.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchDefaultFish.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookDrops.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookStrengthUpgrade.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookUpgrade.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchRareFish.cs" />
       </list>
     </option>
   </component>
@@ -182,7 +182,7 @@
       <workItem from="1673356712239" duration="5775000" />
       <workItem from="1673429865305" duration="15668000" />
       <workItem from="1673479326911" duration="1305000" />
-      <workItem from="1673518390218" duration="6244000" />
+      <workItem from="1673518390218" duration="7236000" />
     </task>
     <servers />
   </component>

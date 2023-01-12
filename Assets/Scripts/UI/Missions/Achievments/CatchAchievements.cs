@@ -73,6 +73,8 @@ public class CatchAchievements : MonoBehaviour, ICatchable
         _needCatchValue = neededCatchValues[_currentAchievementStage];
         _step = 1f / _needCatchValue;
         currentCatchValue = PlayerPrefs.GetInt("AchievementsCollected");
+        coinsRewardText.text = $"{coinsReward}";
+        fishCoinsRewardText.text = $"{fishCoinsReward}";
         descriptionText.text = description;
         progressText.text = $"{currentCatchValue}/{_needCatchValue}";
         UpdateProgressBar();
@@ -118,8 +120,8 @@ public class CatchAchievements : MonoBehaviour, ICatchable
         _currentAchievementStage++;
         _needCatchValue = neededCatchValues[_currentAchievementStage];
         PlayerPrefs.SetInt("CatchAchievementsStage",_currentAchievementStage);
-        coinsReward *= _currentAchievementStage;
-        fishCoinsReward *= _currentAchievementStage;
+        coinsReward = coinsReward * (_currentAchievementStage);
+        fishCoinsReward = fishCoinsReward * (_currentAchievementStage);
         _step = 1f / _needCatchValue;
         UpdateUI();   
     }

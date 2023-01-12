@@ -63,6 +63,8 @@ public class CatchHookStrengthUpgrade :  MonoBehaviour,ICatchable
     {
         _needCatchValue = neededCatchValues[_currentAchievementStage];
         _step = 1f / _needCatchValue;
+        coinsRewardText.text = $"{coinsReward}";
+        fishCoinsRewardText.text = $"{fishCoinsReward}";
         currentCatchValue = PlayerPrefs.GetInt("HookStrengthLevel");
         descriptionText.text = description;
         progressText.text = $"{currentCatchValue}/{_needCatchValue}";
@@ -110,8 +112,8 @@ public class CatchHookStrengthUpgrade :  MonoBehaviour,ICatchable
         _currentAchievementStage++;
         _needCatchValue = neededCatchValues[_currentAchievementStage];
         PlayerPrefs.SetInt("CatchHookStrengthStage",_currentAchievementStage);
-        coinsReward *= _currentAchievementStage;
-        fishCoinsReward *= _currentAchievementStage;
+        coinsReward = coinsReward * (_currentAchievementStage);
+        fishCoinsReward = fishCoinsReward * (_currentAchievementStage);
         _step = 1f / _needCatchValue;
         UpdateUI();
     }
