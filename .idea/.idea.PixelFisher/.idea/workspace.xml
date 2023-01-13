@@ -15,6 +15,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchRareFish.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoosterTimer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Shop/ShopCell.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Boosters/OfflineMoney.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FindsList.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/SecondChance.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Missions/ChestBubble.cs" root0="FORCE_HIGHLIGHTING" />
@@ -66,7 +67,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/WaterColliders.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/FisherAnimator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishMovement.cs" />
@@ -87,7 +87,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/QuestAreaCards.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissionCard.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/Booster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchAchievments.cs" />
@@ -115,8 +114,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookStrengthUpgrade.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookDrops.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchDefaultFish.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchAchievements.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchAchievements.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/Booster.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/OfflineMoney.cs" />
       </list>
     </option>
   </component>
@@ -182,7 +183,8 @@
       <workItem from="1673356712239" duration="5775000" />
       <workItem from="1673429865305" duration="15668000" />
       <workItem from="1673479326911" duration="1305000" />
-      <workItem from="1673518390218" duration="8128000" />
+      <workItem from="1673518390218" duration="8735000" />
+      <workItem from="1673604661637" duration="4672000" />
     </task>
     <servers />
   </component>

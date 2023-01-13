@@ -58,7 +58,7 @@ public class Booster : MonoBehaviour
                     currentValueLevel = PlayerPrefs.GetInt("HookLengthLevel");
                 }
                 CurrentBoosterValue = boostedValue[currentValueLevel];
-                currentValue.text = $"{boostedValue[currentValueLevel]}m";
+                currentValue.text = $"{boostedValue[currentValueLevel]}/m";
                 if (PlayerPrefs.GetInt("HookLengthLevel") != boostedValue.Count - 1)
                 {
                     costText.text = costValue[currentValueLevel + 1].ToString();
@@ -79,7 +79,7 @@ public class Booster : MonoBehaviour
                     currentValueLevel = PlayerPrefs.GetInt("HookStrengthLevel");
                 }
                 CurrentBoosterValue = boostedValue[currentValueLevel];
-                currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("HookStrengthLevel")]}fishes";
+                currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("HookStrengthLevel")]}/fishes";
                 if (PlayerPrefs.GetInt("HookStrengthLevel") != boostedValue.Count - 1)
                 {
                     costText.text = costValue[currentValueLevel + 1].ToString();
@@ -100,7 +100,7 @@ public class Booster : MonoBehaviour
                     currentValueLevel = PlayerPrefs.GetInt("OfflineMoneyLevel");
                 }
                 CurrentBoosterValue = boostedValue[currentValueLevel];
-                currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("OfflineMoneyLevel")]}min";
+                currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("OfflineMoneyLevel")]}/min";
                 if (PlayerPrefs.GetInt("OfflineMoneyLevel") != boostedValue.Count - 1)
                 {
                     costText.text = costValue[currentValueLevel + 1].ToString();
@@ -170,12 +170,12 @@ public class Booster : MonoBehaviour
         {
             case BoosterValue.Length:
                 EventManager.OnLengthValueChangedInvoke();
-                currentValue.text = $"{boostedValue[currentValueLevel]}m";
+                currentValue.text = $"{boostedValue[currentValueLevel]}/m";
                 PlayerPrefs.SetInt("HookLengthLevel",currentValueLevel);
                 break;
             case BoosterValue.Strength:
                 EventManager.OnStrengthValueChangedInvoke();
-                currentValue.text = $"{boostedValue[currentValueLevel]}fishes";
+                currentValue.text = $"{boostedValue[currentValueLevel]}/fishes";
                 PlayerPrefs.SetInt("HookStrengthLevel",currentValueLevel);
                 break;
             case BoosterValue.OfflineMoney:
