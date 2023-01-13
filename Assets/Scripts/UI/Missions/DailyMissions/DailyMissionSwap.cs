@@ -95,6 +95,7 @@ public class DailyMissionSwap : MonoBehaviour
 
     private void RefreshDailyMissions()
     {
+        EventManager.OnDailyRewardsUpdateInvoke();
         ClearSavedTime();
         StartTick();
         for (int i = 0; i < _spawnedDailyMissions.Count; i++)

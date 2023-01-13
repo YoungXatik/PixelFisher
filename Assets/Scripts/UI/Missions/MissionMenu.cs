@@ -18,9 +18,29 @@ public class MissionMenu : MonoBehaviour
 
     [SerializeField] private Button openButton;
     [SerializeField] private Button closeButton;
+    
+    [SerializeField] private GameObject missionsIndicator;
+    [SerializeField] private GameObject dailyMissionsIndicator;
+
+    private void OnEnable()
+    {
+        EventManager.OnDailyRewardsUpdate += ShowDailyIndicators;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnDailyRewardsUpdate -= ShowDailyIndicators;
+    }
+
+    private void ShowDailyIndicators()
+    {
+        missionsIndicator.SetActive(true);
+        dailyMissionsIndicator.SetActive(true);
+    }
 
     public void OpenMenu()
     {
+        missionsIndicator.SetActive(false);
         openButton.interactable = false;
         closeButton.interactable = false;
         menuImage.DOScale(1, 0.25f).From(0).SetEase(Ease.Linear).OnComplete(delegate
@@ -62,6 +82,7 @@ public class MissionMenu : MonoBehaviour
     
     public void OpenDailyMissionMenu()
     {
+        dailyMissionsIndicator.SetActive(false);
         CloseQuestMenu();
         questsAreaButton.interactable = false;
         dailyMissionButton.interactable = false;

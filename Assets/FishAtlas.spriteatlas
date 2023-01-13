@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FishAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 41f51c20ebe895e448db742923785d30, type: 3}
+    - {fileID: 2800000, guid: 736a42cc300015149958eea4ea1bfc92, type: 3}
+    - {fileID: 2800000, guid: f837d0690c92a364fa13a05f5621e791, type: 3}
+    - {fileID: 2800000, guid: 19b902798edb64f41b86789b0e15dae2, type: 3}
+    - {fileID: 2800000, guid: 18bec7e1d99a6fb4e93149126d07d660, type: 3}
+    - {fileID: 2800000, guid: c7f3b6db2bc75374b80a195d9363cad5, type: 3}
+    - {fileID: 2800000, guid: c39f6edea2119bd4185309a77f75a884, type: 3}
+    - {fileID: 2800000, guid: 219f897e31e5441418ee66dc165000aa, type: 3}
+    - {fileID: 2800000, guid: 847b4263f0aa263409e8148a20316d72, type: 3}
+    - {fileID: 2800000, guid: 95d538b1298fd88468bf1ab8b6a0b900, type: 3}
+    - {fileID: 2800000, guid: 344dced032b738e46aafe9ed8209231a, type: 3}
+    - {fileID: 2800000, guid: 9a2423c344d04d24fb14264a26201088, type: 3}
+    - {fileID: 2800000, guid: 7469b7aab28f2a34ab6020965e14dd00, type: 3}
+    - {fileID: 2800000, guid: 7ee028011bc10fe489f843ffd7bda653, type: 3}
+    - {fileID: 2800000, guid: 6cb9fdeb6aca515408cd406753c81f84, type: 3}
+    - {fileID: 2800000, guid: 187dc8ae89f450b4e85ff73f3cb77938, type: 3}
+    - {fileID: 2800000, guid: 9404c9b4f95d1ec4383b629e594219ff, type: 3}
+    - {fileID: 2800000, guid: c9fe6f0a5765a0043a96a5c40690dd04, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 41f51c20ebe895e448db742923785d30, type: 3}
+  - {fileID: 21300000, guid: 344dced032b738e46aafe9ed8209231a, type: 3}
+  - {fileID: 21300000, guid: 7ee028011bc10fe489f843ffd7bda653, type: 3}
+  - {fileID: 21300000, guid: 95d538b1298fd88468bf1ab8b6a0b900, type: 3}
+  - {fileID: 21300000, guid: 18bec7e1d99a6fb4e93149126d07d660, type: 3}
+  - {fileID: 21300000, guid: 847b4263f0aa263409e8148a20316d72, type: 3}
+  - {fileID: 21300000, guid: 9a2423c344d04d24fb14264a26201088, type: 3}
+  - {fileID: 21300000, guid: 9404c9b4f95d1ec4383b629e594219ff, type: 3}
+  - {fileID: 21300000, guid: f837d0690c92a364fa13a05f5621e791, type: 3}
+  - {fileID: 21300000, guid: 19b902798edb64f41b86789b0e15dae2, type: 3}
+  - {fileID: 21300000, guid: c9fe6f0a5765a0043a96a5c40690dd04, type: 3}
+  - {fileID: 21300000, guid: 7469b7aab28f2a34ab6020965e14dd00, type: 3}
+  - {fileID: 21300000, guid: c7f3b6db2bc75374b80a195d9363cad5, type: 3}
+  - {fileID: 21300000, guid: 6cb9fdeb6aca515408cd406753c81f84, type: 3}
+  - {fileID: 21300000, guid: 736a42cc300015149958eea4ea1bfc92, type: 3}
+  - {fileID: 21300000, guid: 219f897e31e5441418ee66dc165000aa, type: 3}
+  - {fileID: 21300000, guid: 187dc8ae89f450b4e85ff73f3cb77938, type: 3}
+  - {fileID: 21300000, guid: c39f6edea2119bd4185309a77f75a884, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - barabulya
+  - lin
+  - peskar
+  - lesch
+  - gorbyl
+  - laskir
+  - lufar
+  - schuka
+  - chekhon
+  - golavl
+  - yaz
+  - okun
+  - karas
+  - plotva
+  - bychok
+  - krasnoperka
+  - sazan
+  - kefal
+  m_RenderDataMap: {}
+  m_Tag: FishAtlas
+  m_IsVariant: 0
