@@ -65,15 +65,8 @@ public class Hook : MonoBehaviour
         if (other.gameObject.TryGetComponent<Fish>(out fish))
         {
             currentHookedFish = fish.fishType;
-            
-            if (fish.fishType.FishQuality == FishQuality.Common)
-            {
-                EventManager.OnCommonFishHookedInvoke();
-            }
-            else
-            {
-                EventManager.OnRareFishHookedInvoke();
-            }
+            CheckForFishQuality(fish);
+            CheckForUnCollectedFish(fish);
             hookController.CheckForFirstFishEntry();
             hookController.hookedFish.Add(fish);
             _hookedFish.Add(fish);
@@ -85,6 +78,26 @@ public class Hook : MonoBehaviour
             }
             fish.FishHasBeenHooked(_hookTransform);
             _hookedFishCost += Mathf.RoundToInt((fish.fishCost * fishCostMultiplier));
+        }
+    }
+
+    private void CheckForFishQuality(Fish fish)
+    {
+        if (fish.fishType.FishQuality == FishQuality.Common)
+        {
+            EventManager.OnCommonFishHookedInvoke();
+        }
+        else
+        {
+            EventManager.OnRareFishHookedInvoke();
+        }
+    }
+    
+    private void CheckForUnCollectedFish(Fish fish)
+    {
+        if (!fish.fishType.isCollected)
+        {
+            EventManager.OnFishCollectedInvoke();
         }
     }
 

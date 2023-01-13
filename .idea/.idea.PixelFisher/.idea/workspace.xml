@@ -77,30 +77,24 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FindsList.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/UnlockFishCards.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard_UI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/Fish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/Shop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoosterTimer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishesSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/ShopCell.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/PlayerUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/QuestAreaCards.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissionCard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchAchievments.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/IAchievmentable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyCollectRareFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenuValues.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyCollectCurrentFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DateTimeUtils.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyMissionSwap.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/UI/JAbgoaengengl.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/OnButtonClick.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishBook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/BoosterValues.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoostedHookDeep.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedFishCost.cs" />
@@ -117,7 +111,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchAchievements.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/Booster.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/OnButtonClick.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/OfflineMoney.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/PlayerUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard_UI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishBook.cs" />
       </list>
     </option>
   </component>
@@ -184,7 +184,7 @@
       <workItem from="1673429865305" duration="15668000" />
       <workItem from="1673479326911" duration="1305000" />
       <workItem from="1673518390218" duration="8735000" />
-      <workItem from="1673604661637" duration="5764000" />
+      <workItem from="1673604661637" duration="9202000" />
     </task>
     <servers />
   </component>

@@ -15,7 +15,7 @@ public class OfflineMoney : MonoBehaviour
     [SerializeField] private TextMeshProUGUI rewardedMoney;
     [SerializeField] private Button getRewardButton;
     
-    [SerializeField] private float maxRewardValue;
+    private float maxRewardValue;
     private float _reward;
     
     private void Awake()
@@ -26,6 +26,14 @@ public class OfflineMoney : MonoBehaviour
 
     private void Start()
     {
+        if (!PlayerPrefs.HasKey("OfflineMoneyLevel"))
+        {
+            maxRewardValue = 60f;
+        }
+        else
+        {
+            maxRewardValue = _offlineBooster.boostedValue[PlayerPrefs.GetInt("OfflineMoneyLevel")] * 60f;   
+        }
         CheckOffline();
     }
 
@@ -35,7 +43,10 @@ public class OfflineMoney : MonoBehaviour
         if (PlayerPrefs.HasKey("LastGameSession"))
         {
             ts = DateTime.Now - DateTime.Parse(PlayerPrefs.GetString("LastGameSession"));
-            ShowOfflineMoneyScreen(ts);
+            if (ts.Minutes >= 1)
+            {
+                ShowOfflineMoneyScreen(ts);
+            }
         }
     }
 

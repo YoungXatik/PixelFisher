@@ -10,6 +10,6 @@ public class OnButtonClick : MonoBehaviour
 
     public void OnClick()
     {
-        gameObject.transform.DOScale(_defaultScale - Vector3.one * 0.08f, 0.1f).SetLoops(2, LoopType.Yoyo).From(_defaultScale).SetEase(Ease.Linear);
+        gameObject.transform.DOScale(_defaultScale - Vector3.one * 0.2f, 0.1f).SetLoops(2, LoopType.Yoyo).From(_defaultScale).SetEase(Ease.Linear);
     }
 }

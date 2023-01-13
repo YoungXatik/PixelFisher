@@ -71,4 +71,18 @@ public class EventManager : MonoBehaviour
     {
         OnAchievementCollected?.Invoke();
     }
+
+    public static Action OnFishCollected;
+
+    public static void OnFishCollectedInvoke()
+    {
+        OnFishCollected?.Invoke();
+    }
+
+    public static Action OnDailyRewardsUpdate;
+
+    public static void OnDailyRewardsUpdateInvoke()
+    {
+        OnDailyRewardsUpdate?.Invoke();
+    }
 }

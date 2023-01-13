@@ -22,6 +22,10 @@ public class FishCard_UI : MonoBehaviour
     private void OnEnable()
     {
         UnlockFishCard();
+        if (FishType.isAchieved)
+        {
+            collectRewardButton.interactable = false;
+        }
     }
 
     public void UnlockCommonCard()
@@ -95,7 +99,7 @@ public class FishCard_UI : MonoBehaviour
 
     public void GetReward()
     {
-        _rewardHasBeenCollected = true;
+        FishType.isAchieved = true;
         Money.Instance.AddMoney(rewardCount);
         collectRewardButton.gameObject.SetActive(false);
     }
