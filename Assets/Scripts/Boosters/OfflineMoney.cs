@@ -14,9 +14,8 @@ public class OfflineMoney : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timeSpendText;
     [SerializeField] private TextMeshProUGUI rewardedMoney;
     [SerializeField] private Button getRewardButton;
-
-    [SerializeField] private int maxMinutesSpan;
-    private float _maxRewardValue;
+    
+    [SerializeField] private float maxRewardValue;
     private float _reward;
     
     private void Awake()
@@ -27,7 +26,6 @@ public class OfflineMoney : MonoBehaviour
 
     private void Start()
     {
-        _maxRewardValue = _offlineBooster.CurrentBoosterValue * maxMinutesSpan;
         CheckOffline();
     }
 
@@ -69,10 +67,10 @@ public class OfflineMoney : MonoBehaviour
                 .OnUpdate((() => timeSpendText.text = $"{Mathf.RoundToInt(hours)}ч:{Mathf.RoundToInt(minutes)}м:{Mathf.RoundToInt(seconds)}с")).OnComplete(
                     delegate
                     {
-                        _reward = ((ts.Hours * 60) + ts.Minutes) * _offlineBooster.CurrentBoosterValue;
-                        if (_reward >= _maxRewardValue)
+                        _reward = ((hours * 60) + minutes) * _offlineBooster.CurrentBoosterValue;
+                        if (_reward > maxRewardValue)
                         {
-                            _reward = _maxRewardValue;
+                            _reward = maxRewardValue;
                         }
                         DOTween.To(x => _reward = x, 0, _reward, 0.75f).SetEase(Ease.Linear)
                             .OnUpdate((() => rewardedMoney.text = $"{Mathf.RoundToInt(_reward)}")).OnComplete(delegate
