@@ -92,44 +92,38 @@ public class FishesSpawner : MonoBehaviour
 
         while (fishCount >= 1)
         {
-            SpawnFish();
+            SpawnFish(commonFishPrefabs[Random.Range(0,commonFishPrefabs.Count)]);
         }
 
         while (rareFishCount >= 1)
         {
-            SpawnRareFish();
+            SpawnRareFish(rareFishPrefabs[Random.Range(0,rareFishPrefabs.Count)]);
         }
     }
 
-    private void SpawnFish()
+    private void SpawnFish(Fish fish)
     {
         float offsetX = Random.Range(minimalSpawnOffsetX, maximalSpawnOffsetX);
         float currentYOffset = Random.Range(minimalSpawnOffsetY, maximalSpawnOffsetY);
-        float offsetY = minYPosition - currentYOffset;
-        var clone = Instantiate(commonFishPrefabs[Random.Range(0, commonFishPrefabs.Count)], new Vector3(offsetX, offsetY, 0),
+        var clone = Instantiate(fish, new Vector3(offsetX, fish.fishType.GetSpawnDepth() - currentYOffset, 0),
             Quaternion.identity);
         spawnedFish.Add(clone);
-        
-        
         int scaleIndex = Random.Range(0, moveAndScaleDirection.Length);
-        clone.SetFishValues(moveAndScaleDirection[scaleIndex],moveAndScaleDirection[scaleIndex]);
+        clone.SetFishValues(moveAndScaleDirection[scaleIndex], moveAndScaleDirection[scaleIndex]);
 
         minYPosition -= currentYOffset;
         fishCount--;
     }
 
-    private void SpawnRareFish()
+    private void SpawnRareFish(Fish fish)
     {
         float offsetX = Random.Range(minimalSpawnOffsetX, maximalSpawnOffsetX);
         float currentYOffset = Random.Range(minimalSpawnOffsetY, maximalSpawnOffsetY);
-        float offsetY = minYPosition - currentYOffset;
-        var clone = Instantiate(rareFishPrefabs[Random.Range(0, rareFishPrefabs.Count)], new Vector3(offsetX, offsetY, 0),
+        var clone = Instantiate(fish, new Vector3(offsetX, fish.fishType.GetSpawnDepth() - currentYOffset, 0),
             Quaternion.identity);
         spawnedFish.Add(clone);
-        
-        
         int scaleIndex = Random.Range(0, moveAndScaleDirection.Length);
-        clone.SetFishValues(moveAndScaleDirection[scaleIndex],moveAndScaleDirection[scaleIndex]);
+        clone.SetFishValues(moveAndScaleDirection[scaleIndex], moveAndScaleDirection[scaleIndex]);
 
         minYPosition -= currentYOffset;
         rareFishCount--;

@@ -134,6 +134,9 @@ MonoBehaviour:
   maxSpeed: 1.8
   timeToChangeScale: 0.2
   movementType: 0
+  minSpawnDepth: -20
+  maxSpawnDepth: -25
+  <SpawnDepth>k__BackingField: 0
 --- !u!50 &-8915523971096435438
 Rigidbody2D:
   serializedVersion: 4

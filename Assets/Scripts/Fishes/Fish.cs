@@ -27,9 +27,6 @@ public class Fish : MonoBehaviour
     private float _fishSpeed;
     private Vector2 _moveDirection;
 
-    [SerializeField] private float minSpawnDepth, maxSpawnDepth;
-    [field: SerializeField] public float SpawnDepth { get; private set; }
-
     private void Awake()
     {
         _fishTransform = GetComponent<Transform>();

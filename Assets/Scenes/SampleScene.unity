@@ -8707,8 +8707,8 @@ MonoBehaviour:
   moveAndScaleDirection:
   - {x: 1, y: 0}
   - {x: -1, y: 0}
-  fishCount: 16
-  rareFishCount: 8
+  fishCount: 35
+  rareFishCount: 14
   rareFishMultiplier: 1
 --- !u!1001 &976173080
 PrefabInstance:
