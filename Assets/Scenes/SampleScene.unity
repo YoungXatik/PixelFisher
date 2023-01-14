@@ -8465,6 +8465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarBurst2D 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7199142811041497979, guid: 3c9eca0286b34784dbfe7807c3ae6673, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c9eca0286b34784dbfe7807c3ae6673, type: 3}
 --- !u!224 &939538766 stripped

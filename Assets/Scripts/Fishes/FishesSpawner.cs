@@ -80,6 +80,7 @@ public class FishesSpawner : MonoBehaviour
         rareFishMultiplier = _trueRareFishMultiplier;
         rareFishCount = _trueRareFishCount;
     }
+    
 
     [ContextMenu("Test Spawn")]
     public void StartSpawnFish()
@@ -98,30 +99,6 @@ public class FishesSpawner : MonoBehaviour
         {
             SpawnRareFish();
         }
-        
-        /*for (int i = 0; i < _trueFishCount; i++)
-        {
-            if (fishCount <= 0)
-            {
-                break;
-            }
-            else
-            {
-                SpawnFish();
-            }
-        }
-
-        for (int i = 0; i < _trueRareFishCount; i++)
-        {
-            if (rareFishCount <= 0)
-            {
-                break;
-            }
-            else
-            {
-                SpawnRareFish();
-            }
-        }*/
     }
 
     private void SpawnFish()
