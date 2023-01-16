@@ -16,6 +16,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoosterTimer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Shop/ShopCell.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Boosters/OfflineMoney.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/RewardedAdMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FindsList.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/SecondChance.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Missions/ChestBubble.cs" root0="FORCE_HIGHLIGHTING" />
@@ -187,7 +188,7 @@
       <workItem from="1673604661637" duration="10278000" />
       <workItem from="1673630235389" duration="366000" />
       <workItem from="1673692722187" duration="3983000" />
-      <workItem from="1673866041936" duration="12427000" />
+      <workItem from="1673866041936" duration="14068000" />
     </task>
     <servers />
   </component>
