@@ -75,7 +75,6 @@ public class FishCard_UI : MonoBehaviour
                 descriptionText.text = FishType.fishDescription;
                 fishImage.sprite = FishType.fishSprite;
                 collectRewardButton.gameObject.SetActive(true);
-                Debug.Log(FishType.fishName);
             }
             else
             {

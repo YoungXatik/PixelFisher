@@ -14,7 +14,7 @@ public class DailyMissionSwap : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI timerStatus;
 
-    private List<GameObject> _spawnedDailyMissions = new List<GameObject>();
+    public  List<GameObject> _spawnedDailyMissions = new List<GameObject>();
 
     [SerializeField] public List<GameObject> dailyMissionsList = new List<GameObject>();
 
@@ -29,13 +29,10 @@ public class DailyMissionSwap : MonoBehaviour
     {
         StartTick();
         _lastOpen = ulong.Parse(PlayerPrefs.GetString("LastOpen"));
-        if (!PlayerPrefs.HasKey("DailyHookedRareFish") && !PlayerPrefs.HasKey("DailyHookedCurrentFish"))
-        {
-            InitializePrefabs();   
-        }
+        InitializePrefabs();
     }
 
-    public void StartTick()
+    private void StartTick()
     {
         if (!PlayerPrefs.HasKey("LastOpen"))
         {

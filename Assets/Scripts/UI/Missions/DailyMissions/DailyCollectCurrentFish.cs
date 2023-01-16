@@ -20,7 +20,6 @@ public class DailyCollectCurrentFish : MonoBehaviour, ICatchable
     [SerializeField] private int minMoneyReward, maxMoneyReward;
 
     private int _coinsReward;
-
     private float _step;
 
     private void OnEnable()
@@ -54,7 +53,7 @@ public class DailyCollectCurrentFish : MonoBehaviour, ICatchable
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey("CurrentFishIndex"))
+        if (PlayerPrefs.HasKey("CurrentFishIndex" ))
         {
             neededFish = MissionMenuValues.Instance.fishTypes[PlayerPrefs.GetInt("CurrentFishIndex")];
         }

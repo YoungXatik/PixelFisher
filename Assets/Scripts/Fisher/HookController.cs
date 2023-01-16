@@ -118,7 +118,7 @@ public class HookController : MonoBehaviour
             hookTransform.rotation = Quaternion.Euler(rotate);
             fishingHookTransform.rotation = Quaternion.Euler(rotate * 2.5f);
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) && _canMove)
         {
             if (_movementXTween != null)
             {
