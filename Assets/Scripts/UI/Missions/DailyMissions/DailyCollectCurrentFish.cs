@@ -33,9 +33,9 @@ public class DailyCollectCurrentFish : MonoBehaviour, ICatchable
     {
         EventManager.OnRareFishHooked -= CheckFish;
         EventManager.OnCommonFishHooked -= CheckFish;
-        if (PlayerPrefs.HasKey("DailyHookedCurrentFish"))
+        if (PlayerPrefs.HasKey("DailyHookedCurrentFish" + gameObject.name))
         {
-            currentCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFish");
+            currentCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFish"+ gameObject.name);
         }
     }
 
@@ -53,46 +53,46 @@ public class DailyCollectCurrentFish : MonoBehaviour, ICatchable
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey("CurrentFishIndex" ))
+        if (PlayerPrefs.HasKey("CurrentFishIndex"+ gameObject.name))
         {
-            neededFish = MissionMenuValues.Instance.fishTypes[PlayerPrefs.GetInt("CurrentFishIndex")];
+            neededFish = MissionMenuValues.Instance.availableFishTypes[PlayerPrefs.GetInt("CurrentFishIndex"+ gameObject.name)];
         }
         else
         {
-            neededFish = MissionMenuValues.Instance.PickRandomFishType();
-            PlayerPrefs.SetInt("CurrentFishIndex",MissionMenuValues.Instance.Index); 
+            neededFish = MissionMenuValues.Instance.PickRandomAvailableFish();
+            PlayerPrefs.SetInt("CurrentFishIndex"+ gameObject.name,MissionMenuValues.Instance.Index);
         }
-        currentCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFish");
+        currentCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFish"+ gameObject.name);
         coinsRewardText.text = $"{_coinsReward}";
         getRewardButton.interactable = false;
 
-        if (!PlayerPrefs.HasKey("DailyHookedCurrentFishNeedValue") && !PlayerPrefs.HasKey("DailyHookedCurrentFishMoneyReward"))
+        if (!PlayerPrefs.HasKey("DailyHookedCurrentFishNeedValue"+ gameObject.name) && !PlayerPrefs.HasKey("DailyHookedCurrentFishMoneyReward"+ gameObject.name))
         {
             _needCatchValue = Random.Range(minCatchValue, maxCatchValue);
-            PlayerPrefs.SetInt("DailyHookedCurrentFishNeedValue",_needCatchValue);
+            PlayerPrefs.SetInt("DailyHookedCurrentFishNeedValue"+ gameObject.name,_needCatchValue);
             _coinsReward = Random.Range(minMoneyReward, maxMoneyReward);
-            PlayerPrefs.SetInt("DailyHookedCurrentFishMoneyReward",_coinsReward);
+            PlayerPrefs.SetInt("DailyHookedCurrentFishMoneyReward"+ gameObject.name,_coinsReward);
             description = $"Поймайте {neededFish.fishName}";
             UpdateUI();
         }
         else
         {
-            _needCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFishNeedValue");
-            _coinsReward = PlayerPrefs.GetInt("DailyHookedCurrentFishMoneyReward");
+            _needCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFishNeedValue"+ gameObject.name);
+            _coinsReward = PlayerPrefs.GetInt("DailyHookedCurrentFishMoneyReward"+ gameObject.name);
             description = $"Поймайте {neededFish.fishName}";
             UpdateUI();
         }
 
-        if (PlayerPrefs.HasKey("DailyHookedCurrentFish"))
+        if (PlayerPrefs.HasKey("DailyHookedCurrentFish"+ gameObject.name))
         {
-            currentCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFish");
+            currentCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFish"+ gameObject.name);
         }
         else
         {
             currentCatchValue = 0;
         }
 
-        if (PlayerPrefs.GetInt("DailyCurrentFishCollected") == 1)
+        if (PlayerPrefs.GetInt("DailyCurrentFishCollected"+ gameObject.name) == 1)
         {
             Destroy(gameObject);
         }
@@ -101,7 +101,7 @@ public class DailyCollectCurrentFish : MonoBehaviour, ICatchable
     public void UpdateAchievementValue()
     {
         currentCatchValue++;
-        PlayerPrefs.SetInt("DailyHookedCurrentFish", currentCatchValue);
+        PlayerPrefs.SetInt("DailyHookedCurrentFish"+ gameObject.name, currentCatchValue);
         CheckForReward();
         UpdateUI();
     }
@@ -109,7 +109,7 @@ public class DailyCollectCurrentFish : MonoBehaviour, ICatchable
     public void UpdateUI()
     {
         _step = 1f / _needCatchValue;
-        currentCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFish");
+        currentCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFish"+ gameObject.name);
         descriptionText.text = description;
         progressText.text = $"{currentCatchValue}/{_needCatchValue}";
         coinsRewardText.text = $"{_coinsReward}";
@@ -139,8 +139,8 @@ public class DailyCollectCurrentFish : MonoBehaviour, ICatchable
     {
         Money.Instance.AddMoney(_coinsReward);
         getRewardButton.interactable = false;
-        PlayerPrefs.SetInt("DailyCurrentFishCollected", true ? 1 : 0);
-        Debug.Log(PlayerPrefs.GetInt("DailyCurrentFishCollected"));
+        PlayerPrefs.SetInt("DailyCurrentFishCollected"+ gameObject.name, true ? 1 : 0);
+        Debug.Log(PlayerPrefs.GetInt("DailyCurrentFishCollected"+ gameObject.name));
         Destroy(gameObject);
     }
 

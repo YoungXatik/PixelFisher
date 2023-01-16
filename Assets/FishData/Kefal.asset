@@ -20,6 +20,6 @@ MonoBehaviour:
   <FishQuality>k__BackingField: 1
   <TotallyCatch>k__BackingField: 1
   isAchieved: 0
-  minSpawnDepth: -15
-  maxSpawnDepth: -35
-  <SpawnDepth>k__BackingField: -31.403297
+  <minSpawnDepth>k__BackingField: -55
+  <maxSpawnDepth>k__BackingField: -70
+  <SpawnDepth>k__BackingField: 0

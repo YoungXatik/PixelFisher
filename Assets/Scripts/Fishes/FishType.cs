@@ -15,7 +15,8 @@ public class FishType : ScriptableObject
     
     public bool isAchieved;
     
-    [SerializeField] private float minSpawnDepth, maxSpawnDepth;
+    [field: SerializeField] public float minSpawnDepth { get; private set; }
+    [field: SerializeField] public float maxSpawnDepth { get; private set; }
     [field: SerializeField] public float SpawnDepth { get; private set; }
 
     public float GetSpawnDepth()

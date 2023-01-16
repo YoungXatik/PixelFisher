@@ -108,6 +108,19 @@ public class HookController : MonoBehaviour
         hookMaxLength = -boosterComponent.CurrentBoosterValue;
     }
 
+    public float GetHookLength()
+    {
+        if (PlayerPrefs.HasKey("HookLengthLevel"))
+        {
+            hookMaxLength = -boosterComponent.boostedValue[PlayerPrefs.GetInt("HookLengthLevel")] + cameraFollowLength;
+            return hookMaxLength;
+        }
+        else
+        {
+            return hookMaxLength + cameraFollowLength;
+        }
+    }
+
     private void XAxisMovement()
     {
         if (_canMove && Input.GetMouseButton(0))

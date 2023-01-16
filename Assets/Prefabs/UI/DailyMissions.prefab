@@ -1235,6 +1235,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fbff1bc14f930a34ca7947329823e907, type: 2}
   - {fileID: 11400000, guid: be10bb2d1e86643468853e058b025f0a, type: 2}
   - {fileID: 11400000, guid: 526dddf82e929f6499e137334d4f92b4, type: 2}
+  availableFishTypes: []
 --- !u!1 &5126658671133021803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,10 +2550,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _msToWait: 86400000
   timerStatus: {fileID: 4930293486485267327}
+  _spawnedDailyMissions: []
   dailyMissionsList:
   - {fileID: 8043527575859432481, guid: 11832abf55ecb704f9aefdee24437bb7, type: 3}
   - {fileID: 449883311756155505, guid: 496cfe0bf5f06dc4ea0471fcc1923152, type: 3}
-  - {fileID: 449883311756155505, guid: 496cfe0bf5f06dc4ea0471fcc1923152, type: 3}
+  - {fileID: 2247226745108029103, guid: 5bfe93118c14bfa479b463e0ebea66a0, type: 3}
   dailyMissionsArea: {fileID: 5126658670895250908}
 --- !u!1 &6840520671940434216
 GameObject:

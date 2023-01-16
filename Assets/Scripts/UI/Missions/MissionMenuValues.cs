@@ -21,6 +21,23 @@ public class MissionMenuValues : MonoBehaviour
     public List<FishType> rareFishTypes = new List<FishType>();
     
     public List<FishType> fishTypes = new List<FishType>();
+    
+    public List<FishType> availableFishTypes = new List<FishType>();
+
+    private void Start()
+    {
+        for (int i = 0; i < fishTypes.Count; i++)
+        {
+            if (fishTypes[i].minSpawnDepth < HookController.Instance.GetHookLength())
+            {
+                //
+            }
+            else
+            {
+                availableFishTypes.Add(fishTypes[i]);
+            }
+        }
+    }
 
     public int Index { get; private set; }
     
@@ -28,6 +45,14 @@ public class MissionMenuValues : MonoBehaviour
     {
         Index = Random.Range(0, fishTypes.Count);
         var fish =  fishTypes[Index];
+        fishTypes.Remove(fish);
+        return fish;
+    }
+
+    public FishType PickRandomAvailableFish()
+    {
+        Index = Random.Range(0, availableFishTypes.Count);
+        var fish = availableFishTypes[Index];
         fishTypes.Remove(fish);
         return fish;
     }
