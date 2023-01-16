@@ -22,7 +22,7 @@ public class Hook : MonoBehaviour
 
     [SerializeField] private Booster strengthBooster;
 
-    private int _hookedFishCost;
+    public int HookedFishCost { get; private set; }
     [SerializeField] private float fishCostMultiplier = 1;
     private float _trueFishCostMultiplier;
     
@@ -77,7 +77,7 @@ public class Hook : MonoBehaviour
                 hookController.HookCountIsOver();
             }
             fish.FishHasBeenHooked(_hookTransform);
-            _hookedFishCost += Mathf.RoundToInt((fish.fishCost * fishCostMultiplier));
+            HookedFishCost += Mathf.RoundToInt((fish.fishCost * fishCostMultiplier));
         }
     }
 
@@ -120,7 +120,7 @@ public class Hook : MonoBehaviour
     {
         if (_hookedFish.Count != 0)
         {
-            Money.Instance.AddMoney(_hookedFishCost);
+            Money.Instance.AddMoney(HookedFishCost);
             for (int i = 0; i < _hookedFish.Count; i++)
             {
                 Destroy(_hookedFish[i].gameObject);

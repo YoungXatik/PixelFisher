@@ -90,6 +90,7 @@
             </e>
             <e p="OnButtonClick.cs" t="Include" />
             <e p="PlayerUI.cs" t="Include" />
+            <e p="RewardedAdMenu.cs" t="Include" />
             <e p="Shop" t="Include">
               <e p="Shop.cs" t="Include" />
               <e p="ShopCell.cs" t="Include" />

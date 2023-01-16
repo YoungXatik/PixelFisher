@@ -68,7 +68,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/FisherAnimator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/LengthBooster.cs" />
@@ -106,7 +105,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/OnButtonClick.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/OfflineMoney.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishBook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/Fish.cs" />
@@ -119,6 +117,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenuValues.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyCollectCurrentFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyMissionSwap.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/RewardedAdMenu.cs" />
       </list>
     </option>
   </component>
@@ -188,7 +188,7 @@
       <workItem from="1673604661637" duration="10278000" />
       <workItem from="1673630235389" duration="366000" />
       <workItem from="1673692722187" duration="3983000" />
-      <workItem from="1673866041936" duration="14068000" />
+      <workItem from="1673866041936" duration="14784000" />
     </task>
     <servers />
   </component>
