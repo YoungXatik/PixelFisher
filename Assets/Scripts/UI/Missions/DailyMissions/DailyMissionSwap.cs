@@ -90,6 +90,7 @@ public class DailyMissionSwap : MonoBehaviour
         }
     }
 
+    [ContextMenu("RefreshDailyMissions")]
     private void RefreshDailyMissions()
     {
         EventManager.OnDailyRewardsUpdateInvoke();
@@ -118,11 +119,18 @@ public class DailyMissionSwap : MonoBehaviour
         PlayerPrefs.DeleteKey("DailyHookedRareFishNeedValue");
         PlayerPrefs.DeleteKey("DailyHookedRareFishMoneyReward");
         PlayerPrefs.DeleteKey("DailyRareFishCollected");
+
+        PlayerPrefs.DeleteKey("DailyHookedCurrentFish"+"CatchCurrentFishDailyMission(Clone)");
+        PlayerPrefs.DeleteKey("CurrentFishIndex"+"CatchCurrentFishDailyMission(Clone)");
+        PlayerPrefs.DeleteKey("DailyHookedCurrentFishNeedValue"+"CatchCurrentFishDailyMission(Clone)");
+        PlayerPrefs.DeleteKey("DailyHookedCurrentFishMoneyReward"+"CatchCurrentFishDailyMission(Clone)");
+        PlayerPrefs.DeleteKey("DailyCurrentFishCollected"+"CatchCurrentFishDailyMission(Clone)");
         
-        PlayerPrefs.DeleteKey("DailyHookedCurrentFish");
-        PlayerPrefs.DeleteKey("CurrentFishIndex");
-        PlayerPrefs.DeleteKey("DailyHookedCurrentFishNeedValue");
-        PlayerPrefs.DeleteKey("DailyHookedCurrentFishMoneyReward");
-        PlayerPrefs.DeleteKey("DailyCurrentFishCollected");
+        PlayerPrefs.DeleteKey("DailyHookedCurrentFish"+"CatchCurrentFishDailyMissionSecond(Clone)");
+        PlayerPrefs.DeleteKey("CurrentFishIndex"+"CatchCurrentFishDailyMissionSecond(Clone)");
+        PlayerPrefs.DeleteKey("DailyHookedCurrentFishNeedValue"+"CatchCurrentFishDailyMissionSecond(Clone)");
+        PlayerPrefs.DeleteKey("DailyHookedCurrentFishMoneyReward"+"CatchCurrentFishDailyMissionSecond(Clone)");
+        PlayerPrefs.DeleteKey("DailyCurrentFishCollected"+"CatchCurrentFishDailyMissionSecond(Clone)");
+        
     }
 }

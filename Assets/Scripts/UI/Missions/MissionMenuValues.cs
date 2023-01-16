@@ -24,8 +24,24 @@ public class MissionMenuValues : MonoBehaviour
     
     public List<FishType> availableFishTypes = new List<FishType>();
 
+    private void OnEnable()
+    {
+        EventManager.OnLengthValueChanged += UpdateAvailableFishList;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnLengthValueChanged -= UpdateAvailableFishList;
+    }
+
     private void Start()
     {
+        UpdateAvailableFishList();
+    }
+
+    private void UpdateAvailableFishList()
+    {
+        availableFishTypes.Clear();
         for (int i = 0; i < fishTypes.Count; i++)
         {
             if (fishTypes[i].minSpawnDepth < HookController.Instance.GetHookLength())
@@ -53,7 +69,7 @@ public class MissionMenuValues : MonoBehaviour
     {
         Index = Random.Range(0, availableFishTypes.Count);
         var fish = availableFishTypes[Index];
-        fishTypes.Remove(fish);
+        availableFishTypes.Remove(fish);
         return fish;
     }
 }
