@@ -9222,6 +9222,7 @@ MonoBehaviour:
   - {fileID: 1219951523}
   - {fileID: 1333435760}
   - {fileID: 1359969991}
+  playButton: {fileID: 1043209316}
 --- !u!95 &1001856530
 Animator:
   serializedVersion: 3

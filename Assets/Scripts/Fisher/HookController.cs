@@ -231,7 +231,7 @@ public class HookController : MonoBehaviour
     public void HookCountIsOver()
     {
         hookCollider.enabled = false;
-        _canMove = false;
+        //_canMove = false;
         TakeHookUp();
     }
 

@@ -61,10 +61,6 @@ public class ChestBubble : MonoBehaviour
         {
             RewardTaken();
         }
-        else
-        {
-            UpdateUI();
-        }
     }
 
     private void UpdateUI()
@@ -126,7 +122,7 @@ public class ChestBubble : MonoBehaviour
 
     public void OnOpenChestClick()
     {
-        chestOpenButton.interactable = false;
+        chestOpenButton.gameObject.SetActive(false);
         chestInformationObject.DOScale(0, 0.2f).From(1).SetEase(Ease.Linear);
         TakeReward();
     }

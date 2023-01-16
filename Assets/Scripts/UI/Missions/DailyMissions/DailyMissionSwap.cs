@@ -55,7 +55,7 @@ public class DailyMissionSwap : MonoBehaviour
         ulong diff = ((ulong) DateTime.Now.Ticks - _lastOpen);
         ulong m = diff / TimeSpan.TicksPerMillisecond;
         float secondsLeft = (float) (_msToWait - m) / 1000f;
-
+        
         if (secondsLeft < 0)
         {
             RefreshDailyMissions();

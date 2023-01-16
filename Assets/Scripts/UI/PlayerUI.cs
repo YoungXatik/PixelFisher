@@ -1,11 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
     [SerializeField] private GameObject[] uiObjects;
+    [SerializeField] private Button playButton;
+    
     private Animator _uiAnimator;
 
     private void Start()
@@ -27,12 +27,14 @@ public class PlayerUI : MonoBehaviour
 
     private void PlayDisableAnimation()
     {
+        playButton.interactable = false;
         _uiAnimator.SetBool("start",true);
         _uiAnimator.SetBool("idle",false);
     }
 
     private void PlayEnableAnimation()
     {
+        playButton.interactable = true;
         _uiAnimator.SetBool("start",false);
     }
 
