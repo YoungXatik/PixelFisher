@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <fishName>k__BackingField: "\u041E\u043A\u0443\u043D\u044C"
   fishDescription: "\u041E\u043A\u0443\u043D\u044C"
-  <fishSprite>k__BackingField: {fileID: 21300000, guid: 7469b7aab28f2a34ab6020965e14dd00, type: 3}
+  <fishSprite>k__BackingField: {fileID: -9176136325229446476, guid: 6dff6398d28f1f34680ad4667c558e3d, type: 3}
   <lockedFishSprite>k__BackingField: {fileID: 21300000, guid: fbba1d23336d7084aaba9b9a3cf3c1d5, type: 3}
   isCollected: 1
   <FishQuality>k__BackingField: 0
@@ -22,4 +22,4 @@ MonoBehaviour:
   isAchieved: 0
   minSpawnDepth: -15
   maxSpawnDepth: -35
-  <SpawnDepth>k__BackingField: -26.167591
+  <SpawnDepth>k__BackingField: -34.4535

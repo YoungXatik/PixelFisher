@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <fishName>k__BackingField: "\u041F\u0435\u0441\u043A\u0430\u0440\u044C"
   fishDescription: "\u041F\u0435\u0441\u043A\u0430\u0440\u044C"
-  <fishSprite>k__BackingField: {fileID: 21300000, guid: 7ee028011bc10fe489f843ffd7bda653, type: 3}
+  <fishSprite>k__BackingField: {fileID: -8146314227867940269, guid: 6dff6398d28f1f34680ad4667c558e3d, type: 3}
   <lockedFishSprite>k__BackingField: {fileID: 21300000, guid: eff642b89dab46b4bb3013c8e727950d, type: 3}
   isCollected: 1
   <FishQuality>k__BackingField: 1
-  <TotallyCatch>k__BackingField: 1
+  <TotallyCatch>k__BackingField: 2
   isAchieved: 0
   minSpawnDepth: -15
   maxSpawnDepth: -35
-  <SpawnDepth>k__BackingField: -29.310005
+  <SpawnDepth>k__BackingField: -28.435545

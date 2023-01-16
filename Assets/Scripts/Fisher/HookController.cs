@@ -50,6 +50,10 @@ public class HookController : MonoBehaviour
 
     public List<Fish> hookedFish = new List<Fish>();
 
+    [SerializeField] private ParticleSystem boomParticle;
+    private ParticleSystem.EmissionModule _boomParticleEmission;
+    private List<Sprite> _hookedFishSprites = new List<Sprite>();
+    
     private void Awake()
     {
         Instance = this;
@@ -57,7 +61,8 @@ public class HookController : MonoBehaviour
         _fisherAnimator = GetComponent<FisherAnimator>();
         startHookScale = hookTransform.localScale;
         hookTransform.localScale = Vector3.zero;
-
+        _boomParticleEmission = boomParticle.emission;
+        
         Application.targetFrameRate = 60;
     }
 
@@ -134,6 +139,15 @@ public class HookController : MonoBehaviour
     {
         rigidbody.constraints = RigidbodyConstraints2D.None;
         EventManager.OnGameStartedInvoke();
+        for (int i = 0; i < boomParticle.textureSheetAnimation.spriteCount; i++)
+        {
+            boomParticle.textureSheetAnimation.RemoveSprite(i);
+        }
+        for (int i = 0; i < _hookedFishSprites.Count; i++)
+        {
+            _hookedFishSprites.Remove(_hookedFishSprites[i]);
+        }
+        _hookedFishSprites.Clear();
         hookTransform.position = startHookPosition;
         hookTransform.DOScale(startHookScale, 1f).From(0).SetEase(Ease.Linear).OnComplete(delegate
         {
@@ -231,7 +245,6 @@ public class HookController : MonoBehaviour
     public void HookCountIsOver()
     {
         hookCollider.enabled = false;
-        //_canMove = false;
         TakeHookUp();
     }
 
@@ -245,7 +258,32 @@ public class HookController : MonoBehaviour
             cameraFollow.SetTargetToNull();
             cameraFollow.ChangeCameraPosition(startHookPosition);
             _hookReachMaxLength = false;
+            PlayBoomEffect();
             EventManager.OnGameEndedInvoke();
         });
+    }
+
+    private void PlayBoomEffect()
+    {
+        _boomParticleEmission.SetBursts(
+            new ParticleSystem.Burst[]
+            {
+                new ParticleSystem.Burst(0f,0), 
+            });
+        for (int i = 0; i < boomParticle.textureSheetAnimation.spriteCount; i++)
+        {
+            boomParticle.textureSheetAnimation.RemoveSprite(i);
+        }
+        for (int i = 0; i < hookedFish.Count; i++)
+        {
+            _hookedFishSprites.Add(hookedFish[i].fishType.fishSprite);
+            boomParticle.textureSheetAnimation.AddSprite(_hookedFishSprites[i]);
+        }
+        _boomParticleEmission.SetBursts(
+            new ParticleSystem.Burst[]
+            {
+                new ParticleSystem.Burst(0f,_hookedFishSprites.Count), 
+            });
+        boomParticle.Play();
     }
 }
