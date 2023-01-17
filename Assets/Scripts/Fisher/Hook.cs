@@ -42,6 +42,7 @@ public class Hook : MonoBehaviour
         EventManager.OnStrengthValueChanged += UpdateStrengthValue;
         EventManager.OnGameEnded += RefreshCountOfFishValue;
         EventManager.OnGameEnded += SellHookedFish;
+        EventManager.OnGameStarted += ClearMoneyValue;
     }
 
     private void OnDisable()
@@ -49,8 +50,14 @@ public class Hook : MonoBehaviour
         EventManager.OnStrengthValueChanged -= UpdateStrengthValue;
         EventManager.OnGameEnded -= RefreshCountOfFishValue;
         EventManager.OnGameEnded -= SellHookedFish;
+        EventManager.OnGameStarted -= ClearMoneyValue;
     }
 
+    private void ClearMoneyValue()
+    {
+        HookedFishCost = 0;
+    }
+    
     private void UpdateStrengthValue()
     {
         maxCountOfFish = strengthBooster.CurrentBoosterValue;

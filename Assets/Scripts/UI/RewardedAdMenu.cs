@@ -40,4 +40,11 @@ public class RewardedAdMenu : MonoBehaviour
         closeButton.interactable = false;
         menuImage.transform.DOScale(0, 0.25f).From(1).SetEase(Ease.Linear);
     }
+
+    public void TakeReward()
+    {
+        //Start AD
+        Money.Instance.AddMoney(Hook.Instance.HookedFishCost * 2);
+        CloseMenu();
+    }
 }
