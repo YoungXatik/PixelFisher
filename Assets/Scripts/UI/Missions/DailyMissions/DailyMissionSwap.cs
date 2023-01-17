@@ -74,10 +74,10 @@ public class DailyMissionSwap : MonoBehaviour
 
         string t = "";
 
-        t += ((int) secondsLeft / 3600).ToString() + "ч";
+        t += ((int) secondsLeft / 3600).ToString() + "h";
         secondsLeft -= ((int) secondsLeft / 3600) * 3600;
-        t += ((int) secondsLeft / 60).ToString("00") + "м";
-        t += ((int) secondsLeft % 60).ToString("00") + "с";
+        t += ((int) secondsLeft / 60).ToString("00") + "m";
+        t += ((int) secondsLeft % 60).ToString("00") + "s";
 
         timerStatus.text = t;
     }

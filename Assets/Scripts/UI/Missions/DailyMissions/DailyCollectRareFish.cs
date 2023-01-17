@@ -50,14 +50,14 @@ public class DailyCollectRareFish : MonoBehaviour, ICatchable
             PlayerPrefs.SetInt("DailyHookedRareFishNeedValue",_needCatchValue);
             _coinsReward = Random.Range(minMoneyReward, maxMoneyReward);
             PlayerPrefs.SetInt("DailyHookedRareFishMoneyReward",_coinsReward);
-            description = $"Поймайте редкую рыбу";
+            description = $"Catch rare fishes";
             UpdateUI();
         }
         else
         {
             _needCatchValue = PlayerPrefs.GetInt("DailyHookedRareFishNeedValue");
             _coinsReward = PlayerPrefs.GetInt("DailyHookedRareFishMoneyReward");
-            description = $"Поймайте редкую рыбу";
+            description = $"Catch rare fishes";
             UpdateUI();
         }
 

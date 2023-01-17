@@ -72,14 +72,14 @@ public class DailyCollectCurrentFish : MonoBehaviour, ICatchable
             PlayerPrefs.SetInt("DailyHookedCurrentFishNeedValue"+ gameObject.name,_needCatchValue);
             _coinsReward = Random.Range(minMoneyReward, maxMoneyReward);
             PlayerPrefs.SetInt("DailyHookedCurrentFishMoneyReward"+ gameObject.name,_coinsReward);
-            description = $"Поймайте {neededFish.fishName}";
+            description = $"Catch {neededFish.fishName}";
             UpdateUI();
         }
         else
         {
             _needCatchValue = PlayerPrefs.GetInt("DailyHookedCurrentFishNeedValue"+ gameObject.name);
             _coinsReward = PlayerPrefs.GetInt("DailyHookedCurrentFishMoneyReward"+ gameObject.name);
-            description = $"Поймайте {neededFish.fishName}";
+            description = $"Catch {neededFish.fishName}";
             UpdateUI();
         }
 
