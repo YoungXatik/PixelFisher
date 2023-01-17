@@ -77,6 +77,7 @@ using System.Collections.Generic;
             menuImage.transform.DOScale(1, 0.25f).From(0).SetEase(Ease.Linear).OnComplete(delegate
             {
                 mainMenuCloseButton.interactable = true;
+                OpenFindsMenu();
                 IsOpen = true;
             });
             
@@ -88,9 +89,7 @@ using System.Collections.Generic;
             menuImage.transform.DOScale(0, 0.25f).From(1).SetEase(Ease.Linear).OnComplete(delegate
             {
                 mainMenuOpenButton.interactable = true;
-                rareMenu.SetActive(false);
                 findsMenu.SetActive(false);
-                commonMenu.SetActive(false);
                 rareMenuButton.interactable = true;
                 findsMenuButton.interactable = true;
                 commonMenuButton.interactable = true;

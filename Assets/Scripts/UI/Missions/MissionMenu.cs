@@ -46,6 +46,7 @@ public class MissionMenu : MonoBehaviour
         menuImage.DOScale(1, 0.25f).From(0).SetEase(Ease.Linear).OnComplete(delegate
         {
             closeButton.interactable = true;
+            OpenDailyMissionMenu();
         });
     }
 

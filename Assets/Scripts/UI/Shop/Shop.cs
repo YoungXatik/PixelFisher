@@ -45,12 +45,12 @@ public class Shop : MonoBehaviour
             openShopButton.interactable = false;
             diamondsMenuButton.interactable = true;
             boostersMenuButton.interactable = true;
+            OpenBoosterArea();
         });
     }
 
     public void CloseShop()
     {
-        CloseBoosterArea();
         CloseDiamondsArea();
         shopMainImage.transform.DOScale(0, 0.25f).SetEase(Ease.Linear).From(1).OnComplete(delegate
         {

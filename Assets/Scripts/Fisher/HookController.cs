@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HookController : MonoBehaviour
 {
@@ -53,7 +54,9 @@ public class HookController : MonoBehaviour
     [SerializeField] private ParticleSystem boomParticle;
     private ParticleSystem.EmissionModule _boomParticleEmission;
     private List<Sprite> _hookedFishSprites = new List<Sprite>();
-    
+
+    [SerializeField] private RewardedAdMenu rewardedAdMenu;
+    private float _fishDepthValue;
     private void Awake()
     {
         Instance = this;
@@ -102,17 +105,21 @@ public class HookController : MonoBehaviour
     }
 
     [SerializeField] private Booster boosterComponent;
+    [SerializeField] private Booster strengthBoosterComponent;
 
     private void UpdateHookLength()
     {
-        hookMaxLength = -boosterComponent.CurrentBoosterValue;
+        if (PlayerPrefs.HasKey("HookLengthLevel" + SceneManager.GetActiveScene().name))
+        {
+            hookMaxLength = -boosterComponent.CurrentBoosterValue;
+        }
     }
 
     public float GetHookLength()
     {
-        if (PlayerPrefs.HasKey("HookLengthLevel"))
+        if (PlayerPrefs.HasKey("HookLengthLevel"+ SceneManager.GetActiveScene().name))
         {
-            hookMaxLength = -boosterComponent.boostedValue[PlayerPrefs.GetInt("HookLengthLevel")] + cameraFollowLength;
+            hookMaxLength = -boosterComponent.boostedValue[PlayerPrefs.GetInt("HookLengthLevel" + SceneManager.GetActiveScene().name)] + cameraFollowLength;
             return hookMaxLength;
         }
         else
@@ -272,8 +279,33 @@ public class HookController : MonoBehaviour
             cameraFollow.ChangeCameraPosition(startHookPosition);
             _hookReachMaxLength = false;
             PlayBoomEffect();
+            ShowRewardedAdMenu();
+            ClearFishDepathValue();
             EventManager.OnGameEndedInvoke();
         });
+    }
+
+    public void FishDepthValueCounter(Fish fish)
+    {
+        _fishDepthValue += Mathf.Abs(fish.fishType.SpawnDepth);
+    }
+
+    private void ClearFishDepathValue()
+    {
+        _fishDepthValue = 0;
+    }
+    
+    private void ShowRewardedAdMenu()
+    {
+        var sum = Mathf.Abs(hookMaxLength) *
+                  PlayerPrefs.GetInt("HookStrengthLevel" + SceneManager.GetActiveScene().name);
+        if (sum >= _fishDepthValue)
+        {
+            if (sum != 0)
+            {
+                rewardedAdMenu.OpenMenu();
+            }
+        }
     }
 
     private void PlayBoomEffect()

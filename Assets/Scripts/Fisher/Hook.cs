@@ -76,6 +76,7 @@ public class Hook : MonoBehaviour
             CheckForUnCollectedFish(fish);
             hookController.CheckForFirstFishEntry();
             hookController.hookedFish.Add(fish);
+            hookController.FishDepthValueCounter(fish);
             _hookedFish.Add(fish);
             fish.fishType.IncreaseCatchValue();
             countOfFish++;

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BoosterValues : MonoBehaviour
 {
@@ -12,19 +13,19 @@ public class BoosterValues : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey("HookLengthLevel"))
+        if (PlayerPrefs.HasKey("HookLengthLevel"+ SceneManager.GetActiveScene().name))
         {
-            _hookLengthLevel = PlayerPrefs.GetInt("HookLengthLevel");
+            _hookLengthLevel = PlayerPrefs.GetInt("HookLengthLevel"+ SceneManager.GetActiveScene().name);
         }
 
-        if (PlayerPrefs.HasKey("HookStrengthLevel"))
+        if (PlayerPrefs.HasKey("HookStrengthLevel"+ SceneManager.GetActiveScene().name))
         {
-            _hookStrengthLevel = PlayerPrefs.GetInt("HookStrengthLevel");
+            _hookStrengthLevel = PlayerPrefs.GetInt("HookStrengthLevel" + SceneManager.GetActiveScene().name);
         }
 
-        if (PlayerPrefs.HasKey("OfflineMoneyLevel"))
+        if (PlayerPrefs.HasKey("OfflineMoneyLevel"+ SceneManager.GetActiveScene().name))
         {
-            _offlineMoneyLevel = PlayerPrefs.GetInt("OfflineMoneyLevel");
+            _offlineMoneyLevel = PlayerPrefs.GetInt("OfflineMoneyLevel" + SceneManager.GetActiveScene().name);
         }
     }
 

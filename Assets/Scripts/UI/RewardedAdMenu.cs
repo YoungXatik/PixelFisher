@@ -15,12 +15,7 @@ public class RewardedAdMenu : MonoBehaviour
 
     [SerializeField] private Button getRewardButton;
     [SerializeField] private Button closeButton;
-
-    private void OnEnable()
-    {
-        OpenMenu();
-    }
-
+    
     public void OpenMenu()
     {
         menuImage.transform.DOScale(1, 0.25f).From(0).SetEase(Ease.Linear).OnUpdate(delegate
