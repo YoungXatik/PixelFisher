@@ -95,8 +95,7 @@ MonoBehaviour:
   fishImage: {fileID: 1127026973580253854}
   collectRewardButton: {fileID: 9008077335527557966}
   rewardCount: 100
-  lockedFishDescription: "\u042D\u0442\u0430 \u0440\u044B\u0431\u0430 \u0435\u0449\u0451
-    \u043D\u0435 \u043F\u043E\u0439\u043C\u0430\u043D\u0430."
+  lockedFishDescription: This fish isn`t caught yet
   <FishType>k__BackingField: {fileID: 0}
 --- !u!1 &2998418546226887070
 GameObject:

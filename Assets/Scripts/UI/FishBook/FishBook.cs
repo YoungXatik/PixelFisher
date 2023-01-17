@@ -27,8 +27,9 @@ using System.Collections.Generic;
         [SerializeField] private Transform rareMenuScrollArea;
         [SerializeField] private GameObject rareMenu;
         [SerializeField] private Button rareMenuButton;
-        
-        [Header("FindsMenu")]
+
+        [Header("FindsMenu")] 
+        [SerializeField] private Transform findMenuScrollArea;
         [SerializeField] private GameObject findsMenu;
         [SerializeField] private Button findsMenuButton;
 
@@ -38,6 +39,8 @@ using System.Collections.Generic;
         [SerializeField] private GameObject fishBookFindFishIndicator;
         [SerializeField] private GameObject fishBookRareFishIndicator;
         [SerializeField] private GameObject fishBookCommonIndicator;
+
+        [SerializeField] private float commonMenuStartYPosition, rareMenuStartYPosition, findsMenuStartYPosition;
 
         private void OnEnable()
         {
@@ -99,6 +102,7 @@ using System.Collections.Generic;
 
         public void OpenCommonMenu()
         {
+            commonMenuScrollArea.position = new Vector3(commonMenuScrollArea.position.x,commonMenuStartYPosition,commonMenuScrollArea.position.z);
             fishBookCommonIndicator.SetActive(false);
             rareMenu.SetActive(false);
             findsMenu.SetActive(false);
@@ -115,6 +119,7 @@ using System.Collections.Generic;
 
         public void OpenRareMenu()
         {
+            rareMenuScrollArea.position = new Vector3(rareMenuScrollArea.position.x,rareMenuStartYPosition,rareMenuScrollArea.position.z);
             fishBookRareFishIndicator.SetActive(false);
             rareMenu.SetActive(true);
             findsMenu.SetActive(false);
@@ -131,6 +136,7 @@ using System.Collections.Generic;
 
         public void OpenFindsMenu()
         {
+            findMenuScrollArea.position = new Vector3(findMenuScrollArea.position.x,findsMenuStartYPosition,findMenuScrollArea.position.z);
             fishBookFindFishIndicator.SetActive(false);
             rareMenu.SetActive(false);
             findsMenu.SetActive(true);
