@@ -22,6 +22,7 @@ public class Shop : MonoBehaviour
 
     [SerializeField] private GameObject diamondsScrollArea;
     [SerializeField] private GameObject boostersScrollArea;
+    [SerializeField] private Transform diamondsScrollAreaContainer,boostersScrollAreaContainer;
 
     [SerializeField] private Button diamondsMenuButton;
     [SerializeField] private Button boostersMenuButton;
@@ -29,6 +30,8 @@ public class Shop : MonoBehaviour
     [SerializeField] private Button closeShopButton;
     [SerializeField] private Button openShopButton;
 
+    [SerializeField] private float diamondsScrollAreaStartYPosition, boostersScrollAreaStartYPosition;
+    
     private void Start()
     {
         closeShopButton.interactable = false;
@@ -69,6 +72,7 @@ public class Shop : MonoBehaviour
         diamondsScrollArea.transform.DOScale(1, 0.25f).SetEase(Ease.Linear).From(0).OnComplete(delegate
         {
             closeShopButton.interactable = true;
+            diamondsScrollAreaContainer.position = new Vector3(diamondsScrollAreaContainer.position.x,diamondsScrollAreaStartYPosition,diamondsScrollAreaContainer.position.z);
         });
     }
 
@@ -90,6 +94,7 @@ public class Shop : MonoBehaviour
         boostersScrollArea.transform.DOScale(1, 0.25f).SetEase(Ease.Linear).From(0).OnComplete(delegate
         {
             closeShopButton.interactable = true;
+            boostersScrollAreaContainer.position = new Vector3(boostersScrollAreaContainer.position.x,boostersScrollAreaStartYPosition,boostersScrollAreaContainer.position.z);
         });
     }
 
