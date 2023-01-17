@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
@@ -21,10 +22,12 @@ public class ChestBubble : MonoBehaviour
     [SerializeField] private GameObject boosterRewardObject;
     [SerializeField] private Image boosterRewardImage;
 
-    [SerializeField] private Button chestOpenButton;
+    [SerializeField] private Button openChestButton;
+    [SerializeField] private Button chestTakeButton;
 
     private List<IBoostable> _boostersList = new List<IBoostable>();
     [SerializeField] private List<GameObject> _boostersObjects = new List<GameObject>();
+    private int _boosterIndex;
 
     private IBoostable _currentBooster;
 
@@ -37,6 +40,8 @@ public class ChestBubble : MonoBehaviour
         {
             _boostersList.Add(_boostersObjects[i].GetComponent<IBoostable>());
         }
+
+        _boosterIndex = Random.Range(0, _boostersObjects.Count);
     }
 
     private enum RewardType
@@ -48,6 +53,7 @@ public class ChestBubble : MonoBehaviour
 
     private void Start()
     {
+        chestTakeButton.interactable = false;
         if (PlayerPrefs.GetInt("Chest" + gameObject.name) == 1)
         {
             ChestReached();
@@ -55,7 +61,6 @@ public class ChestBubble : MonoBehaviour
         else
         {
             UpdateUI();
-            chestOpenButton.interactable = false;   
         }
         if (PlayerPrefs.GetInt("ChestRewardTaken" + gameObject.name) == 1)
         {
@@ -80,26 +85,18 @@ public class ChestBubble : MonoBehaviour
                 HideReward(boosterRewardObject);
                 break;
             case RewardType.Booster:
-                boosterRewardImage.sprite = _boostersList[Random.Range(0, _boostersList.Count)].GetBoosterImage();
-                _currentBooster = _boostersList[Random.Range(0, _boostersList.Count)];
+                boosterRewardImage.sprite = _boostersList[_boosterIndex].GetBoosterImage();
+                _currentBooster = _boostersList[_boosterIndex];
                 ShowReward(boosterRewardObject);
                 HideReward(coinsRewardObject);
                 HideReward(gemRewardObject);
                 break;
         }
     }
-
-    public void ChestReached()
-    {
-        _isReached = true;
-        chestOpenButton.interactable = true;
-        PlayerPrefs.SetInt("Chest" + gameObject.name, true ? 1 : 0);
-    }
-
+    
     public void ClearChestReach()
     {
         _isReached = false;
-        chestOpenButton.interactable = false;
     }
 
     private void ShowReward(GameObject rewardTransform)
@@ -112,24 +109,39 @@ public class ChestBubble : MonoBehaviour
         rewardTransform.SetActive(false);
     }
     
+    public void ChestReached()
+    {
+        _isReached = true;
+        chestTakeButton.interactable = true;
+        PlayerPrefs.SetInt("Chest" + gameObject.name, true ? 1 : 0);
+    }
+    
     public void OnChestClick()
     {
         UpdateUI();
-        chestOpenButton.interactable = false;
-        chestInformationObject.DOScale(1, 0.2f).From(0).SetEase(Ease.Linear);
-        chestOpenButton.transform.DOPunchScale(chestOpenButton.transform.position, 0.2f);
+        openChestButton.interactable = false;
+        OpenChestInformation();
+        StartCoroutine(CloseChestCoroutine());
     }
 
     public void OnOpenChestClick()
     {
-        chestOpenButton.gameObject.SetActive(false);
+        openChestButton.gameObject.SetActive(false);
+        chestInformationObject.DOScale(0, 0.2f).From(1).SetEase(Ease.Linear).OnComplete(TakeReward);
+    }
+
+    private void OpenChestInformation()
+    {
+        chestInformationObject.DOScale(1, 0.2f).From(0).SetEase(Ease.Linear);
+    }
+
+    private void CloseChestInformation()
+    {
         chestInformationObject.DOScale(0, 0.2f).From(1).SetEase(Ease.Linear);
-        TakeReward();
     }
 
     private void RewardTaken()
     {
-        chestOpenButton.gameObject.SetActive(false);
         Destroy(gameObject);
     }
     
@@ -153,5 +165,13 @@ public class ChestBubble : MonoBehaviour
                 Destroy(gameObject);
                 break;
         }
+    }
+
+    [SerializeField] private float timeToCloseChest;
+    private IEnumerator CloseChestCoroutine()
+    {
+        yield return new WaitForSeconds(timeToCloseChest);
+        CloseChestInformation();
+        openChestButton.interactable = true;
     }
 }
