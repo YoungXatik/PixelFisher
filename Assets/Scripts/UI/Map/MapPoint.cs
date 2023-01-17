@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class MapPoint : MonoBehaviour
 {
+    [SerializeField] private Transform warningImage;
+    
     [SerializeField] private Image lockImage;
     [SerializeField] private TextMeshProUGUI sceneNumberText;
     
@@ -114,6 +116,16 @@ public class MapPoint : MonoBehaviour
         }
     }
 
+    public void OpenWarningImage()
+    {
+        warningImage.DOScale(1, 0.25f).From(0).SetEase(Ease.Linear);
+    }
+
+    public void CloseWarningImage()
+    {
+        warningImage.DOScale(0, 0.25f).From(1).SetEase(Ease.Linear);
+    }
+    
     public void SelectLevel()
     {
         AsyncLoadScene.Instance.ActivateScreen(loadSceneNumber);

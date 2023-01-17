@@ -15,6 +15,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyCollectRareFish.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/Map.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/RewardedAdMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/OnButtonClick.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelScripts/AsyncLoadScene.cs" root0="FORCE_HIGHLIGHTING" />
@@ -40,8 +41,8 @@
     <setting file="file://$PROJECT_DIR$/../Farm/Assets/Scripts/Shop/Shop.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard_UI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FishBook/UnlockFishCards.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Levels/LevelController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../ClassRoomMaster/Assets/Scripts/Player/PlayerCamera/CameraRotation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Map/MapPoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DunkShotClone/Assets/Scripts/Events/EventManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Missions/AchievementCardValues.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../PANDEMIC/Assets/Scripts/Player/Inventory/Inventory/Item.cs" root0="SKIP_HIGHLIGHTING" />
@@ -52,6 +53,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedFishCost.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoostedHookDeep.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedRareFishCount.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Map/MapMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/SecondChance.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionChestReward.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoosterTimer.cs" root0="FORCE_HIGHLIGHTING" />
@@ -70,14 +72,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/LengthBooster.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelValues.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FindsList.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/UnlockFishCards.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/Shop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoosterTimer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/ShopCell.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/QuestAreaCards.cs" />
@@ -101,26 +99,30 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Money.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchAchievements.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/OnButtonClick.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishBook.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/Fish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishesSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/PlayerUI.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/ChestBubble.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard_UI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishType.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenuValues.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyCollectCurrentFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyMissionSwap.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/RewardedAdMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/SafeArea.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/BoosterValues.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/Booster.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/OfflineMoney.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/RewardedAdMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/BoosterValues.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/Shop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishBook.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/ChestBubble.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenuValues.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Levels/Map.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelScripts/AsyncLoadScene.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Map/MapPoint.cs" />
       </list>
     </option>
   </component>
@@ -192,7 +194,8 @@
       <workItem from="1673692722187" duration="3983000" />
       <workItem from="1673866041936" duration="15088000" />
       <workItem from="1673895392915" duration="26000" />
-      <workItem from="1673945704580" duration="6288000" />
+      <workItem from="1673945704580" duration="16273000" />
+      <workItem from="1673974463886" duration="870000" />
     </task>
     <servers />
   </component>
@@ -206,9 +209,9 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="794" y="217" key="RiderGenerateDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1673520251730" />
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1673362487284">
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1673962153262">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1673362487284" />
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1673962153262" />
   </component>
 </project>

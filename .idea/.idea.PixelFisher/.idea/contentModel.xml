@@ -64,7 +64,7 @@
             <e p="WaterColliders.cs" t="Include" />
           </e>
           <e p="Levels" t="Include">
-            <e p="LevelController.cs" t="Include" />
+            <e p="Map.cs" t="Include" />
           </e>
           <e p="LevelScripts" t="Include">
             <e p="AsyncLoadScene.cs" t="Include" />
@@ -75,6 +75,10 @@
               <e p="FishBook.cs" t="Include" />
               <e p="FishCard_UI.cs" t="Include" />
               <e p="UnlockFishCards.cs" t="Include" />
+            </e>
+            <e p="Map" t="Include">
+              <e p="MapMenu.cs" t="Include" />
+              <e p="MapPoint.cs" t="Include" />
             </e>
             <e p="Missions" t="Include">
               <e p="AchievementCardValues.cs" t="Include" />
