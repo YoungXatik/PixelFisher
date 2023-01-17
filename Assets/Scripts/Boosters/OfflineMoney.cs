@@ -70,11 +70,11 @@ public class OfflineMoney : MonoBehaviour
         offlineBoosterImage.transform.DOScale(1, 0.25f).From(0).SetEase(Ease.Linear).OnComplete(delegate
         {
             DOTween.To(x => hours = x, 0, hours, 0.75f).SetEase(Ease.Linear)
-                .OnUpdate((() => timeSpendText.text = $"{Mathf.RoundToInt(hours)}ч:{Mathf.RoundToInt(minutes)}м:{Mathf.RoundToInt(seconds)}с"));
+                .OnUpdate((() => timeSpendText.text = $"{Mathf.RoundToInt(hours)}h:{Mathf.RoundToInt(minutes)}m:{Mathf.RoundToInt(seconds)}s"));
             DOTween.To(x => minutes = x, 0, minutes, 0.75f).SetEase(Ease.Linear)
-                .OnUpdate((() => timeSpendText.text = $"{Mathf.RoundToInt(hours)}ч:{Mathf.RoundToInt(minutes)}м:{Mathf.RoundToInt(seconds)}с"));
+                .OnUpdate((() => timeSpendText.text = $"{Mathf.RoundToInt(hours)}h:{Mathf.RoundToInt(minutes)}m:{Mathf.RoundToInt(seconds)}s"));
             DOTween.To(x => seconds = x, 0, seconds, 0.75f).SetEase(Ease.Linear)
-                .OnUpdate((() => timeSpendText.text = $"{Mathf.RoundToInt(hours)}ч:{Mathf.RoundToInt(minutes)}м:{Mathf.RoundToInt(seconds)}с")).OnComplete(
+                .OnUpdate((() => timeSpendText.text = $"{Mathf.RoundToInt(hours)}h:{Mathf.RoundToInt(minutes)}m:{Mathf.RoundToInt(seconds)}s")).OnComplete(
                     delegate
                     {
                         _reward = ((hours * 60) + minutes) * _offlineBooster.CurrentBoosterValue;
