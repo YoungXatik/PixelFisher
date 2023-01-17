@@ -39,6 +39,20 @@ public class MissionMenuValues : MonoBehaviour
         UpdateAvailableFishList();
     }
 
+    public int GetCatchFishesCount()
+    {
+        int count = 0;
+        for (int i = 0; i < fishTypes.Count; i++)
+        {
+            if (fishTypes[i].isCollected)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+    
     private void UpdateAvailableFishList()
     {
         availableFishTypes.Clear();

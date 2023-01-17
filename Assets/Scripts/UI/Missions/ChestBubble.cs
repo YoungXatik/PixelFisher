@@ -142,6 +142,7 @@ public class ChestBubble : MonoBehaviour
 
     private void RewardTaken()
     {
+        Destroy(openChestButton.gameObject);
         Destroy(gameObject);
     }
     

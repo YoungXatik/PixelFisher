@@ -85,4 +85,11 @@ public class EventManager : MonoBehaviour
     {
         OnDailyRewardsUpdate?.Invoke();
     }
+
+    public static Action OnNewLevelOpened;
+
+    public static void OnNewLevelOpenedInvoke()
+    {
+        OnNewLevelOpened?.Invoke();
+    }
 }

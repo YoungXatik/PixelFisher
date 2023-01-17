@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +7,14 @@ using UnityEngine.UI;
 
 public class AsyncLoadScene : MonoBehaviour
 {
+    public static AsyncLoadScene Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+        loadScreenAnimator = GetComponent<Animator>();
+    }
+
     private AsyncOperation _asyncOperation;
     [SerializeField] private Image loadBarImage;
     [SerializeField] private TextMeshProUGUI loadBarText;
@@ -16,11 +22,14 @@ public class AsyncLoadScene : MonoBehaviour
     [SerializeField] private int sceneToLoadID;
 
     [SerializeField] private GameObject loadingScreenObject;
+    [SerializeField] private Animator loadScreenAnimator;
 
     private bool _canTapToLoadLevel;
 
-    public void ActivateScreen()
+    public void ActivateScreen(int sceneToLoad)
     {
+        loadScreenAnimator.SetBool("start",true);
+        sceneToLoadID = sceneToLoad;
         loadingScreenObject.SetActive(true);
     }
 
