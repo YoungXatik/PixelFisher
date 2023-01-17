@@ -5,20 +5,6 @@ using UnityEngine;
 
 public class BoosterValues : MonoBehaviour
 {
-    /*private void OnEnable()
-    {
-        EventManager.OnLengthValueChanged += UpdateLengthLevel;
-        EventManager.OnStrengthValueChanged += UpdateStrengthLevel;
-        EventManager.OnOfflineMoneyValueChanged += UpdateOfflineMoneyLevel;
-    }
-
-    private void OnDisable()
-    {
-        EventManager.OnLengthValueChanged -= UpdateLengthLevel;
-        EventManager.OnStrengthValueChanged -= UpdateStrengthLevel;
-        EventManager.OnOfflineMoneyValueChanged -= UpdateOfflineMoneyLevel;
-    }*/
-
     private int _hookLengthLevel = 0;
     private int _hookStrengthLevel = 0;
     private int _offlineMoneyLevel = 0;

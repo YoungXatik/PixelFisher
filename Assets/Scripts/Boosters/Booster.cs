@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Booster : MonoBehaviour
@@ -51,19 +52,19 @@ public class Booster : MonoBehaviour
                 if (currentValueLevel >= boostedValue.Count - 1)
                 {
                     currentValueLevel = boostedValue.Count - 1;
-                    PlayerPrefs.SetInt("HookLengthLevel",currentValueLevel);
+                    PlayerPrefs.SetInt("HookLengthLevel" + SceneManager.GetActiveScene().name,currentValueLevel);
                 }
                 else
                 {
-                    currentValueLevel = PlayerPrefs.GetInt("HookLengthLevel");
+                    currentValueLevel = PlayerPrefs.GetInt("HookLengthLevel"+ SceneManager.GetActiveScene().name);
                 }
                 CurrentBoosterValue = boostedValue[currentValueLevel];
                 currentValue.text = $"{boostedValue[currentValueLevel]}/m";
-                if (PlayerPrefs.GetInt("HookLengthLevel") != boostedValue.Count - 1)
+                if (PlayerPrefs.GetInt("HookLengthLevel"+ SceneManager.GetActiveScene().name) != boostedValue.Count - 1)
                 {
                     costText.text = costValue[currentValueLevel + 1].ToString();
                 }
-                else if(PlayerPrefs.GetInt("HookLengthLevel") == boostedValue.Count - 1)
+                else if(PlayerPrefs.GetInt("HookLengthLevel"+ SceneManager.GetActiveScene().name) == boostedValue.Count - 1)
                 {
                    UpdateUI();
                 }
@@ -72,15 +73,15 @@ public class Booster : MonoBehaviour
                 if (currentValueLevel >= boostedValue.Count - 1)
                 {
                     currentValueLevel = boostedValue.Count - 1;
-                    PlayerPrefs.SetInt("HookStrengthLevel",currentValueLevel);
+                    PlayerPrefs.SetInt("HookStrengthLevel"+ SceneManager.GetActiveScene().name,currentValueLevel);
                 }
                 else
                 {
-                    currentValueLevel = PlayerPrefs.GetInt("HookStrengthLevel");
+                    currentValueLevel = PlayerPrefs.GetInt("HookStrengthLevel"+ SceneManager.GetActiveScene().name);
                 }
                 CurrentBoosterValue = boostedValue[currentValueLevel];
-                currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("HookStrengthLevel")]}/fishes";
-                if (PlayerPrefs.GetInt("HookStrengthLevel") != boostedValue.Count - 1)
+                currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("HookStrengthLevel"+ SceneManager.GetActiveScene().name)]}/fishes";
+                if (PlayerPrefs.GetInt("HookStrengthLevel"+ SceneManager.GetActiveScene().name) != boostedValue.Count - 1)
                 {
                     costText.text = costValue[currentValueLevel + 1].ToString();
                 }
@@ -93,15 +94,15 @@ public class Booster : MonoBehaviour
                 if (currentValueLevel >= boostedValue.Count - 1)
                 {
                     currentValueLevel = boostedValue.Count - 1;
-                    PlayerPrefs.SetInt("OfflineMoneyLevel",currentValueLevel);
+                    PlayerPrefs.SetInt("OfflineMoneyLevel"+ SceneManager.GetActiveScene().name,currentValueLevel);
                 }
                 else
                 {
-                    currentValueLevel = PlayerPrefs.GetInt("OfflineMoneyLevel");
+                    currentValueLevel = PlayerPrefs.GetInt("OfflineMoneyLevel"+ SceneManager.GetActiveScene().name);
                 }
                 CurrentBoosterValue = boostedValue[currentValueLevel];
-                currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("OfflineMoneyLevel")]}/min";
-                if (PlayerPrefs.GetInt("OfflineMoneyLevel") != boostedValue.Count - 1)
+                currentValue.text = $"{boostedValue[PlayerPrefs.GetInt("OfflineMoneyLevel"+ SceneManager.GetActiveScene().name)]}/min";
+                if (PlayerPrefs.GetInt("OfflineMoneyLevel"+ SceneManager.GetActiveScene().name) != boostedValue.Count - 1)
                 {
                     costText.text = costValue[currentValueLevel + 1].ToString();
                 }
@@ -171,17 +172,17 @@ public class Booster : MonoBehaviour
             case BoosterValue.Length:
                 EventManager.OnLengthValueChangedInvoke();
                 currentValue.text = $"{boostedValue[currentValueLevel]}/m";
-                PlayerPrefs.SetInt("HookLengthLevel",currentValueLevel);
+                PlayerPrefs.SetInt("HookLengthLevel"+ SceneManager.GetActiveScene().name,currentValueLevel);
                 break;
             case BoosterValue.Strength:
                 EventManager.OnStrengthValueChangedInvoke();
                 currentValue.text = $"{boostedValue[currentValueLevel]}/fishes";
-                PlayerPrefs.SetInt("HookStrengthLevel",currentValueLevel);
+                PlayerPrefs.SetInt("HookStrengthLevel"+ SceneManager.GetActiveScene().name,currentValueLevel);
                 break;
             case BoosterValue.OfflineMoney:
                 EventManager.OnOfflineMoneyValueChangedInvoke();
                 currentValue.text = $"{boostedValue[currentValueLevel]}/min";
-                PlayerPrefs.SetInt("OfflineMoneyLevel",currentValueLevel);
+                PlayerPrefs.SetInt("OfflineMoneyLevel"+ SceneManager.GetActiveScene().name,currentValueLevel);
                 break;
         }
     }

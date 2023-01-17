@@ -1,8 +1,9 @@
+using System;
 using UnityEngine;
 
 public class SafeArea : MonoBehaviour
 {
-    private void Awake()
+    private void Start()
     {
         UpdateSafeArea();
     }

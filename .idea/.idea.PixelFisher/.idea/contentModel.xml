@@ -7,6 +7,12 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="2D Progress Bar Toolkit" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="CircularProgressBar.cs" t="Include" />
+            <e p="ClassicProgressBar.cs" t="Include" />
+          </e>
+        </e>
         <e p="Plugins" t="Include">
           <e p="Demigiant" t="Include">
             <e p="DOTween" t="Include">
@@ -59,6 +65,9 @@
           </e>
           <e p="Levels" t="Include">
             <e p="LevelController.cs" t="Include" />
+          </e>
+          <e p="LevelScripts" t="Include">
+            <e p="AsyncLoadScene.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="FishBook" t="Include">

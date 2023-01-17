@@ -1,9 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OfflineMoney : MonoBehaviour
@@ -26,13 +25,13 @@ public class OfflineMoney : MonoBehaviour
 
     private void Start()
     {
-        if (!PlayerPrefs.HasKey("OfflineMoneyLevel"))
+        if (!PlayerPrefs.HasKey("OfflineMoneyLevel"+ SceneManager.GetActiveScene().name))
         {
-            maxRewardValue = 60f;
+            maxRewardValue = _offlineBooster.boostedValue[0] * 60;
         }
         else
         {
-            maxRewardValue = _offlineBooster.boostedValue[PlayerPrefs.GetInt("OfflineMoneyLevel")] * 60f;   
+            maxRewardValue = _offlineBooster.boostedValue[PlayerPrefs.GetInt("OfflineMoneyLevel"+ SceneManager.GetActiveScene().name)] * 60f;   
         }
         CheckOffline();
     }
