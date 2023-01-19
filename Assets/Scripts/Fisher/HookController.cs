@@ -156,7 +156,7 @@ public class HookController : MonoBehaviour
         rigidbody.constraints = RigidbodyConstraints2D.None;
         EventManager.OnGameStartedInvoke();
         hookTransform.position = startHookPosition;
-        hookTransform.DOScale(startHookScale, 1f).From(0).SetEase(Ease.Linear).OnComplete(delegate
+        hookTransform.DOScale(startHookScale, 0.1f).From(0).SetEase(Ease.Linear).OnComplete(delegate
         {
             _moveDirection = new Vector2(0, -1);
             _trueHookSpeed = withoutCameraHookSpeed;
