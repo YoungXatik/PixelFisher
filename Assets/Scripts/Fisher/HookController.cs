@@ -257,8 +257,8 @@ public class HookController : MonoBehaviour
 
     private void PutHookOutOfWater()
     {
-        hookTransform.DOScale(0, 1f).From(startHookScale).SetEase(Ease.Linear);
-        hookTransform.DOMove(startHookPosition, 1f).OnComplete(delegate
+        hookTransform.DOScale(0, 0.1f).From(startHookScale).SetEase(Ease.Linear);
+        hookTransform.DOMove(startHookPosition, 0.1f).OnComplete(delegate
         {
             hookCollider.enabled = false;
             _fisherAnimator.EndFishingAnimation();
