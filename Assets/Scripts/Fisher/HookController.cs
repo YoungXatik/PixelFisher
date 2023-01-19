@@ -50,11 +50,7 @@ public class HookController : MonoBehaviour
     private float _trueWithoutCameraHookSpeed;
 
     public List<Fish> hookedFish = new List<Fish>();
-
-    [SerializeField] private ParticleSystem boomParticle;
-    private ParticleSystem.EmissionModule _boomParticleEmission;
-    private List<Sprite> _hookedFishSprites = new List<Sprite>();
-
+    
     [SerializeField] private RewardedAdMenu rewardedAdMenu;
     private float _fishDepthValue;
     private void Awake()
@@ -64,8 +60,6 @@ public class HookController : MonoBehaviour
         _fisherAnimator = GetComponent<FisherAnimator>();
         startHookScale = hookTransform.localScale;
         hookTransform.localScale = Vector3.zero;
-        _boomParticleEmission = boomParticle.emission;
-        
         Application.targetFrameRate = 60;
     }
 
@@ -111,7 +105,9 @@ public class HookController : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("HookLengthLevel" + SceneManager.GetActiveScene().name))
         {
-            hookMaxLength = -boosterComponent.CurrentBoosterValue;
+            hookMaxLength =
+                -boosterComponent.boostedValue[
+                    PlayerPrefs.GetInt("HookLengthLevel" + SceneManager.GetActiveScene().name)];
         }
     }
 
@@ -159,15 +155,6 @@ public class HookController : MonoBehaviour
     {
         rigidbody.constraints = RigidbodyConstraints2D.None;
         EventManager.OnGameStartedInvoke();
-        for (int i = 0; i < _hookedFishSprites.Count; i++)
-        {
-            _hookedFishSprites.Remove(_hookedFishSprites[i]);
-        }
-        _hookedFishSprites.Clear();
-        for (int i = 0; i < boomParticle.textureSheetAnimation.spriteCount; i++)
-        {
-            boomParticle.textureSheetAnimation.RemoveSprite(i);
-        }
         hookTransform.position = startHookPosition;
         hookTransform.DOScale(startHookScale, 1f).From(0).SetEase(Ease.Linear).OnComplete(delegate
         {
@@ -278,7 +265,6 @@ public class HookController : MonoBehaviour
             cameraFollow.SetTargetToNull();
             cameraFollow.ChangeCameraPosition(startHookPosition);
             _hookReachMaxLength = false;
-            PlayBoomEffect();
             ShowRewardedAdMenu();
             ClearFishDepathValue();
             EventManager.OnGameEndedInvoke();
@@ -306,21 +292,5 @@ public class HookController : MonoBehaviour
                 rewardedAdMenu.OpenMenu();
             }
         }
-    }
-
-    private void PlayBoomEffect()
-    {
-        for (int i = 0; i < boomParticle.textureSheetAnimation.spriteCount; i++)
-        {
-            boomParticle.textureSheetAnimation.RemoveSprite(i);
-        }
-        for (int i = 0; i < hookedFish.Count; i++)
-        {
-            _hookedFishSprites.Add(hookedFish[i].fishType.fishSprite);
-            boomParticle.textureSheetAnimation.AddSprite(_hookedFishSprites[i]);
-        }
-        _boomParticleEmission.rateOverTime = new ParticleSystem.MinMaxCurve(_hookedFishSprites.Count);
-        boomParticle.Play();
-        hookedFish.Clear();
     }
 }
