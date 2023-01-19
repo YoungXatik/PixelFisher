@@ -14792,10 +14792,14 @@ MonoBehaviour:
   shopMainImage: {fileID: 1347336668}
   diamondsScrollArea: {fileID: 1463885450}
   boostersScrollArea: {fileID: 255281539}
+  diamondsScrollAreaContainer: {fileID: 0}
+  boostersScrollAreaContainer: {fileID: 0}
   diamondsMenuButton: {fileID: 915950135}
   boostersMenuButton: {fileID: 946927143}
   closeShopButton: {fileID: 1584697937}
   openShopButton: {fileID: 1193040466}
+  diamondsScrollAreaStartYPosition: 0
+  boostersScrollAreaStartYPosition: 0
 --- !u!1 &1359969991
 GameObject:
   m_ObjectHideFlags: 0
@@ -18721,7 +18725,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -544262.1}
+  m_AnchoredPosition: {x: 0, y: -1253745.2}
   m_SizeDelta: {x: 100, y: 3300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701712064
@@ -20168,12 +20172,16 @@ MonoBehaviour:
   rareMenuScrollArea: {fileID: 425155923}
   rareMenu: {fileID: 334456771}
   rareMenuButton: {fileID: 122613223}
+  findMenuScrollArea: {fileID: 0}
   findsMenu: {fileID: 1466299809}
   findsMenuButton: {fileID: 1104059066}
   fishBookIndicator: {fileID: 1432508598}
   fishBookFindFishIndicator: {fileID: 1042061470}
   fishBookRareFishIndicator: {fileID: 552073738}
   fishBookCommonIndicator: {fileID: 43113132}
+  commonMenuStartYPosition: 0
+  rareMenuStartYPosition: 0
+  findsMenuStartYPosition: 0
 --- !u!1001 &1818250327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23464,6 +23472,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 627581147}
     m_Modifications:
     - target: {fileID: 8891022051013930147, guid: f5a8a94d68b44a649b7067deeabc379d, type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891022051013930147, guid: f5a8a94d68b44a649b7067deeabc379d, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891022051013930147, guid: f5a8a94d68b44a649b7067deeabc379d, type: 3}
       propertyPath: EmissionModule.m_BurstCount
       value: 0
       objectReference: {fileID: 0}
@@ -23477,6 +23493,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8891022051013930147, guid: f5a8a94d68b44a649b7067deeabc379d, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891022051013930147, guid: f5a8a94d68b44a649b7067deeabc379d, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8891022051013930147, guid: f5a8a94d68b44a649b7067deeabc379d, type: 3}

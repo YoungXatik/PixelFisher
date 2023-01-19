@@ -55,7 +55,13 @@ using System.Collections.Generic;
             EventManager.OnRareFishHooked -= ShowRareFishIndicator;
             EventManager.OnFishCollected -= ShowFishIndicator;
         }
-        
+
+        private void Start()
+        {
+            rareMenu.SetActive(false);
+            findsMenu.SetActive(false);
+            commonMenu.SetActive(false);
+        }
 
         private void ShowFishIndicator()
         {
@@ -73,14 +79,22 @@ using System.Collections.Generic;
             fishBookCommonIndicator.SetActive(true);
         }
 
+        private void SetScrollPanelYPositionToDefault()
+        {
+            commonMenuScrollArea.position = new Vector3(commonMenuScrollArea.position.x,commonMenuStartYPosition,commonMenuScrollArea.position.z);
+            rareMenuScrollArea.position = new Vector3(rareMenuScrollArea.position.x,rareMenuStartYPosition,rareMenuScrollArea.position.z);
+            findMenuScrollArea.position = new Vector3(findMenuScrollArea.position.x,findsMenuStartYPosition,findMenuScrollArea.position.z);
+        }
+        
         public void OpenMainMenu()
         {
+            OpenFindsMenu();
             mainMenuCloseButton.interactable = false;
             fishBookIndicator.SetActive(false);
             menuImage.transform.DOScale(1, 0.25f).From(0).SetEase(Ease.Linear).OnComplete(delegate
             {
                 mainMenuCloseButton.interactable = true;
-                OpenFindsMenu();
+                SetScrollPanelYPositionToDefault();
                 IsOpen = true;
             });
             
@@ -102,7 +116,6 @@ using System.Collections.Generic;
 
         public void OpenCommonMenu()
         {
-            commonMenuScrollArea.position = new Vector3(commonMenuScrollArea.position.x,commonMenuStartYPosition,commonMenuScrollArea.position.z);
             fishBookCommonIndicator.SetActive(false);
             rareMenu.SetActive(false);
             findsMenu.SetActive(false);
@@ -114,12 +127,13 @@ using System.Collections.Generic;
             {
                 rareMenuButton.interactable = true;
                 findsMenuButton.interactable = true;
+                commonMenuScrollArea.position = new Vector3(commonMenuScrollArea.position.x,commonMenuStartYPosition,commonMenuScrollArea.position.z);
             });
         }
 
         public void OpenRareMenu()
         {
-            rareMenuScrollArea.position = new Vector3(rareMenuScrollArea.position.x,rareMenuStartYPosition,rareMenuScrollArea.position.z);
+            
             fishBookRareFishIndicator.SetActive(false);
             rareMenu.SetActive(true);
             findsMenu.SetActive(false);
@@ -131,12 +145,13 @@ using System.Collections.Generic;
             {
                 commonMenuButton.interactable = true;
                 findsMenuButton.interactable = true;
+                rareMenuScrollArea.position = new Vector3(rareMenuScrollArea.position.x,rareMenuStartYPosition,rareMenuScrollArea.position.z);
             });
         }
 
         public void OpenFindsMenu()
         {
-            findMenuScrollArea.position = new Vector3(findMenuScrollArea.position.x,findsMenuStartYPosition,findMenuScrollArea.position.z);
+            
             fishBookFindFishIndicator.SetActive(false);
             rareMenu.SetActive(false);
             findsMenu.SetActive(true);
@@ -148,6 +163,7 @@ using System.Collections.Generic;
             {
                 rareMenuButton.interactable = true;
                 commonMenuButton.interactable = true;
+                findMenuScrollArea.position = new Vector3(findMenuScrollArea.position.x,findsMenuStartYPosition,findMenuScrollArea.position.z);
             });
         }
         

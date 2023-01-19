@@ -16,10 +16,10 @@ MonoBehaviour:
   fishDescription: "\u0427\u0435\u0445\u043E\u043D"
   <fishSprite>k__BackingField: {fileID: -139956008225194099, guid: 6dff6398d28f1f34680ad4667c558e3d, type: 3}
   <lockedFishSprite>k__BackingField: {fileID: 21300000, guid: 7f1e87cd8ba329c409cd5d08dc099007, type: 3}
-  isCollected: 0
+  isCollected: 1
   <FishQuality>k__BackingField: 0
-  <TotallyCatch>k__BackingField: 11
+  <TotallyCatch>k__BackingField: 15
   isAchieved: 0
   <minSpawnDepth>k__BackingField: -15
   <maxSpawnDepth>k__BackingField: -25
-  <SpawnDepth>k__BackingField: -17.444275
+  <SpawnDepth>k__BackingField: -22.640915

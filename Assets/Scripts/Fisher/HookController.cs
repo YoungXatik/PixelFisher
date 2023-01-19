@@ -159,15 +159,15 @@ public class HookController : MonoBehaviour
     {
         rigidbody.constraints = RigidbodyConstraints2D.None;
         EventManager.OnGameStartedInvoke();
-        for (int i = 0; i < boomParticle.textureSheetAnimation.spriteCount; i++)
-        {
-            boomParticle.textureSheetAnimation.RemoveSprite(i);
-        }
         for (int i = 0; i < _hookedFishSprites.Count; i++)
         {
             _hookedFishSprites.Remove(_hookedFishSprites[i]);
         }
         _hookedFishSprites.Clear();
+        for (int i = 0; i < boomParticle.textureSheetAnimation.spriteCount; i++)
+        {
+            boomParticle.textureSheetAnimation.RemoveSprite(i);
+        }
         hookTransform.position = startHookPosition;
         hookTransform.DOScale(startHookScale, 1f).From(0).SetEase(Ease.Linear).OnComplete(delegate
         {
@@ -310,11 +310,6 @@ public class HookController : MonoBehaviour
 
     private void PlayBoomEffect()
     {
-        _boomParticleEmission.SetBursts(
-            new ParticleSystem.Burst[]
-            {
-                new ParticleSystem.Burst(0f,0), 
-            });
         for (int i = 0; i < boomParticle.textureSheetAnimation.spriteCount; i++)
         {
             boomParticle.textureSheetAnimation.RemoveSprite(i);
@@ -324,11 +319,8 @@ public class HookController : MonoBehaviour
             _hookedFishSprites.Add(hookedFish[i].fishType.fishSprite);
             boomParticle.textureSheetAnimation.AddSprite(_hookedFishSprites[i]);
         }
-        _boomParticleEmission.SetBursts(
-            new ParticleSystem.Burst[]
-            {
-                new ParticleSystem.Burst(0f,_hookedFishSprites.Count), 
-            });
+        _boomParticleEmission.rateOverTime = new ParticleSystem.MinMaxCurve(_hookedFishSprites.Count);
         boomParticle.Play();
+        hookedFish.Clear();
     }
 }

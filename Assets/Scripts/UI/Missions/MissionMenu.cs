@@ -46,7 +46,8 @@ public class MissionMenu : MonoBehaviour
         menuImage.DOScale(1, 0.25f).From(0).SetEase(Ease.Linear).OnComplete(delegate
         {
             closeButton.interactable = true;
-            OpenDailyMissionMenu();
+            dailyMissionButton.interactable = false;
+            dailyMissionsIndicator.SetActive(false);
         });
     }
 
@@ -57,6 +58,7 @@ public class MissionMenu : MonoBehaviour
         menuImage.DOScale(0, 0.25f).From(1).SetEase(Ease.Linear).OnComplete(delegate
         {
             openButton.interactable = true;
+            OpenDailyMissionMenu();
         });
     }
 
@@ -83,7 +85,6 @@ public class MissionMenu : MonoBehaviour
     
     public void OpenDailyMissionMenu()
     {
-        dailyMissionsIndicator.SetActive(false);
         CloseQuestMenu();
         questsAreaButton.interactable = false;
         dailyMissionButton.interactable = false;

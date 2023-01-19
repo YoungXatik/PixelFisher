@@ -134,7 +134,10 @@ public class MapPoint : MonoBehaviour
     private void OpenPoint()
     {
         UpdateUI();
-        EventManager.OnNewLevelOpenedInvoke();
+        if (loadSceneNumber != SceneManager.GetActiveScene().buildIndex)
+        {
+            EventManager.OnNewLevelOpenedInvoke();
+        }
         lockImage.gameObject.SetActive(false);
         selectSceneButton.interactable = true;
         sceneNumberText.text = $"{loadSceneNumber}";
@@ -146,6 +149,7 @@ public class MapPoint : MonoBehaviour
     {
         UpdateUI();
         toDoImage.transform.DOScale(1, 0.25f).From(0).SetEase(Ease.Linear);
+        openRequirementsButton.interactable = false;
         StartCoroutine(ClosePointRequirements());
     }
 
@@ -155,5 +159,6 @@ public class MapPoint : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToCloseRequirements);
         toDoImage.transform.DOScale(0, 0.25f).From(1).SetEase(Ease.Linear);   
+        openRequirementsButton.interactable = true;
     }
 }

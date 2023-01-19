@@ -22,6 +22,8 @@ public class FishCard_UI : MonoBehaviour
     private void OnEnable()
     {
         UnlockFishCard();
+        UnlockCommonCard();
+        UnlockRareCard();
         if (FishType.isAchieved)
         {
             collectRewardButton.interactable = false;
