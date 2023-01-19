@@ -23,6 +23,7 @@ public class Map : MonoBehaviour
 
     public void OpenMenu()
     {
+        EventManager.OnUIMenuEnterInvoke();
         indicator.SetActive(false);
         openButton.interactable = false;
         menuImage.transform.DOScale(1, 0.25f).From(0).SetEase(Ease.Linear).OnComplete(delegate
@@ -33,6 +34,7 @@ public class Map : MonoBehaviour
 
     public void CloseMenu()
     {
+        EventManager.OnUIMenuExitInvoke();
         closeButton.interactable = false;
         menuImage.transform.DOScale(0, 0.25f).From(1).SetEase(Ease.Linear).OnComplete(delegate
         {

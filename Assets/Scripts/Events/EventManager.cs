@@ -92,4 +92,18 @@ public class EventManager : MonoBehaviour
     {
         OnNewLevelOpened?.Invoke();
     }
+
+    public static Action OnUIMenuEnter;
+
+    public static void OnUIMenuEnterInvoke()
+    {
+        OnUIMenuEnter?.Invoke();
+    }
+    
+    public static Action OnUIMenuExit;
+
+    public static void OnUIMenuExitInvoke()
+    {
+        OnUIMenuExit?.Invoke();
+    }
 }

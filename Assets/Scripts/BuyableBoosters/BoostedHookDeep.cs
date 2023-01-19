@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,9 +29,20 @@ public class BoostedHookDeep : MonoBehaviour, IBoostable
         _shopCell = GetComponent<ShopCell>();
     }
 
+    private void OnEnable()
+    {
+        EventManager.OnUIMenuEnter += StopBoost;
+        EventManager.OnUIMenuExit += ContinueBoost;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnUIMenuEnter -= StopBoost;
+        EventManager.OnUIMenuExit -= ContinueBoost;
+    }
+
     public void StartBooster()
     {
-        Debug.Log("BoostStarted");
         _available = true;
         _durationCounter = duration;
         buyButton.interactable = false;
@@ -40,7 +52,6 @@ public class BoostedHookDeep : MonoBehaviour, IBoostable
 
     public void CancelBoost()
     {
-        Debug.Log("BoostFinished");
         _available = false;
         buyButton.interactable = true;
         HookController.Instance.CancelBoostCameraFollowLength();
@@ -73,11 +84,13 @@ public class BoostedHookDeep : MonoBehaviour, IBoostable
     public void StopBoost()
     {
         _available = false;
+        boosterTimer.StopTimer();
     }
 
     public void ContinueBoost()
     {
         _available = true;
+        boosterTimer.ContinueTimer();
     }
 
     public Sprite GetBoosterImage()

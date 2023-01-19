@@ -28,6 +28,18 @@ public class IncreasedFishCost : MonoBehaviour, IBoostable
         _shopCell = GetComponent<ShopCell>();
     }
     
+    private void OnEnable()
+    {
+        EventManager.OnUIMenuEnter += StopBoost;
+        EventManager.OnUIMenuExit += ContinueBoost;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.OnUIMenuEnter -= StopBoost;
+        EventManager.OnUIMenuExit -= ContinueBoost;
+    }
+    
     public void StartBooster()
     {
         Debug.Log("BoostStarted");
@@ -73,11 +85,13 @@ public class IncreasedFishCost : MonoBehaviour, IBoostable
     public void StopBoost()
     {
         _available = false;
+        boosterTimer.StopTimer();
     }
 
     public void ContinueBoost()
     {
         _available = true;
+        boosterTimer.ContinueTimer();
     }
     
     public Sprite GetBoosterImage()

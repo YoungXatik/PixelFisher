@@ -40,6 +40,7 @@ public class MissionMenu : MonoBehaviour
 
     public void OpenMenu()
     {
+        EventManager.OnUIMenuEnterInvoke();
         missionsIndicator.SetActive(false);
         openButton.interactable = false;
         closeButton.interactable = false;
@@ -53,6 +54,7 @@ public class MissionMenu : MonoBehaviour
 
     public void CloseMenu()
     {
+        EventManager.OnUIMenuExitInvoke();
         openButton.interactable = false;
         closeButton.interactable = false;
         menuImage.DOScale(0, 0.25f).From(1).SetEase(Ease.Linear).OnComplete(delegate

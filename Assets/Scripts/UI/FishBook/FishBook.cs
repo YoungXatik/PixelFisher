@@ -88,6 +88,7 @@ using System.Collections.Generic;
         
         public void OpenMainMenu()
         {
+            EventManager.OnUIMenuEnterInvoke();
             OpenFindsMenu();
             mainMenuCloseButton.interactable = false;
             fishBookIndicator.SetActive(false);
@@ -102,6 +103,7 @@ using System.Collections.Generic;
 
         public void CloseMainMenu()
         {
+            EventManager.OnUIMenuExitInvoke();
             mainMenuOpenButton.interactable = false;
             menuImage.transform.DOScale(0, 0.25f).From(1).SetEase(Ease.Linear).OnComplete(delegate
             {

@@ -14,6 +14,8 @@ public class BoosterTimer : MonoBehaviour
     private float _min, _sec;
 
     private bool _canTick;
+
+    private Tween _fillTween;
     
     private void Start()
     {
@@ -55,7 +57,7 @@ public class BoosterTimer : MonoBehaviour
     public void ActivateTimer(float time, Sprite timerIcon)
     {
         _canTick = true;
-        _boosterImage.DOFillAmount(0, time).From(1).SetEase(Ease.Linear);
+        _fillTween = _boosterImage.DOFillAmount(0, time).From(1).SetEase(Ease.Linear);
         gameObject.SetActive(true);
         _boosterImage.sprite = timerIcon;
         _min = time / 60;
@@ -65,7 +67,20 @@ public class BoosterTimer : MonoBehaviour
     public void DeactivateTimer()
     {
         _canTick = false;
+        _fillTween = null;
         gameObject.SetActive(false);
+    }
+
+    public void StopTimer()
+    {
+        _fillTween.Pause();
+        _canTick = false;
+    }
+
+    public void ContinueTimer()
+    {
+        _fillTween.Play();
+        _canTick = true;
     }
     
 }

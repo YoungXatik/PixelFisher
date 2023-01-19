@@ -41,6 +41,7 @@ public class Shop : MonoBehaviour
 
     public void OpenShop()
     {
+        EventManager.OnUIMenuEnterInvoke();
         shopMainImage.SetActive(true);
         shopMainImage.transform.DOScale(1, 0.25f).SetEase(Ease.Linear).From(0).OnComplete(delegate
         {
@@ -54,6 +55,7 @@ public class Shop : MonoBehaviour
 
     public void CloseShop()
     {
+        EventManager.OnUIMenuExitInvoke();
         CloseDiamondsArea();
         shopMainImage.transform.DOScale(0, 0.25f).SetEase(Ease.Linear).From(1).OnComplete(delegate
         {
