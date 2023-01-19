@@ -142,6 +142,7 @@ public class ChestBubble : MonoBehaviour
     private void OpenCongratulateImage()
     {
         _canClose = false;
+        openChestButton.interactable = false;
         switch (rewardType)
         {
             case RewardType.Booster:
@@ -204,11 +205,15 @@ public class ChestBubble : MonoBehaviour
 
     private IEnumerator CloseChestCoroutine(float timeToClose)
     {
+        yield return new WaitForSeconds(timeToClose);
         if (_canClose)
         {
-            yield return new WaitForSeconds(timeToClose);
             CloseChestInformation();
             openChestButton.interactable = true;
+        }
+        else
+        {
+            yield return null;
         }
     }
 }
