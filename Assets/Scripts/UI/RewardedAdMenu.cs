@@ -5,6 +5,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class RewardedAdMenu : MonoBehaviour
 {
@@ -15,7 +16,24 @@ public class RewardedAdMenu : MonoBehaviour
 
     [SerializeField] private Button getRewardButton;
     [SerializeField] private Button closeButton;
-    
+
+    [SerializeField] private List<GameObject> boostersObjects = new List<GameObject>();
+    private List<IBoostable> _boostersList = new List<IBoostable>();
+
+    private IBoostable _currentBooster;
+    private int _boosterIndex;
+
+    private void Awake()
+    {
+        for (int i = 0; i < boostersObjects.Count; i++)
+        {
+            _boostersList.Add(boostersObjects[i].GetComponent<IBoostable>());
+        }
+
+        _boosterIndex = Random.Range(0, boostersObjects.Count);
+        _currentBooster = _boostersList[_boosterIndex];
+    }
+
     public void OpenMenu()
     {
         menuImage.transform.DOScale(1, 0.25f).From(0).SetEase(Ease.Linear).OnUpdate(delegate
@@ -44,8 +62,18 @@ public class RewardedAdMenu : MonoBehaviour
 
     public void TakeReward()
     {
-        //Start AD
-        Money.Instance.AddMoney(Hook.Instance.HookedFishCost * 2);
-        CloseMenu();
+        int chance = Random.Range(1, 10);
+        if (chance >= 7)
+        {
+            _currentBooster.StartBooster();
+            Money.Instance.AddMoney(Hook.Instance.HookedFishCost * 2);
+            CloseMenu();
+        }
+        else if(chance < 7)
+        {
+            //Start AD
+            Money.Instance.AddMoney(Hook.Instance.HookedFishCost * 2);
+            CloseMenu(); 
+        }
     }
 }

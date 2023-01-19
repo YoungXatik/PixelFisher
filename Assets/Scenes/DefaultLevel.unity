@@ -11949,6 +11949,11 @@ MonoBehaviour:
   upgradeRewardText: {fileID: 890939775}
   getRewardButton: {fileID: 162405981}
   closeButton: {fileID: 1000032127}
+  boostersObjects:
+  - {fileID: 1716346863}
+  - {fileID: 577266091}
+  - {fileID: 778020733}
+  - {fileID: 1796037268}
 --- !u!1001 &1096329728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18725,7 +18730,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2480555.8}
+  m_AnchoredPosition: {x: 0, y: -2542074}
   m_SizeDelta: {x: 100, y: 3300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701712064

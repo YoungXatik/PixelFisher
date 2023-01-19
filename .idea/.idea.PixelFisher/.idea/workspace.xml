@@ -109,7 +109,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/DailyMissions/DailyCollectRareFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/FishBook/FishCard_UI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Map/MapPoint.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/RewardedAdMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IBoostable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/ChestBubble.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Events/EventManager.cs" />
@@ -123,6 +122,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedRareFishCount.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/SecondChance.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/RewardedAdMenu.cs" />
       </list>
     </option>
   </component>
@@ -199,7 +199,7 @@
       <workItem from="1673979958852" duration="1835000" />
       <workItem from="1673983727381" duration="33000" />
       <workItem from="1674123548693" duration="7953000" />
-      <workItem from="1674136761388" duration="2537000" />
+      <workItem from="1674136761388" duration="4442000" />
     </task>
     <servers />
   </component>
@@ -213,9 +213,9 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="794" y="217" key="RiderGenerateDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1673520251730" />
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1673975624586">
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1674139847423">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1673975624586" />
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1674139847423" />
   </component>
 </project>
