@@ -71,10 +71,10 @@ public class Hook : MonoBehaviour
 
         if (other.gameObject.TryGetComponent<Fish>(out fish))
         {
+            hookController.CheckForFirstFishEntry();
             currentHookedFish = fish.fishType;
             CheckForFishQuality(fish);
             CheckForUnCollectedFish(fish);
-            hookController.CheckForFirstFishEntry();
             hookController.hookedFish.Add(fish);
             hookController.FishDepthValueCounter(fish);
             _hookedFish.Add(fish);

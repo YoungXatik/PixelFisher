@@ -217,7 +217,7 @@ public class HookController : MonoBehaviour
     {
         if (!_hookReachMaxLength)
         {
-            if (hookedFish.Count > _fishesToTakeHookUp)
+            if (hookedFish.Count >= _fishesToTakeHookUp)
             {
                 _hookReachMaxLength = true;
                 TakeHookUp();
