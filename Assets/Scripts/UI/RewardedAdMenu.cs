@@ -24,14 +24,20 @@ public class RewardedAdMenu : MonoBehaviour
             upgradeRewardText.text = $"{Hook.Instance.HookedFishCost * 2}";
         }).OnComplete(delegate
         {
-            getRewardButton.interactable = true;
+            getRewardButton.gameObject.SetActive(true);
             closeButton.interactable = true;
         });
     }
 
+    public void OpenMenuWithoutTakeButton()
+    {
+        OpenMenu();
+        getRewardButton.gameObject.SetActive(false);
+    }
+
     public void CloseMenu()
     {
-        getRewardButton.interactable = false;
+        getRewardButton.gameObject.SetActive(false);
         closeButton.interactable = false;
         menuImage.transform.DOScale(0, 0.25f).From(1).SetEase(Ease.Linear);
     }

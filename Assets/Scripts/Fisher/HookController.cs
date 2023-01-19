@@ -283,13 +283,20 @@ public class HookController : MonoBehaviour
     
     private void ShowRewardedAdMenu()
     {
-        var sum = Mathf.Abs(hookMaxLength) *
-                  PlayerPrefs.GetInt("HookStrengthLevel" + SceneManager.GetActiveScene().name);
+        var sum = (Mathf.Abs(hookMaxLength) *
+                  PlayerPrefs.GetInt("HookStrengthLevel" + SceneManager.GetActiveScene().name)) * 0.7f;
         if (sum >= _fishDepthValue)
         {
             if (sum != 0)
             {
                 rewardedAdMenu.OpenMenu();
+            }
+        }
+        else
+        {
+            if (sum != 0)
+            {
+                rewardedAdMenu.OpenMenuWithoutTakeButton();
             }
         }
     }
