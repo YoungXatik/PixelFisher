@@ -98,7 +98,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Fishes/FishType.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/SafeArea.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/Booster.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boosters/BoosterValues.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Levels/LevelController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenuValues.cs" />
@@ -121,8 +120,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedFishCost.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedRareFishCount.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/SecondChance.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/RewardedAdMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
       </list>
     </option>
   </component>
@@ -199,7 +199,7 @@
       <workItem from="1673979958852" duration="1835000" />
       <workItem from="1673983727381" duration="33000" />
       <workItem from="1674123548693" duration="7953000" />
-      <workItem from="1674136761388" duration="4890000" />
+      <workItem from="1674136761388" duration="5578000" />
     </task>
     <servers />
   </component>

@@ -163,6 +163,7 @@ public class HookController : MonoBehaviour
             _canMoveDown = true;
             hookCollider.enabled = true;
             cameraFollow.SetHookIsTarget(hookTransform);
+            _canMove = true;
         });
     }
 
