@@ -5033,6 +5033,7 @@ MonoBehaviour:
   increasedCostMultiplier: 0.25
   buyButton: {fileID: 1222884085}
   boosterTimer: {fileID: 17323183}
+  boosterDescription: Increase in the cost of caught fish
 --- !u!1001 &578562843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5639,7 +5640,6 @@ MonoBehaviour:
   hookSpeed: 8
   withoutCameraHookSpeed: 20
   hookedFish: []
-  boomParticle: {fileID: 0}
   rewardedAdMenu: {fileID: 1095323686}
   boosterComponent: {fileID: 1973034834}
   strengthBoosterComponent: {fileID: 1219951525}
@@ -7955,6 +7955,7 @@ MonoBehaviour:
   increasedRareFishMultiplier: 0
   buyButton: {fileID: 1853839218}
   boosterTimer: {fileID: 873187547}
+  boosterDescription: Increasing the number of rare fish
 --- !u!1 &779463008
 GameObject:
   m_ObjectHideFlags: 0
@@ -18724,7 +18725,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1583929.6}
+  m_AnchoredPosition: {x: 0, y: -2403532.2}
   m_SizeDelta: {x: 100, y: 3300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701712064
@@ -18938,6 +18939,7 @@ MonoBehaviour:
   newSpeedValueMultiplier: 2
   buyButton: {fileID: 145832326}
   boosterTimer: {fileID: 1166260531}
+  boosterDescription: Increasing the depth of immersion
 --- !u!1001 &1724189649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20029,6 +20031,7 @@ MonoBehaviour:
   increasedFishCountValue: 1
   buyButton: {fileID: 994550039}
   boosterTimer: {fileID: 1519743163}
+  boosterDescription: Allows you not to stop diving when in contact with fish
 --- !u!1 &1803523801
 GameObject:
   m_ObjectHideFlags: 0
@@ -23672,7 +23675,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 202555677}
     m_Modifications:
+    - target: {fileID: 1810578118371763814, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810578118371763814, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2206725040348436637, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524512624454686234, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524512624454686234, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645712311600621793, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -23884,6 +23907,14 @@ PrefabInstance:
       propertyPath: _boostersObjects.Array.data[3]
       value: 
       objectReference: {fileID: 1796037268}
+    - target: {fileID: 5793338707115034648, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793338707115034648, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6330294518324508387, guid: f3097ea19c9f42649944c7b421791e45, type: 3}
       propertyPath: m_IsActive
       value: 1

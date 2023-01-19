@@ -15,4 +15,6 @@ public interface IBoostable
     public void ContinueBoost();
 
     public Sprite GetBoosterImage();
+
+    public string GetBoosterDescription();
 }

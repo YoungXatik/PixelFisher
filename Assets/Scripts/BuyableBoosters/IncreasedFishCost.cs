@@ -20,6 +20,8 @@ public class IncreasedFishCost : MonoBehaviour, IBoostable
     private ShopCell _shopCell;
 
     [SerializeField] private BoosterTimer boosterTimer;
+    
+    [SerializeField] private string boosterDescription;
 
     private void Start()
     {
@@ -81,5 +83,10 @@ public class IncreasedFishCost : MonoBehaviour, IBoostable
     public Sprite GetBoosterImage()
     {
         return boosterIcon;
+    }
+    
+    public string GetBoosterDescription()
+    {
+        return boosterDescription;
     }
 }

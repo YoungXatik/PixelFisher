@@ -20,6 +20,7 @@ public class IncreasedRareFishCount : MonoBehaviour, IBoostable
 
     [SerializeField] private BoosterTimer boosterTimer;
 
+    [SerializeField] private string boosterDescription;
     private void Start()
     {
         _shopCell = GetComponent<ShopCell>();
@@ -80,5 +81,10 @@ public class IncreasedRareFishCount : MonoBehaviour, IBoostable
     public Sprite GetBoosterImage()
     {
         return boosterIcon;
+    }
+    
+    public string GetBoosterDescription()
+    {
+        return boosterDescription;
     }
 }
