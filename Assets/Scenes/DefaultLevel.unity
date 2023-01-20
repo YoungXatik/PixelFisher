@@ -14797,14 +14797,14 @@ MonoBehaviour:
   shopMainImage: {fileID: 1347336668}
   diamondsScrollArea: {fileID: 1463885450}
   boostersScrollArea: {fileID: 255281539}
-  diamondsScrollAreaContainer: {fileID: 0}
-  boostersScrollAreaContainer: {fileID: 0}
+  diamondsScrollAreaContainer: {fileID: 632042934}
+  boostersScrollAreaContainer: {fileID: 1701712063}
   diamondsMenuButton: {fileID: 915950135}
   boostersMenuButton: {fileID: 946927143}
   closeShopButton: {fileID: 1584697937}
   openShopButton: {fileID: 1193040466}
-  diamondsScrollAreaStartYPosition: 0
-  boostersScrollAreaStartYPosition: 0
+  diamondsScrollAreaStartYPosition: -650
+  boostersScrollAreaStartYPosition: -650
 --- !u!1 &1359969991
 GameObject:
   m_ObjectHideFlags: 0
@@ -18730,7 +18730,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2574382.8}
+  m_AnchoredPosition: {x: 0, y: -2693418.5}
   m_SizeDelta: {x: 100, y: 3300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701712064
