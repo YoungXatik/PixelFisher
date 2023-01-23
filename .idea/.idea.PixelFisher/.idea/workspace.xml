@@ -83,7 +83,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/IAchievmentable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DateTimeUtils.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/UI/JAbgoaengengl.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionChestReward.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchRareFish.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookUpgrade.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookStrengthUpgrade.cs" />
@@ -117,12 +116,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/Shop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoosterTimer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoostedHookDeep.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedFishCost.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedRareFishCount.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/SecondChance.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/RewardedAdMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedFishCost.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/SecondChance.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedRareFishCount.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionChestReward.cs" />
       </list>
     </option>
   </component>

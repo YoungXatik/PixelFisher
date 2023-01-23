@@ -42,7 +42,6 @@ public class IncreasedFishCost : MonoBehaviour, IBoostable
     
     public void StartBooster()
     {
-        Debug.Log("BoostStarted");
         _available = true;
         _durationCounter = duration;
         buyButton.interactable = false;
@@ -52,7 +51,6 @@ public class IncreasedFishCost : MonoBehaviour, IBoostable
 
     public void CancelBoost()
     {
-        Debug.Log("BoostFinished");
         _available = false;
         buyButton.interactable = true;
         Hook.Instance.DecreaseFishCost();

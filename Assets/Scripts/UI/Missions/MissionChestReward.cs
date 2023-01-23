@@ -105,9 +105,12 @@ public class MissionChestReward : MonoBehaviour
         progressBarImage.fillAmount = _step * FishCoins;
         for (int i = 0; i < chestBubbles.Count; i++)
         {
-            if (FishCoins >= textReachesValues[i])
+            if (chestBubbles[i] != null)
             {
-                chestBubbles[i].ChestReached();
+                if (FishCoins >= textReachesValues[i])
+                {
+                    chestBubbles[i].ChestReached();
+                }
             }
         }
     }
@@ -115,6 +118,7 @@ public class MissionChestReward : MonoBehaviour
     private void UpdateUI()
     {
         fishCoinsCountText.text = $"{Mathf.RoundToInt(FishCoins)}";
+        UpdateProgressBar();
         UpdateProgressBar();
     }
 

@@ -40,7 +40,6 @@ public class SecondChance : MonoBehaviour, IBoostable
     
     public void StartBooster()
     {
-        Debug.Log("BoostStarted");
         _available = true;
         _durationCounter = duration;
         buyButton.interactable = false;
@@ -50,7 +49,6 @@ public class SecondChance : MonoBehaviour, IBoostable
 
     public void CancelBoost()
     {
-        Debug.Log("BoostFinished");
         _available = false;
         buyButton.interactable = true;
         HookController.Instance.DecreaseFishedToTakeHookUp();
