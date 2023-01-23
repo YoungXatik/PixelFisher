@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,9 +22,11 @@ public class SecondChance : MonoBehaviour, IBoostable
     [SerializeField] private BoosterTimer boosterTimer;
 
     [SerializeField] private string boosterDescription;
+    [SerializeField] private TextMeshProUGUI descriptionText;
     private void Start()
     {
         _shopCell = GetComponent<ShopCell>();
+        descriptionText.text = boosterDescription;
     }
     
     private void OnEnable()

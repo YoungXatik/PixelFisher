@@ -101,7 +101,6 @@ public class CatchHookUpgrade : MonoBehaviour,ICatchable
         if(_currentAchievementStage == (neededCatchValues.Count - 1))
         {
             PlayerPrefs.SetInt("LengthRewardTaken", true ? 1 : 0);
-            Debug.Log(PlayerPrefs.GetInt("LengthRewardTaken"));
             completeBanner.gameObject.SetActive(true);
         }
         else

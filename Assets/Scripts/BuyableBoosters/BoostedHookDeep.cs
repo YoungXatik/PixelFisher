@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,10 +24,16 @@ public class BoostedHookDeep : MonoBehaviour, IBoostable
     [SerializeField] private BoosterTimer boosterTimer;
 
     [SerializeField] private string boosterDescription;
+    [SerializeField] private TextMeshProUGUI descriptionText;
     
     private void Start()
     {
         _shopCell = GetComponent<ShopCell>();
+        descriptionText.text = boosterDescription;
+        if (PlayerPrefs.HasKey("boosterDuration" + gameObject.name))
+        {
+            StartSavedBooster();
+        }
     }
 
     private void OnEnable()
@@ -39,6 +46,15 @@ public class BoostedHookDeep : MonoBehaviour, IBoostable
     {
         EventManager.OnUIMenuEnter -= StopBoost;
         EventManager.OnUIMenuExit -= ContinueBoost;
+    }
+
+    private void StartSavedBooster()
+    {
+        _available = true;
+        _durationCounter = duration;
+        buyButton.interactable = false;
+        HookController.Instance.BoostCameraFollowLenght(lengthMultiplier,newSpeedValueMultiplier);
+        boosterTimer.ActivateTimer(PlayerPrefs.GetFloat("boosterDuration"),boosterIcon);
     }
 
     public void StartBooster()
@@ -56,6 +72,7 @@ public class BoostedHookDeep : MonoBehaviour, IBoostable
         buyButton.interactable = true;
         HookController.Instance.CancelBoostCameraFollowLength();
         DeactivateTimer();
+        PlayerPrefs.DeleteKey("boosterDuration");
     }
 
     public void ActivateTimer()
@@ -78,6 +95,14 @@ public class BoostedHookDeep : MonoBehaviour, IBoostable
             {
                 CancelBoost();
             }
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        if (_available)
+        {
+            PlayerPrefs.SetFloat("boosterDuration" + gameObject.name,_durationCounter);
         }
     }
 

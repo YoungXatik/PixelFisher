@@ -84,7 +84,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/DateTimeUtils.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/UI/JAbgoaengengl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchRareFish.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookUpgrade.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookStrengthUpgrade.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookDrops.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchDefaultFish.cs" />
@@ -115,14 +114,15 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Shop/Shop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoosterTimer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoostedHookDeep.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/RewardedAdMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedFishCost.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/SecondChance.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedRareFishCount.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/MissionChestReward.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Missions/Achievments/CatchHookUpgrade.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedFishCost.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedRareFishCount.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/SecondChance.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/BoostedHookDeep.cs" />
       </list>
     </option>
   </component>
@@ -215,9 +215,9 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="794" y="217" key="RiderGenerateDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1673520251730" />
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1674139847423">
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1674470390620">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1674139847423" />
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032@0.0.1920.1032" timestamp="1674470390620" />
   </component>
 </project>

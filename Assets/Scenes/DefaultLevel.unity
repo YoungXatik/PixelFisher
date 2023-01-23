@@ -3017,6 +3017,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7457010506719152704, guid: 04f587bfaa80466488fc9c1e80743c1b, type: 3}
   m_PrefabInstance: {fileID: 866944690}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &316278988 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2123956204519723812, guid: 04f587bfaa80466488fc9c1e80743c1b, type: 3}
+  m_PrefabInstance: {fileID: 1836725753}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &330264438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5034,6 +5045,7 @@ MonoBehaviour:
   buyButton: {fileID: 1222884085}
   boosterTimer: {fileID: 17323183}
   boosterDescription: Increase in the cost of caught fish
+  descriptionText: {fileID: 675717844}
 --- !u!1001 &578562843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5769,10 +5781,10 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 390, y: 520}
+  m_CellSize: {x: 1300, y: 350}
   m_Spacing: {x: 35, y: 35}
   m_Constraint: 1
-  m_ConstraintCount: 3
+  m_ConstraintCount: 1
 --- !u!114 &632042936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6262,6 +6274,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7457010506719152704, guid: 04f587bfaa80466488fc9c1e80743c1b, type: 3}
   m_PrefabInstance: {fileID: 1637729076}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &675717844 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2123956204519723812, guid: 04f587bfaa80466488fc9c1e80743c1b, type: 3}
+  m_PrefabInstance: {fileID: 1637729076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &677060335
 GameObject:
   m_ObjectHideFlags: 0
@@ -7956,6 +7979,7 @@ MonoBehaviour:
   buyButton: {fileID: 1853839218}
   boosterTimer: {fileID: 873187547}
   boosterDescription: Increasing the number of rare fish
+  descriptionText: {fileID: 1329518666}
 --- !u!1 &779463008
 GameObject:
   m_ObjectHideFlags: 0
@@ -9559,6 +9583,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901776070}
   m_CullTransparentMesh: 1
+--- !u!114 &907444334 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2123956204519723812, guid: 04f587bfaa80466488fc9c1e80743c1b, type: 3}
+  m_PrefabInstance: {fileID: 1263959210}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &909144734
 GameObject:
   m_ObjectHideFlags: 0
@@ -14481,6 +14516,17 @@ MonoBehaviour:
   strengthBooster: {fileID: 1219951525}
   fishCostMultiplier: 1
   currentHookedFish: {fileID: 0}
+--- !u!114 &1329518666 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2123956204519723812, guid: 04f587bfaa80466488fc9c1e80743c1b, type: 3}
+  m_PrefabInstance: {fileID: 1759930191}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1333435760
 GameObject:
   m_ObjectHideFlags: 0
@@ -14727,7 +14773,7 @@ RectTransform:
   m_GameObject: {fileID: 1347336668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 946927142}
   - {fileID: 915950134}
@@ -18730,7 +18776,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2803892.8}
+  m_AnchoredPosition: {x: 0, y: -650.0001}
   m_SizeDelta: {x: 100, y: 3300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701712064
@@ -18753,10 +18799,10 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 390, y: 520}
+  m_CellSize: {x: 1300, y: 350}
   m_Spacing: {x: 35, y: 35}
   m_Constraint: 1
-  m_ConstraintCount: 3
+  m_ConstraintCount: 1
 --- !u!114 &1701712065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18945,6 +18991,7 @@ MonoBehaviour:
   buyButton: {fileID: 145832326}
   boosterTimer: {fileID: 1166260531}
   boosterDescription: Increasing the depth of immersion
+  descriptionText: {fileID: 316278988}
 --- !u!1001 &1724189649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20037,6 +20084,7 @@ MonoBehaviour:
   buyButton: {fileID: 994550039}
   boosterTimer: {fileID: 1519743163}
   boosterDescription: Allows you not to stop diving when in contact with fish
+  descriptionText: {fileID: 907444334}
 --- !u!1 &1803523801
 GameObject:
   m_ObjectHideFlags: 0
