@@ -49,8 +49,15 @@ public class RewardedAdMenu : MonoBehaviour
 
     public void OpenMenuWithoutTakeButton()
     {
-        OpenMenu();
         getRewardButton.gameObject.SetActive(false);
+        menuImage.transform.DOScale(1, 0.25f).From(0).SetEase(Ease.Linear).OnUpdate(delegate
+        {
+            rewardText.text = $"{Hook.Instance.HookedFishCost}";
+            upgradeRewardText.text = $"{Hook.Instance.HookedFishCost * 2}";
+        }).OnComplete(delegate
+        {
+            closeButton.interactable = true;
+        });
     }
 
     public void CloseMenu()

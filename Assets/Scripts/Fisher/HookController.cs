@@ -155,6 +155,8 @@ public class HookController : MonoBehaviour
     {
         rigidbody.constraints = RigidbodyConstraints2D.None;
         EventManager.OnGameStartedInvoke();
+        hookTransform.rotation = Quaternion.identity;
+        fishingHookTransform.rotation = Quaternion.identity;
         hookTransform.position = startHookPosition;
         hookTransform.DOScale(startHookScale, 0.1f).From(0).SetEase(Ease.Linear).OnComplete(delegate
         {
@@ -286,6 +288,7 @@ public class HookController : MonoBehaviour
     {
         var sum = (Mathf.Abs(hookMaxLength) *
                   PlayerPrefs.GetInt("HookStrengthLevel" + SceneManager.GetActiveScene().name)) * 0.7f;
+        Debug.Log($"Sum = {sum},FishDepth = {_fishDepthValue}");
         if (sum >= _fishDepthValue)
         {
             if (sum != 0)
@@ -293,7 +296,7 @@ public class HookController : MonoBehaviour
                 rewardedAdMenu.OpenMenu();
             }
         }
-        else
+        else if(sum < _fishDepthValue)
         {
             if (sum != 0)
             {

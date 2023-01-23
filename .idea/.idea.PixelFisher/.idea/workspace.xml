@@ -120,8 +120,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedFishCost.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/IncreasedRareFishCount.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BuyableBoosters/SecondChance.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/RewardedAdMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/Hook.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/RewardedAdMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Fisher/HookController.cs" />
       </list>
     </option>
@@ -200,7 +200,8 @@
       <workItem from="1673983727381" duration="33000" />
       <workItem from="1674123548693" duration="7953000" />
       <workItem from="1674136761388" duration="5578000" />
-      <workItem from="1674216455190" duration="610000" />
+      <workItem from="1674216455190" duration="1304000" />
+      <workItem from="1674463482822" duration="993000" />
     </task>
     <servers />
   </component>
