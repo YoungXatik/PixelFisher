@@ -585,8 +585,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DailyMissionCard, Assembly-CSharp
+      - m_Target: {fileID: 7431130727160489287}
+        m_TargetAssemblyTypeName: DailyCollectCurrentFish, Assembly-CSharp
         m_MethodName: TakeReward
         m_Mode: 1
         m_Arguments:
