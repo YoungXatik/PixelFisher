@@ -78,6 +78,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -144,6 +145,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -545,6 +558,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_10": -6005999434090797296
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_16": -139956008225194099
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_2": 4221834754224771372
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_17": 5452149089567353397
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_1": 9144481477414496859
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_15": 2273078774168679884
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_7": -4713481296804963415
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_5": -8146314227867940269
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_3": -4393866961203304556
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_8": -9176136325229446476
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_4": -4518977593799080389
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_12": 6303657841300547086
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_14": 3560605792993102663
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_13": -1955981155650030254
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_9": -4924976566479542138
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_11": 6049212863439221262
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_0": 7165337626067836231
+      "\u041C\u0430\u043A\u0435\u0442 \u0440\u044B\u0431\u0430_6": 2826621028685086714
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
