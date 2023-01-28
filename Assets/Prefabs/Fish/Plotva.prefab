@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2275713232480868244}
   m_RootOrder: 0
@@ -42,6 +43,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -111,6 +113,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8541548134223487641}
   m_Father: {fileID: 0}
@@ -129,12 +132,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <fishType>k__BackingField: {fileID: 11400000, guid: 55eb04436ba7e5840b240f6a653543f1, type: 2}
-  <fishCost>k__BackingField: 10
+  <fishCost>k__BackingField: 30
   minSpeed: 0.5
   maxSpeed: 1.8
   timeToChangeScale: 0.2
   movementType: 1
-  fishQuality: 1
 --- !u!50 &-3845788179515279421
 Rigidbody2D:
   serializedVersion: 4

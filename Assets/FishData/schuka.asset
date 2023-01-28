@@ -17,9 +17,9 @@ MonoBehaviour:
   <fishSprite>k__BackingField: {fileID: 7165337626067836231, guid: 6dff6398d28f1f34680ad4667c558e3d, type: 3}
   <lockedFishSprite>k__BackingField: {fileID: 21300000, guid: 7be7c6b5957e5b346a209fc94b009cf5, type: 3}
   isCollected: 0
-  <FishQuality>k__BackingField: 1
+  <FishQuality>k__BackingField: 0
   <TotallyCatch>k__BackingField: 7
   isAchieved: 0
-  <minSpawnDepth>k__BackingField: -55
-  <maxSpawnDepth>k__BackingField: -75
-  <SpawnDepth>k__BackingField: -57.009117
+  <minSpawnDepth>k__BackingField: -80
+  <maxSpawnDepth>k__BackingField: -95
+  <SpawnDepth>k__BackingField: -92.37875
